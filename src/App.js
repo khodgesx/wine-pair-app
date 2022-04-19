@@ -8,26 +8,27 @@ import Login from './homeContainer/loginComponent/login'
 import Wines from './winesContainer/wines'
 import Pair from './winesContainer/pair';
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
+import UserProfile from './userContainer/userProfile'
 
 const App =()=> {
   const [currentUser, setCurrentUser] = useState({
     displayName:''
   })
+  const [loggedIn, setLoggedIn] = useState(false)
 
   return (
     <Router>
       <div className="App">
         
           
-        <Nav currentUser={currentUser}/>
+        <Nav currentUser={currentUser} loggedIn={loggedIn}/>
           <Routes>
             <Route exact path="/" element={< Home />}/>
             <Route exact path ="/sign-up" element={< SignUp />} />
-            <Route exact path="/login" element={ < Login currentUser={currentUser} />}/>
+            <Route exact path="/login" element={ < Login loggedIn={loggedIn}setLoggedIn={setLoggedIn}currentUser={currentUser} />}/>
+            <Route exact path="/user-profile" element={ < UserProfile currentUser={currentUser} />}/>
             <Route  path="/wines" element={ < Wines />}/>
             <Route path="/pair" element={<Pair/>}/>
-            {/* <Route exact path="/items/:id" element={ <SingleItemRoute items={items} setItems={setItems} />} /> 
-            <Route exact path="/items/update/:id" element = { <EditItemRoute items={items}setItems={setItems}/>}/> */}
             <Route path="*" element={<Navigate to="/" replace/> }/>
           </Routes>
       </div>

@@ -37,6 +37,10 @@ const Login =(props)=>{
                localStorage.setItem('props.currentUser', JSON.stringify(parsedResponse.data))
                console.log(localStorage.getItem('props.currentUser'))
                 setUserLogin(localStorage.getItem('props.currentUser'))
+                let userInfo = JSON.parse(localStorage.getItem('props.currentUser'))
+                let displayName = userInfo.displayName
+                console.log(displayName)
+                props.setLoggedIn(true)
                 navigate('/')
             }else{
                 console.log('no success?', parsedResponse.data)
@@ -52,6 +56,7 @@ const Login =(props)=>{
             username:'',
             password:''
         })
+        props.setLoggedIn(false)
       }
 
       const user = JSON.parse(localStorage.getItem('props.currentUser'))

@@ -1,9 +1,9 @@
 import '../App.css';
 import {Link} from 'react-router-dom'
 
-const Nav=()=> {
-  const user = JSON.parse(localStorage.getItem('currentUser'))
-  if(user !== null){
+const Nav=(props)=> {
+  const user = JSON.parse(localStorage.getItem('props.currentUser'))
+  if(props.loggedIn){
     return (
       <div>
          <nav>
@@ -11,6 +11,7 @@ const Nav=()=> {
              <ul className='nav-links'>
                  <Link to="/login"><li className="links">Logout</li></Link>
                  <Link to="/pair"><li className="links">Pair</li></Link>
+                 <Link to="/user-profile"><li className="links">Profile</li></Link>
              </ul>
           </nav>
     
