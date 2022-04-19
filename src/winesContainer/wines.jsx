@@ -21,12 +21,12 @@ const Wines = (props)=>{
     const user = JSON.parse(localStorage.getItem('props.currentUser'))
 
     return(
-        <div>
+        <div id="wines-component">
              <section id="wines">
-                <h2>pair here</h2>
+                <h2>Find by varietal</h2>
                 <form onSubmit={submitWine}>
                     <label htmlFor="meal">Meal: </label>
-                    <input onChange={inputChange}type="text" name="wine" placeholder="input varietal"></input>
+                    <input onChange={inputChange}type="text" name="wine" placeholder="input varietal" required></input>
                     <button type="submit">get wines</button>
                 </form>
             

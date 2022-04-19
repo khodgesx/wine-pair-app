@@ -43,12 +43,12 @@ const Pair = ()=>{
     }
 
     return(
-        <div>
+        <div id="pair-component">
              <section id="wine-for-meal">
-                <h2>pair here</h2>
+                <h2>find wine for meal:</h2>
                 <form onSubmit={submitMeal}>
                     <label htmlFor="meal">Meal: </label>
-                    <input onChange={inputChange}type="text" name="meal" placeholder="main ingredient or cuisine type"></input>
+                    <input onChange={inputChange}type="text" name="meal" placeholder="main ingredient or cuisine type" required/>
                     <button type="submit">get pair</button>
                 </form>
             
@@ -60,10 +60,10 @@ const Pair = ()=>{
                 <p>{text}</p>
              </section>
              <section id="meal-for-wine">
-                <h2>pair here</h2>
+                <h2>find meal for wine:</h2>
                 <form onSubmit={submitWine}>
                     <label htmlFor="wine">Wine: </label>
-                    <input onChange={inputWineChange}type="text" name="wine" placeholder="wine varietal"></input>
+                    <input onChange={inputWineChange}type="text" name="wine" placeholder="wine varietal" required/>
                     <button type="submit">get pair</button>
                 </form>
             
