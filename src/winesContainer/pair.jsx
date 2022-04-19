@@ -2,6 +2,7 @@ import '../App.css'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {useState} from 'react'
+import Wines from './wines'
 
 const Pair = ()=>{
     const [mealInput, setMealInput] = useState('')
@@ -72,6 +73,9 @@ const Pair = ()=>{
                     )
                 })}
                 <p>{mealText}</p>
+             </section>
+             <section>
+                 <Wines></Wines>
              </section>
 
         </div>
