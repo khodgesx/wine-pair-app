@@ -1,8 +1,9 @@
 import {useState} from 'react'
-import { Navigate, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import '../../App.css'
 
 const Login =(props)=>{
+    let navigate = useNavigate()
     const [userLogin, setUserLogin] = useState({
         username:'',
         password:''
@@ -36,6 +37,7 @@ const Login =(props)=>{
                localStorage.setItem('props.currentUser', JSON.stringify(parsedResponse.data))
                console.log(localStorage.getItem('props.currentUser'))
                 setUserLogin(localStorage.getItem('props.currentUser'))
+                navigate('/')
             }else{
                 console.log('no success?', parsedResponse.data)
             }

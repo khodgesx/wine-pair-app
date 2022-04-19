@@ -1,7 +1,7 @@
 import logo from './logo.svg'
 import './App.css'
 import {useState} from 'react'
-import Nav from './nav'
+import Nav from './navContainer/nav'
 import Home from './homeContainer/home'
 import SignUp from './homeContainer/signUpComponent/signUp'
 import Login from './homeContainer/loginComponent/login'
@@ -19,7 +19,7 @@ const App =()=> {
       <div className="App">
         
           
-        <Nav />
+        <Nav currentUser={currentUser}/>
           <Routes>
             <Route exact path="/" element={< Home />}/>
             <Route exact path ="/sign-up" element={< SignUp />} />
