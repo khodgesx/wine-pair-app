@@ -4,9 +4,7 @@ import {Link} from 'react-router-dom'
 import {useState} from 'react'
 
 const Pair = ()=>{
-    const [mealInput, setMealInput] = useState({
-        meal: ''
-    })
+    const [mealInput, setMealInput] = useState('')
     const [winepairs, setWinePairs] = useState([])
     const [text, setText] = useState('')
 
@@ -21,7 +19,7 @@ const Pair = ()=>{
         data.append('meal', mealInput.meal)
     }
     const inputChange=(e)=>{
-        setMealInput({[e.target.name]:e.target.value})
+        setMealInput([e.target.name]=e.target.value)
     }
 
     return(

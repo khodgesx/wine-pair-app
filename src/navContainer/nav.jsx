@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 const Nav=(props)=> {
   const user = JSON.parse(localStorage.getItem('props.currentUser'))
-  if(props.loggedIn){
+  if(user !== null){
     return (
       <div>
          <nav>
