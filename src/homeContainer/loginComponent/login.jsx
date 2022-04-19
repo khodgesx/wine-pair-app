@@ -57,10 +57,11 @@ const Login =(props)=>{
             password:''
         })
         props.setLoggedIn(false)
+        window.location.reload()
       }
 
       const user = JSON.parse(localStorage.getItem('props.currentUser'))
-      if(user !==null){
+      if(user !== null){
           return(
             <section>
             <button onClick={remove}>Logout</button>
