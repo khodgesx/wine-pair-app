@@ -11,7 +11,7 @@ const Pair = ()=>{
     const getWinePair = async()=>{
         const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/pairing?food=${mealInput}&number=2&apiKey=cb507c45184a417d93e6e96bb372f637`)
         const parsedResponse = await apiResponse.json()
-        // console.log(parsedResponse.pairedWines)
+        console.log(parsedResponse.pairedWines)
         setWinePairs(parsedResponse.pairedWines)
         setText(parsedResponse.pairingText)
 
@@ -32,8 +32,9 @@ const Pair = ()=>{
             <form onSubmit={submitMeal}>
                 <label htmlFor="meal">Meal: </label>
                 <input onChange={inputChange}type="text" name="meal" placeholder="main ingredient or cuisine type"></input>
+                <button type="submit">get pair</button>
             </form>
-            <button onSubmit={getWinePair}>get pair</button>
+           
             { winepairs.map ((wine)=>{
                 return(
                     <h2>{wine}</h2>
