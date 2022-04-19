@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import '../App.css'
 
-const Wines = ()=>{
+const Wines = (props)=>{
     const [wineInput, setWineInput] = useState('')
     const [wines, setWines] = useState([])
 
@@ -18,6 +18,7 @@ const Wines = ()=>{
         e.preventDefault()
         getWines()
     }
+    const user = JSON.parse(localStorage.getItem('props.currentUser'))
 
     return(
         <div>
@@ -34,6 +35,7 @@ const Wines = ()=>{
                         <div>
                             <h2>{wine.title}</h2>
                             <p>{wine.description}</p>
+                            { user === null ? <p>login to save!</p> : <button>Save</button>  }
                         </div>
                     )
                 })}

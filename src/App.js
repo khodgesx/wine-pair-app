@@ -27,7 +27,7 @@ const App =()=> {
             <Route exact path ="/sign-up" element={< SignUp />} />
             <Route exact path="/login" element={ < Login loggedIn={loggedIn}setLoggedIn={setLoggedIn}currentUser={currentUser} />}/>
             <Route exact path="/user-profile" element={ < UserProfile currentUser={currentUser} />}/>
-            <Route  path="/wines" element={ < Wines />}/>
+            <Route  path="/wines" element={ < Wines currentUser={currentUser}/>}/>
             <Route path="/pair" element={<Pair/>}/>
             <Route path="*" element={<Navigate to="/" replace/> }/>
           </Routes>
