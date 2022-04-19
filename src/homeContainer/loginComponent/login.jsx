@@ -35,7 +35,7 @@ const Login =(props)=>{
             if(parsedResponse.success){
                localStorage.setItem('props.currentUser', JSON.stringify(parsedResponse.data))
                console.log(localStorage.getItem('props.currentUser'))
-            //    window.location.reload()
+                setUserLogin(localStorage.getItem('props.currentUser'))
             }else{
                 console.log('no success?', parsedResponse.data)
             }
@@ -46,35 +46,45 @@ const Login =(props)=>{
     const remove = ()=>{
         localStorage.removeItem('props.currentUser')
         console.log('logged out:', localStorage.getItem('props.currentUser'))
-        // window.location.reload()
+        setUserLogin({
+            username:'',
+            password:''
+        })
       }
 
-    return(
-        <div id="login-form">
-            <section className="form-container">
-                <form onSubmit={submitLogin} className="login-form-container">
-                    
-                    <div id="form-row-container">
-                        <label htmlFor="username">Username:</label>
-                        <input onChange={inputChange} type="text" name="username" value={userLogin.username}required/>
-                    </div>
-
-                    <div id="form-row-container">
-                        <label htmlFor="password">Password:</label>
-                        <input onChange={inputChange} type="password" name="password" value={userLogin.password}required/>
-                    </div>
-                    <div id="form-row-container">
-                        <input id="login-button" type="submit" value="Login"/>
-                    </div>
-                </form>
-            </section>
-            
+      const user = JSON.parse(localStorage.getItem('props.currentUser'))
+      if(user !==null){
+          return(
             <section>
-                <button onClick={remove}>Logout</button>
-            </section>
-            
-        </div>
-    )
-}
+            <button onClick={remove}>Logout</button>
+        </section>
+          )
+      }else{
+        return(
+            <div id="login-form">
+                <section className="form-container">
+                    <form onSubmit={submitLogin} className="login-form-container">
+                        
+                        <div id="form-row-container">
+                            <label htmlFor="username">Username:</label>
+                            <input onChange={inputChange} type="text" name="username" value={userLogin.username}required/>
+                        </div>
+    
+                        <div id="form-row-container">
+                            <label htmlFor="password">Password:</label>
+                            <input onChange={inputChange} type="password" name="password" value={userLogin.password}required/>
+                        </div>
+                        <div id="form-row-container">
+                            <input id="login-button" type="submit" value="Login"/>
+                        </div>
+                    </form>
+                </section>
+    
+                
+            </div>
+        )
+    }
+      }
+    
 
 export default Login
