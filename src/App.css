@@ -7,6 +7,10 @@ nav{
   align-items: center;
   min-height: 15vh;
   background: #e19184;
+  /* position: fixed;
+  top:0;
+  left:0;
+  right:0; */
 }
 
 #logo{

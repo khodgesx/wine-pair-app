@@ -10,6 +10,7 @@ import Pair from './winesContainer/pair';
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
 import UserProfile from './userContainer/userProfile'
 import SavedWines from './winesContainer/savedWinesContainer/savedWines'
+import SavedByType from './winesContainer/savedWinesContainer/savedByTypeContainer/savedByType'
 
 const App =()=> {
   const [currentUser, setCurrentUser] = useState({
@@ -31,6 +32,7 @@ const App =()=> {
             <Route path="/wines" element={ < Wines currentUser={currentUser}/>}/>
             <Route path="/pair" element={<Pair/>}/>
             <Route path="/saved-wines" element={<SavedWines currentUser={currentUser}/>}/>
+            <Route path="/saved-wines/type" element={<SavedByType currentUser={currentUser}/>}/>
             <Route path="*" element={<Navigate to="/" replace/> }/>
           </Routes>
       </div>

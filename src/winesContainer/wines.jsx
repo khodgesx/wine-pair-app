@@ -153,10 +153,11 @@ const Wines = (props)=>{
                                 </form>
                                 
                                 </section> }
+                                <button><a href="#wines-component">Back to Top</a></button>
                         </div>
                     )
                 })}
-                <button><a href="#wines-component">Back to Top</a></button>
+                
              </section>
         </div>
     )

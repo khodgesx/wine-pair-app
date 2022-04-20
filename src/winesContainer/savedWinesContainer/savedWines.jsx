@@ -1,9 +1,11 @@
 import {useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const SavedWines = (props)=>{
     let navigate = useNavigate()
     const [wines, setWines] = useState([])
+    const [searchInput, setSearchInput] = useState('')
+    const [results, setResults] = useState([])
 
     const getWines = async ()=>{
         try{
@@ -38,8 +40,51 @@ const SavedWines = (props)=>{
             console.log(err)
         }
     }
+
+    // const searchSaved = (e)=>{
+        const searchSaved = (searchValue)=>{
+        // setSearchInput(e.target.value)
+        // console.log(searchInput)
+        setSearchInput(searchValue)
+        console.log(searchValue)
+        if(searchInput !== ''){
+            const filtered = wines.filter((wine)=>{
+                return Object.values(wine).join('').toLowerCase().includes(searchInput.toLowerCase())
+            })
+            setResults(filtered)
+        }else{
+            setResults(wines)
+        }
+        
+    }
+    // const getResults=()=>{
+    //     console.log(searchInput)
+    //     const array = wines.filter((wine)=>{
+    //         console.log(wine.varietal)
+    //         return wine.varietal == searchInput
+           
+    //     })
+    //     setResults(array)
+    //     console.log(results)
+    // } 
+
     return(
         <div>
+         
+            <input icon='search' placeholder='search' value={searchInput}
+            onChange={(e)=>searchSaved(e.target.value)} />         
+            
+            <div>
+                <ul>
+                    {results.map((wine)=>{
+                        return(
+                            <li key={wine._id}>{wine.name}</li>
+                        )
+                        
+                    })}
+                </ul>
+            </div>
+            <Link to={'/saved-wines/type'}>See your saved wines by type</Link>
             <h2>saved wines:</h2>
             { wines.map((wine)=>{
                 return(
