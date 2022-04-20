@@ -43,11 +43,10 @@ const Wines = (props)=>{
 
   
     //create:
-    const saveWine = async (wineName) =>{
+    const saveWine = async (wineName, wineImage) =>{
         try {
-            // if(newWine.img){
             // const data = new FormData()
-            // data.append('file', newWine.img)
+            // data.append('file', wineImage)
             // data.append('upload_preset', 'wines')
             
             // const imageUpload = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
@@ -57,6 +56,7 @@ const Wines = (props)=>{
     
             // const parsedImg = await imageUpload.json()
             // newWine.img = await parsedImg.url
+            // console.log(newWine.img)
     
             // }else{
             //     newWine.img = 'https://i.imgur.com/IsRaUa5.png'
@@ -67,7 +67,8 @@ const Wines = (props)=>{
                 method: "POST",
                 body: JSON.stringify({
                     name: wineName,
-                    varietal: wineInput
+                    varietal: wineInput,
+                    img: wineImage
                 }),
                 headers: {
                     "Content-Type": "application/json"
@@ -102,7 +103,8 @@ const Wines = (props)=>{
         //function for submit onSubmit
         const submitSave = async(e)=>{
             e.preventDefault()
-            saveWine(e.target[0].value) 
+            // console.log(e)
+            saveWine(e.target[0].value, e.target[1].value) 
         }
 
     return(
@@ -138,11 +140,11 @@ const Wines = (props)=>{
                                     <input onChange ={inputSave}type="text" name="varietal" value={wineInput}></input>
                                 </div> */}
                                 
-                                {/* <div id="form-row">
-                                    <label htmlFor="name">Photo:</label>
-                                    <input onChange ={inputSave} type="text" name="img" accept="image/png, image/jpeg" value={wine.imageUrl}placeholder='upload image'></input>
+                                <div id="form-row">
+    
+                                    <input hidden type="text" name="img"  defaultValue={wine.imageUrl}></input>
                 
-                                </div>   */}
+                                </div>  
                                 {/* <div id="form-row"> 
                                     <label htmlFor="name">Notes:</label>
                                     <input onChange ={inputSave} type="text" name="notes"value=''></input>
