@@ -1,7 +1,7 @@
 import '../App.css'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
-import {useState} from 'react'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import Wines from './wines'
 
 const Pair = ()=>{
@@ -16,9 +16,14 @@ const Pair = ()=>{
     const getWinePair = async()=>{
         const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/pairing?food=${mealInput}&number=2&apiKey=cb507c45184a417d93e6e96bb372f637`)
         const parsedResponse = await apiResponse.json()
-        console.log(parsedResponse.pairedWines)
-        setWinePairs(parsedResponse.pairedWines)
-        setText(parsedResponse.pairingText)
+        if(parsedResponse.pairingText === ''){
+            window.location.reload()
+            alert("oops no matches. Try again!")
+        }else{
+            console.log(parsedResponse)
+            setWinePairs(parsedResponse.pairedWines)
+            setText(parsedResponse.pairingText)
+        }
     }
     const inputChange=(e)=>{
         setMealInput([e.target.name]=e.target.value)
@@ -31,8 +36,14 @@ const Pair = ()=>{
     const getMealPair = async()=>{
         const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/dishes?wine=${wineInput}&apiKey=cb507c45184a417d93e6e96bb372f637`)
         const parsedResponse = await apiResponse.json()
-        setMealPairs(parsedResponse.pairings)
-        setMealText(parsedResponse.text)
+        if(parsedResponse.code === 400){
+            window.location.reload()
+            alert("oops, not a valid wine type!")
+        }else{
+            setMealPairs(parsedResponse.pairings)
+            setMealText(parsedResponse.text)
+        }
+        
     }
     const inputWineChange=(e)=>{
         setWineInput([e.target.name]=e.target.value)
@@ -48,13 +59,13 @@ const Pair = ()=>{
                 <h2>find wine for meal:</h2>
                 <form onSubmit={submitMeal}>
                     <label htmlFor="meal">Meal: </label>
-                    <input onChange={inputChange}type="text" name="meal" placeholder="main ingredient or cuisine type" required/>
+                    <input onChange={inputChange}type="text" name="meal" placeholder="main or cuisine type" required/>
                     <button type="submit">get pair</button>
                 </form>
             
                 { winepairs.map ((wine)=>{
                     return(
-                        <h2>{wine}</h2>
+                        <h2 key={wine.id}>{wine}</h2>
                     )
                 })}
                 <p>{text}</p>
@@ -69,12 +80,15 @@ const Pair = ()=>{
             
                 { mealpairs.map ((meal)=>{
                     return(
-                        <h2>{meal}</h2>
+                        <div key={meal.id}>
+                            <h2>{meal}</h2>
+                        </div>
+                        
                     )
                 })}
                 <p>{mealText}</p>
              </section>
-             <section>
+             <section id="wine-results">
                  <Wines></Wines>
              </section>
 

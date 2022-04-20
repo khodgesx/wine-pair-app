@@ -1,6 +1,6 @@
-/* body{
+body{
   width: 100%;
-} */
+}
 nav{
   display: flex;
   justify-content: space-between;
@@ -34,13 +34,83 @@ nav a{
   padding: 10px;
   margin: 10px 19px;  
 }
-#home{
+#home, #cellar-title{
   text-align: center;
+}
+#user-profile{
+  display:grid;
+  grid-template-rows: auto;
+  width: 100%;
+}
+#user-info{
+  text-align: center;
+}
+#user-profile img{
+  display: block;
+  margin: 0 auto;
+  width: 65vw;
 }
 #wine-component, #pair-component{
   padding:5px;
   margin: 5px;
 }
+#wine-for-meal, #meal-for-wine, #wine-results{
+  text-align: center;
+  border: solid 1px black;
+  margin: 5px;
+}
+#cellar-page{
+  display: block;
+  margin: 0 auto;
+}
+#cellar-page h2{
+  font-size: 2.5vh;
+}
+#search-cellar, #search-cellar-results{
+  display:block;
+  margin: 0 auto;
+  text-align: center;
+}
+#each-search{
+  display: block;
+  border: solid 2px rgb(136, 19, 19);
+  margin: 5px auto;
+  width: 80vw;
+  text-align: center;
+  font-size: 2vh;
+}
+#each-search img{
+  width: 35vw;
+}
+#cellar-list{
+  display: grid;
+  justify-content: center;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 45vw);
+}
+#each-wine{
+  border: solid 1px black;
+  padding: 5px;
+  text-align: center;
+  width:95%;
+}
+#each-wine h3{
+  font-size: 2vh;
+}
+#each-wine img{
+  width: 15vw;
+  border: solid 1px rgb(136, 19, 19);
+  padding: 5px;
+}
+#to-top{
+  text-align: center;
+  padding: 15px;
+}
+#to-top a{
+  color: rgb(136, 19, 19);
+  text-decoration: none;
+}
+
 
 @media only screen and (min-width: 768px) {  
 #logo{
@@ -49,4 +119,29 @@ nav a{
 nav a{
   font-size: 3vh;
 }
+#wine-for-meal, #meal-for-wine, #wine-results{
+  width: 65vw;
+  display: block;
+  margin: 5px auto;
+}
+
+#user-profile img{
+  width: 35vw;
+}
+#cellar-page h2{
+  font-size: 4vh;
+}
+#cellar-list{
+  grid-template-columns: repeat(auto-fill, 30vw);
+}
+#each-wine h3{
+  font-size: 3vh;
+}
+#each-search{
+  width: 30vw;
+}
+#each-search img{
+  width: 15vw;
+}
+
 }

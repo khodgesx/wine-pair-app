@@ -1,27 +1,28 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import '../../App.css'
 
 const SavedWines = (props)=>{
+    useEffect(() =>{
+        getWines();
+    }, [])
     let navigate = useNavigate()
     const [wines, setWines] = useState([])
     const [searchInput, setSearchInput] = useState('')
     const [results, setResults] = useState([])
 
+    const user = JSON.parse(localStorage.getItem('props.currentUser'))
+    const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)
+
     const getWines = async ()=>{
         try{
-            const userId = JSON.parse(localStorage.getItem('props.currentUser'))._id
-            const wines = await fetch (`http://localhost:3001/wines/${userId}`)
+            const wines = await fetch (`http://localhost:3001/wines/${user._id}`)
             const parsedWines = await wines.json()
-            // console.log(parsedWines.data)
             setWines(parsedWines.data)
         }catch(err){
             console.log(err)
         }
-        
     }
-    useEffect(() =>{
-        getWines();
-    }, [])
 
     const deleteWine = async(wine)=>{
        
@@ -29,74 +30,74 @@ const SavedWines = (props)=>{
             const deleteResponse = await fetch(`http://localhost:3001/wines/${(wine)}`,{
                 method:"DELETE"
             })
-                const newList = wines.filter((wine)=>wine._id !==(wine))
+            const newList = wines.filter((wine)=>wine._id !==(wine))
                 setWines(newList)
                 getWines()
-                if(deleteResponse.status === 204){
-                    navigate ("/saved-wines")
-                } 
+            if(deleteResponse.status === 204){
+                navigate ("/saved-wines")
+            } 
                 
         }catch(err){
             console.log(err)
         }
     }
 
-    // const searchSaved = (e)=>{
-        const searchSaved = (searchValue)=>{
-        // setSearchInput(e.target.value)
-        // console.log(searchInput)
+    const searchSaved = (searchValue)=>{
         setSearchInput(searchValue)
         console.log(searchValue)
         if(searchInput !== ''){
             const filtered = wines.filter((wine)=>{
                 return Object.values(wine).join('').toLowerCase().includes(searchInput.toLowerCase())
-            })
+        })
             setResults(filtered)
         }else{
             setResults(wines)
         }
         
     }
-    // const getResults=()=>{
-    //     console.log(searchInput)
-    //     const array = wines.filter((wine)=>{
-    //         console.log(wine.varietal)
-    //         return wine.varietal == searchInput
-           
-    //     })
-    //     setResults(array)
-    //     console.log(results)
-    // } 
 
     return(
-        <div>
-         
-            <input icon='search' placeholder='search' value={searchInput}
-            onChange={(e)=>searchSaved(e.target.value)} />         
-            
-            <div>
-                <ul>
+        <div id="cellar-page">
+            <Link to={'/saved-wines/type'}>See Cellar by Wine Type</Link>
+            <div id="search-cellar">
+                <h2>Search Cellar:</h2>
+                <input icon='search' placeholder='search' value={searchInput}
+                onChange={(e)=>searchSaved(e.target.value)} />     
+            </div>
+        
+            <div id="search-cellar-results">
                     {results.map((wine)=>{
                         return(
-                            <li key={wine._id}>{wine.name}</li>
+                            <div id="each-search"key={wine._id}>
+                                <h3>{wine.name}</h3>
+                                <img src={wine.img}/>
+                            </div>
                         )
                         
                     })}
-                </ul>
             </div>
-            <Link to={'/saved-wines/type'}>See your saved wines by type</Link>
-            <h2>saved wines:</h2>
+
+            <h2 id="cellar-title">{displayName}'s Wine Cellar: </h2>
+            <div id="cellar-list">   
+            
             { wines.map((wine)=>{
                 return(
-                    <div key={wine._id}>
-                    <h3>{wine.name}</h3>
-                    <h4>{wine.varietal}</h4>
-                    <img src={wine.img}></img>
-                    <button onClick={()=>{deleteWine(wine._id)}}>Delete</button>
+                    <div id="each-wine"key={wine._id}>
+                        <h3>{wine.name}</h3>
+                        <img src={wine.img}></img>
+                        <h4>{wine.varietal}</h4>
+                    {/* <button onClick={()=>{deleteWine(wine._id)}}>Delete</button> */}
                     </div>
                 )
                 
             })}
+
+            </div>
+            <div id="to-top">
+               <a href="#cellar-page">back to top</a>
+            </div>
+            
+         
         </div>
     )
 }
