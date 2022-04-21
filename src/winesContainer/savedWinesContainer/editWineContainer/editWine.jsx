@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
-import { Modal } from 'react-bootstrap'
+import { useState } from 'react'
+import '../../../App.css' 
+
 
 const EditWine =(props)=>{
   const [editWine, setEditWine] = useState({

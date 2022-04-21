@@ -111,8 +111,27 @@ nav a{
   color: rgb(136, 19, 19);
   text-decoration: none;
 }
-
-
+#one-wine-show{
+  padding: 5px;
+  text-align: center;
+  width:95%;
+}
+#one-wine-show h2{
+  margin-top:15px;
+  font-size: 3vh;
+}
+#one-wine-show h3{
+  font-size: 2.5vh;
+}
+#one-wine-show img{
+  width: 20vw;
+  margin-bottom: 15px;
+}
+#one-wine-show button{
+  border: none;
+  background-color: rgb(134, 19, 19);
+  color:white;
+}
 @media only screen and (min-width: 768px) {  
 #logo{
   font-size: 4vh;
@@ -143,6 +162,17 @@ nav a{
 }
 #each-search img{
   width: 15vw;
+}
+#one-wine-show h2{
+  margin-top:15px;
+  font-size: 3.5vh;
+}
+#one-wine-show h3{
+  font-size: 2.5vh;
+}
+#one-wine-show img{
+  width: 30vw;
+  margin-bottom: 15px;
 }
 
 }
