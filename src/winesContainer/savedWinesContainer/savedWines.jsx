@@ -7,18 +7,20 @@ const SavedWines = (props)=>{
         getWines();
     }, [])
     let navigate = useNavigate()
-    const [wines, setWines] = useState([])
+    // const [wineCellar, setWineCellar] = useState([])
     const [searchInput, setSearchInput] = useState('')
     const [results, setResults] = useState([])
 
     const user = JSON.parse(localStorage.getItem('props.currentUser'))
     const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)
 
+    //wine cellar index:
     const getWines = async ()=>{
         try{
-            const wines = await fetch (`http://localhost:3001/wines/${user._id}`)
+            //get wines by user id = all saved wines for that user in mongodb
+            const wines = await fetch (`http://localhost:3001/wines/user/${user._id}`)
             const parsedWines = await wines.json()
-            setWines(parsedWines.data)
+            props.setWineCellar(parsedWines.data)
         }catch(err){
             console.log(err)
         }
@@ -30,8 +32,8 @@ const SavedWines = (props)=>{
             const deleteResponse = await fetch(`http://localhost:3001/wines/${(wine)}`,{
                 method:"DELETE"
             })
-            const newList = wines.filter((wine)=>wine._id !==(wine))
-                setWines(newList)
+            const newList = props.wineCellar.filter((wine)=>wine._id !==(wine))
+                props.setWineCellar(newList)
                 getWines()
             if(deleteResponse.status === 204){
                 navigate ("/saved-wines")
@@ -46,12 +48,12 @@ const SavedWines = (props)=>{
         setSearchInput(searchValue)
         console.log(searchValue)
         if(searchInput !== ''){
-            const filtered = wines.filter((wine)=>{
+            const filtered = props.wineCellar.filter((wine)=>{
                 return Object.values(wine).join('').toLowerCase().includes(searchInput.toLowerCase())
         })
             setResults(filtered)
         }else{
-            setResults(wines)
+            setResults(props.wineCellar)
         }
         
     }
@@ -80,11 +82,11 @@ const SavedWines = (props)=>{
             <h2 id="cellar-title">{displayName}'s Wine Cellar: </h2>
             <div id="cellar-list">   
             
-            { wines.map((wine)=>{
+            { props.wineCellar.map((wine)=>{
                 return(
                     <div id="each-wine"key={wine._id}>
                         <h3>{wine.name}</h3>
-                        <img src={wine.img}></img>
+                        <img onClick={()=>navigate(`/saved-wines/${wine._id}`)}src={wine.img}></img>
                         <h4>{wine.varietal}</h4>
                     {/* <button onClick={()=>{deleteWine(wine._id)}}>Delete</button> */}
                     </div>

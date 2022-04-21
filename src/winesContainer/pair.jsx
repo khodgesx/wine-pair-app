@@ -8,6 +8,8 @@ const Pair = ()=>{
     const [mealInput, setMealInput] = useState('')
     const [winepairs, setWinePairs] = useState([])
     const [text, setText] = useState('')
+    const [product, setProduct] = useState({})
+    const [mealTest, setMealTest] = useState({})
 
     const [wineInput, setWineInput] = useState('')
     const [mealpairs, setMealPairs] = useState([])
@@ -23,6 +25,12 @@ const Pair = ()=>{
             console.log(parsedResponse)
             setWinePairs(parsedResponse.pairedWines)
             setText(parsedResponse.pairingText)
+
+    
+            setMealTest(JSON.stringify(parsedResponse))
+            console.log(JSON.stringify(mealTest.pairedWines))
+            console.log(JSON.stringify(mealTest.pairingText))
+            console.log(JSON.stringify(mealTest.productMatches))
         }
     }
     const inputChange=(e)=>{
@@ -70,6 +78,22 @@ const Pair = ()=>{
                 })}
                 <p>{text}</p>
              </section>
+
+             {/* <section>
+                 <div>
+                 { mealTest.pairedWines.map((wine)=>{
+                     <h2>{wine}</h2>
+                 })}
+                 </div>
+                 <div>
+                 {mealTest.productMatches.map((product)=>{
+                     <h3>{product}</h3>
+                 })}
+                 </div>
+                 
+                 <p>{mealTest.pairingText}</p>
+                
+             </section> */}
              <section id="meal-for-wine">
                 <h2>find meal for wine:</h2>
                 <form onSubmit={submitWine}>

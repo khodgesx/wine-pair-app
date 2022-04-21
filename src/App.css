@@ -99,6 +99,7 @@ nav a{
 }
 #each-wine img{
   width: 15vw;
+  height:auto;
   border: solid 1px rgb(136, 19, 19);
   padding: 5px;
 }

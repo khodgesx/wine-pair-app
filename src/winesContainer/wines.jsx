@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../App.css'
 
 const Wines = (props)=>{
@@ -62,13 +62,14 @@ const Wines = (props)=>{
             //     newWine.img = 'https://i.imgur.com/IsRaUa5.png'
             // }
             const user = JSON.parse(localStorage.getItem('props.currentUser'))
-            console.log(wineName, wineInput)
+            // console.log(wineName, wineInput)
             const createResponse = await fetch(`http://localhost:3001/wines/${user._id}`,{
                 method: "POST",
                 body: JSON.stringify({
                     name: wineName,
                     varietal: wineInput,
-                    img: wineImage
+                    img: wineImage,
+                    notes: ''
                 }),
                 headers: {
                     "Content-Type": "application/json"
@@ -76,8 +77,7 @@ const Wines = (props)=>{
             })
             
             const parsedResponse = await createResponse.json()
-            console.log(parsedResponse)
-         
+                console.log(savedWines)
             if(parsedResponse.success){
                 setSavedWines([parsedResponse.data, ...savedWines])
             }else{
