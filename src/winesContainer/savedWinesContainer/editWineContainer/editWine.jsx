@@ -12,15 +12,49 @@ const EditWine =(props)=>{
     const close=()=>{
         props.toggleShow()
     }
+      //edit:
+      const editOneWine = async (idToEdit, wineToEdit)=>{
+        try{
+
+            const editResponse = await fetch(`http://localhost:3001/wines/${idToEdit}`, {
+                method:"PUT",
+                body:JSON.stringify(wineToEdit),
+                headers:{
+                    "Content-Type": "application/json"
+                }
+            })
+            const parsedEdit = await editResponse.json()
+            if(parsedEdit.success){
+                const newArray = props.wineCellar.map(wine => wine._id === idToEdit ? {wineToEdit} : wine)
+                props.setWineCellar(newArray)
+                window.location.reload()
+            }
+
+        }catch(err){
+            console.log(err)
+        }
+    }
+    const inputChange=(e)=>{
+        setEditWine({
+            ...editWine,
+            [e.target.name]: e.target.value
+        })
+    }
+    const submitEdit =(e)=>{
+        e.preventDefault();
+        editOneWine(props.id, editWine)
+        props.toggleShow()
+        
+    }
 return(
     <>
     { editWine ?
         <div>
         
         <h3>edit</h3>
-        <form onSubmit={props.onSubmit}>
-                    <input onChange={props.inputChange}type="text" name="notes" defaultValue={editWine.notes}/>
-                    <button type="submit" value="submit">Submit</button>
+        <form onSubmit={submitEdit}>
+                    <input onChange={inputChange}type="text" name="notes" />
+                    <button type="submit">Submit</button>
                 </form>
         <button onClick={close}>Close</button>
        

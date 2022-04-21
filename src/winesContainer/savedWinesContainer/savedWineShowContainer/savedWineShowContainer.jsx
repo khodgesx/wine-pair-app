@@ -7,7 +7,7 @@ import { Modal } from 'react-bootstrap'
 
 const SavedWineShow = (props)=>{
     let params = useParams()
-    let id = params.id
+    const id = params.id
     useEffect(() =>{
         getWine();
     }, [])
@@ -22,6 +22,8 @@ const SavedWineShow = (props)=>{
             const wine = await fetch (`http://localhost:3001/wines/${id}`)
             const parsedWine = await wine.json()
             setCurrentWine(parsedWine.data)
+            // console.log(currentWine)
+            // console.log(currentWine._id)
             setEditWine(parsedWine.data)
         }catch(err){
             console.log(err)
@@ -42,6 +44,7 @@ const SavedWineShow = (props)=>{
             if(parsedEdit.success){
                 const newArray = props.wineCellar.map(wine => wine._id === idToEdit ? wineToEdit : wine)
                 props.setWineCellar(newArray)
+                console.log(props.wineCellar)
             }
 
         }catch(err){
@@ -67,18 +70,21 @@ const SavedWineShow = (props)=>{
             <h2>{currentWine.name}</h2>
             <img src={currentWine.img}/>
             <h3>notes: {currentWine.notes}</h3>
-            <Link to={`/saved-wines/${currentWine._id}/edit`}>
-                {/* <button onClick={setShowModal}>click to add notes </button> */}
-                </Link>
+            {/* <Link to={`/saved-wines/${currentWine._id}/edit`}>
+                </Link> */}
+                
                 <button onClick={setShowModal}>click to add notes </button>
          
                 <Modal show={showModal} onHide={toggleShow}>
                     {/* <Modal.Header closeButton>X</Modal.Header> */}
                     <Modal.Body>
                         <div>
-                            <EditWine editWine={editWine}currentWine={currentWine} 
-                            submitEdit={submitEdit}
-                            inpuptChange={inputChange}toggleShow={toggleShow}></EditWine>
+                            <EditWine 
+                            id={id}
+                            editWine={editWine}
+                            wineCellar={props.wineCellar}
+                            setWineCellar={props.setWineCellar}
+                            toggleShow={toggleShow}></EditWine>
                         </div>
                         
                     </Modal.Body>
