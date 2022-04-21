@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
+import EditOneWine from '../editOneWineContainer/editOneWine'
+import EditWine from '../editWineContainer/editWine'
+import { Modal } from 'react-bootstrap'
 
 
 const SavedWineShow = (props)=>{
@@ -9,70 +12,90 @@ const SavedWineShow = (props)=>{
         getWine();
     }, [])
     const [currentWine, setCurrentWine] = useState()
-    // const [editWine, setEditWine] = useState({
-    //     name: currentWine.name,
-    //     varietal: currentWine.varietal,
-    //     img: currentWine.img,
-    //     notes: currentWine.notes
-    // })
+
+    const [showModal, setShowModal] = useState(false)
+    const toggleShow=()=>setShowModal(!showModal)
+    const [editWine, setEditWine] = useState({})
     //wine cellar show one:
     const getWine = async ()=>{
         try{
             const wine = await fetch (`http://localhost:3001/wines/${id}`)
             const parsedWine = await wine.json()
-            console.log(parsedWine.data.name)
             setCurrentWine(parsedWine.data)
+            setEditWine(parsedWine.data)
         }catch(err){
             console.log(err)
         }
     }
      //edit:
-    //  const editOneWine = async (idToEdit, wineToEdit)=>{
-    //     try{
+     const editOneWine = async (idToEdit, wineToEdit)=>{
+        try{
 
-    //         const editResponse = await fetch(`http://localhost:3001/${idToEdit}`, {
-    //             method:"PUT",
-    //             body:JSON.stringify(wineToEdit),
-    //             headers:{
-    //                 "Content-Type": "application/json"
-    //             }
-    //         })
-    //         const parsedEdit = await editResponse.json()
-    //         if(parsedEdit.success){
-    //             const newArray = props.wineCellar.map(wine => wine._id === idToEdit ? wineToEdit : wine)
-    //             props.setWineCellar(newArray)
-    //         }
+            const editResponse = await fetch(`http://localhost:3001/${idToEdit}`, {
+                method:"PUT",
+                body:JSON.stringify(wineToEdit),
+                headers:{
+                    "Content-Type": "application/json"
+                }
+            })
+            const parsedEdit = await editResponse.json()
+            if(parsedEdit.success){
+                const newArray = props.wineCellar.map(wine => wine._id === idToEdit ? wineToEdit : wine)
+                props.setWineCellar(newArray)
+            }
 
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // }
-    // const inputChange=(e)=>{
-    //     setEditWine({
-    //         ...editWine,
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
-    // const submitEdit =(e)=>{
-    //     e.preventDefault();
-    //     editOneWine(currentWine._id, editWine)
+        }catch(err){
+            console.log(err)
+        }
+    }
+    const inputChange=(e)=>{
+        setEditWine({
+            ...editWine,
+            [e.target.name]: e.target.value
+        })
+    }
+    const submitEdit =(e)=>{
+        e.preventDefault();
+        editOneWine(currentWine._id, editWine)
         
-    // }
+    }
  
     return(
-        <div id="one-wine-show">
+        <>
+        { currentWine ? 
+            <div id="one-wine-show">
             <h2>{currentWine.name}</h2>
             <img src={currentWine.img}/>
             <h3>notes: {currentWine.notes}</h3>
-            <button>click to add notes</button>
-            <div>
-                <form >
-                    {/* <input onChange={inputChange}type="text" name="notes" value={editWine.notes}/>
-                    <button type="submit" value="submit"/> */}
-                </form>
-            </div>
-           
+            <Link to={`/saved-wines/${currentWine._id}/edit`}>
+                {/* <button onClick={setShowModal}>click to add notes </button> */}
+                </Link>
+                <button onClick={setShowModal}>click to add notes </button>
+         
+                <Modal show={showModal} onHide={toggleShow}>
+                    {/* <Modal.Header closeButton>X</Modal.Header> */}
+                    <Modal.Body>
+                        <div>
+                            <EditWine editWine={editWine}currentWine={currentWine} 
+                            submitEdit={submitEdit}
+                            inpuptChange={inputChange}toggleShow={toggleShow}></EditWine>
+                        </div>
+                        
+                    </Modal.Body>
+                    
+                </Modal>
+
+            
+                {/* <form >
+                    <input onChange={inputChange}type="text" name="notes" value={editWine.notes}/>
+                    <button type="submit" value="submit"/>
+                </form> */}
+          
         </div>
+        :
+        null}
+         </>
+       
     )
 }
 export default SavedWineShow

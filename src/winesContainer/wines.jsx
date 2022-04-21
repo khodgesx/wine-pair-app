@@ -2,9 +2,13 @@ import { useState, useEffect } from 'react'
 import '../App.css'
 
 const Wines = (props)=>{
+    //input of wine varietal
     const [wineInput, setWineInput] = useState('')
+    //wines response from api based on input
     const [wines, setWines] = useState([])
+    //saved wines array
     const [savedWines, setSavedWines] = useState([])
+    //state of new wine before inputs 
     const [newWine, setNewWine] = useState({
         name: '',
         // type: '',
@@ -45,22 +49,6 @@ const Wines = (props)=>{
     //create:
     const saveWine = async (wineName, wineImage) =>{
         try {
-            // const data = new FormData()
-            // data.append('file', wineImage)
-            // data.append('upload_preset', 'wines')
-            
-            // const imageUpload = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
-            //     method: "POST",
-            //     body: data
-            // })
-    
-            // const parsedImg = await imageUpload.json()
-            // newWine.img = await parsedImg.url
-            // console.log(newWine.img)
-    
-            // }else{
-            //     newWine.img = 'https://i.imgur.com/IsRaUa5.png'
-            // }
             const user = JSON.parse(localStorage.getItem('props.currentUser'))
             // console.log(wineName, wineInput)
             const createResponse = await fetch(`http://localhost:3001/wines/${user._id}`,{
@@ -75,17 +63,22 @@ const Wines = (props)=>{
                     "Content-Type": "application/json"
                 }
             })
-            
             const parsedResponse = await createResponse.json()
-                console.log(savedWines)
             if(parsedResponse.success){
                 setSavedWines([parsedResponse.data, ...savedWines])
+                console.log(parsedResponse.data.name)
+                testSet()
+                
             }else{
                 console.log(parsedResponse.data)
             }
+            // props.setWineCellar([savedWines])
         } catch (err) {
             console.log(err)
         }
+    }
+    const testSet=()=>{
+        props.setWineCellar(savedWines)
     }
         //funciton for onChange
         const inputSave =(e)=>{
@@ -116,6 +109,8 @@ const Wines = (props)=>{
                     <input onChange={inputChange}type="text" name="wine" placeholder="input varietal" required></input>
                     <button type="submit">get wines</button>
                 </form>
+                <h3>need help?</h3>
+                <h4>checkout the <a href>wine guide</a> to see the searchable varietals</h4>
             
                 { wines.map ((wine)=>{
                     return(
