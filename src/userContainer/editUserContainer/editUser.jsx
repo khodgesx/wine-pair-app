@@ -1,91 +1,80 @@
 import { useState, useEffect } from "react";
-
+import { Link } from 'react-router-dom'
 
 
 const EditUser = () =>{
-    const user = localStorage.getItem('currentUser')
+    const user = JSON.parse(localStorage.getItem('currentUser'))
+    // useEffect(()=>{
+    //     test();
+    // })
+    // const test=()=>{
+    //     console.log(user)
+    // }
+
 //     //set state of place to prior values, unless changed
-//     const [ edit, setEdit ] = useState({
-//         name: props.place.name,
-//         cuisine: props.place.cuisine,
-//         img: props.place.img,
-//         faveDish: props.place.faveDish,
-//         notes: props.place.notes,
-//         priceLevel: props.place.priceLevel
-//     })
+    const [ edit, setEdit ] = useState({
+        username: user.username,
+        displayName: user.displayName,
+        img: user.img,
+        
+    })
 
 
 // //edit user (everything but photo)
-// const editOnePlace = async (idToEdit, placeToEdit)=>{
-//     try{
+const editUser= async (idToEdit, userToEdit)=>{
+    try{
 
-//         const editResponse = await fetch(`${apiUrl}/restaurants/${idToEdit}`, {
-//             method:"PUT",
-//             body:JSON.stringify(placeToEdit),
-//             headers:{
-//                 "Content-Type": "application/json"
-//             }
-//         })
-//         const parsedEdit = await editResponse.json()
-//         if(parsedEdit.success){
-//             const newArray = visited.map(place => place._id === idToEdit ? placeToEdit : place)
-//             setVisited(newArray)
-//             const newArrayTwo = toTry.map(place => place._id === idToEdit ? placeToEdit : place)
-//             setToTry(newArrayTwo)
-//         }
+        const editResponse = await fetch(`http://localhost:3001/users/${idToEdit}`, {
+            method:"PUT",
+            body:JSON.stringify(userToEdit),
+            headers:{
+                "Content-Type": "application/json"
+            }
+        })
+        const parsedEdit = await editResponse.json()
+        if(parsedEdit.success){
+        console.log(parsedEdit.data)
+        
+        localStorage.setItem('currentUser', JSON.stringify(parsedEdit.data))
+        console.log(JSON.parse(localStorage.getItem('currentUser')))
+        }
 
-//     }catch(err){
-//         console.log(err)
-//     }
-// }
-// const inputChange=(e)=>{
-//     setEditPlace({
-//         ...editPlace,
-//         [e.target.name]: e.target.value
-//     })
-// }
-// const submitEdit =(e)=>{
-//     e.preventDefault();
-//     props.editOnePlace(props.place._id, editPlace)
-//     props.setShowing(false)
+    }catch(err){
+        console.log(err)
+    }
+}
+const inputChange=(e)=>{
+    setEdit({
+        ...edit,
+        [e.target.name]: e.target.value
+    })
+}
+const submitEdit =(e)=>{
+    e.preventDefault();
+    editUser(user._id, edit)
+   
     
-// }
+}
 
+return(
+    <div>
+        <h3>Current Profile Settings:</h3>
+        <h4>username: {user.username}</h4>
+        <h4>Display Name: {user.displayName}</h4>
+        <h4>Profile Picture:</h4><Link to="/edit-userphoto"><img id="user-pic"src={user.img}/></Link>
 
-//     return(
-//         <div id="new-user-form"> 
-
-//             <section className="form-container">
-//                 <form onSubmit ={submitNew} className="new-user-form-container" encType="multipart/form-data">
-
-//                     <div id="form-row-container">
-//                         <label htmlFor="displayName">Display Name:</label>
-//                         <input onChange ={inputChange}type="text" name="displayName" />
-//                     </div>
-
-//                     <div id="form-row-container">
-//                         <label htmlFor="username">Username:</label>
-//                         <input onChange ={inputChange} type="text" name="username" />
-//                     </div>
-
-//                     <div id="form-row-container">
-//                         <label htmlFor="password">Password:</label>
-//                         <input onChange ={inputChange} type="password" name="password" />
-//                     </div>
-
-//                     <div id="form-row-container">
-//                         <label htmlFor="img">Profile Photo:</label>
-//                         <input onChange ={(e)=>setImage(e.target.files[0])} type="file" name="img" id="rest-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
-//                     </div>
-//                     <div id="form-row-container">
-//                         <input id="reg-button"type="submit" value="Register"/>
-//                     </div>
-//                 </form>
-//             </section>
+      
+        <form onSubmit={submitEdit}>
+                <label htmlFor="displayName">Display Name:</label>
+                <input onChange={inputChange}type="text" name="displayName" defaultValue={user.displayName} />
+                <button type="submit">Submit</button>
+        </form>
        
+      
+    </div>
+    
+)
 
-//         </div>
-    // )
 }
 
 export default EditUser

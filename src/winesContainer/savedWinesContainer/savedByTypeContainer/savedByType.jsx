@@ -17,7 +17,7 @@ const SavedByType = (props)=>{
         testing()
        } 
    
-    const user = JSON.parse(localStorage.getItem('props.currentUser'))
+    const user = JSON.parse(localStorage.getItem('currentUser'))
     const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)
 
     const getWines = async ()=>{

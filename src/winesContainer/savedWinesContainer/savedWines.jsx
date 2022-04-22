@@ -4,7 +4,7 @@ import { Modal } from 'react-bootstrap'
 import '../../App.css'
 
 
-const SavedWines = (props)=>{
+const SavedWines = ()=>{
     useEffect(() =>{
         getWines();
     }, [])
@@ -16,7 +16,7 @@ const SavedWines = (props)=>{
     const [show, setShow] = useState(false)
     const toggleShow = ()=>setShow(!show)
 
-    const user = JSON.parse(localStorage.getItem('props.currentUser'))
+    const user = JSON.parse(localStorage.getItem('currentUser'))
     const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)
 
     // wine cellar index:

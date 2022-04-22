@@ -10,6 +10,8 @@ import Wines from './winesContainer/wines'
 import Pair from './winesContainer/pair';
 import NewWine from './winesContainer/savedWinesContainer/newWineContainer/newWine'
 import UserProfile from './userContainer/userProfile'
+import EditUser from './userContainer/editUserContainer/editUser'
+import EditUserPhoto from './userContainer/editUserContainer/editUserPhoto'
 import SavedWines from './winesContainer/savedWinesContainer/savedWines'
 import SavedByType from './winesContainer/savedWinesContainer/savedByTypeContainer/savedByType'
 import SavedWineShow from './winesContainer/savedWinesContainer/savedWineShowContainer/savedWineShowContainer'
@@ -48,6 +50,8 @@ const [type, setType] = useState()
             <Route exact path ="/sign-up" element={< SignUp />} />
             <Route exact path="/login" element={ < Login loggedIn={loggedIn}setLoggedIn={setLoggedIn}currentUser={currentUser} />}/>
             <Route exact path="/user-profile" element={ < UserProfile currentUser={currentUser} />}/>
+            <Route exact path="/edit-user" element={ < EditUser currentUser={currentUser} />}/>
+            <Route exact path="/edit-userphoto" element={ < EditUserPhoto currentUser={currentUser} />}/>
             <Route path="/wines" element={ < Wines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/pair" element={<Pair/>}/>
             <Route path="/new" element={<NewWine currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>

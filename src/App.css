@@ -69,6 +69,11 @@ nav a{
   margin: 0 auto;
   width: 65vw;
 }
+#user-pic{
+  display: block;
+  margin: 0 auto;
+  width: 35vw;
+}
 #wine-component, #pair-component{
   padding:5px;
   margin: 5px;

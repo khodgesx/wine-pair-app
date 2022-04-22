@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 const UserProfile = (props)=>{
     
-    const user = JSON.parse(localStorage.getItem('props.currentUser'))
+    const user = JSON.parse(localStorage.getItem('currentUser'))
     //make first letter of displayName uppercase:
     const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)
     return(
@@ -12,6 +12,7 @@ const UserProfile = (props)=>{
             </section>
             <section id="user-img-container">
                  <img src={user.img}></img>
+                 <Link to="/edit-user"><h4>edit user</h4></Link>
             </section>
             
         </div>
