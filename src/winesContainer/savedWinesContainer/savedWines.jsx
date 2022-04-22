@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import '../../App.css'
-import WineFormContainer from '../wineFormContainer/wineFormContainer'
-import EditOneWine from './editOneWineContainer/editOneWine'
+
 
 const SavedWines = (props)=>{
     useEffect(() =>{

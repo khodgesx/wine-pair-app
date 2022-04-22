@@ -52,7 +52,7 @@ const App =()=> {
             <Route path="/saved-wines" element={<SavedWines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/saved-wines/:id" element={<SavedWineShow currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="saved-wines/:id/edit" element={ <EditOneWine wineCellar={wineCellar} setWineCellar={setWineCellar}/>} />
-            <Route path="/saved-wines/type" element={<SavedByType currentUser={currentUser}/>}/>
+            <Route path="/saved-wines/type" element={<SavedByType currentUser={currentUser} wineCellar={wineCellar}/>}/>
             <Route path="*" element={<Navigate to="/" replace/> }/>
           </Routes>
       </div>
