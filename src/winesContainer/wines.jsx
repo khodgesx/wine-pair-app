@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import '../App.css'
+import WineFormContainer from './wineFormContainer/wineFormContainer'
 
 const Wines = (props)=>{
     //input of wine varietal
@@ -32,13 +33,6 @@ const Wines = (props)=>{
         }catch(err){
             console.log(err)
         } 
-    }
-    const inputChange=(e)=>{
-        setWineInput([e.target.name]=e.target.value)
-    }
-    const submitWine = async(e)=>{
-        e.preventDefault()
-        getWines()
     }
     
     const user = JSON.parse(localStorage.getItem('props.currentUser'))
@@ -87,21 +81,13 @@ const Wines = (props)=>{
     return(
         <div id="wines-component">
              <section id="wines">
-                <h2>Find by varietal</h2>
-                <form onSubmit={submitWine}>
-                    {/* <label htmlFor="name">Varietal: </label>
-                    <input onChange={inputChange}type="text" name="wine" placeholder="input varietal" required></input> */}
-                    <label htmlFor="varietal">Choose a varietal:</label>
-                    <select onChange={inputChange} type="text"id="varietals" name="wine">
-                        <option placeholder="wine"></option>
-                        <option value="pinot noir">Pinot Noir</option>
-                        <option value="cabernet franc">Cabernet Franc</option>
-                        <option value="cabernet sauvignon">Cabernet Sauvignon</option>
-                    </select>
-                    <button type="submit">get wines</button>
-                </form>
-                <h3>need help?</h3>
-                <h4>checkout the <a href>wine guide</a> to see the searchable varietals</h4>
+                <h2>Find wines by type:</h2>
+
+                <WineFormContainer 
+                    setWineInput={setWineInput}
+                    getWines={getWines}
+                ></WineFormContainer>
+              
             
                 { wines.map ((wine)=>{
                     return(
