@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import { Modal } from 'react-bootstrap'
 import '../../App.css'
 
 
@@ -12,6 +13,8 @@ const SavedWines = (props)=>{
     const [searchInput, setSearchInput] = useState('')
     const [results, setResults] = useState([])
 
+    const [show, setShow] = useState(false)
+    const toggleShow = ()=>setShow(!show)
 
     const user = JSON.parse(localStorage.getItem('props.currentUser'))
     const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)
@@ -64,15 +67,27 @@ const SavedWines = (props)=>{
 
     return(
         <div id="cellar-page">
-            <Link to={'/saved-wines/red'}><h5 id="red">See Reds</h5></Link>
-            <Link to={'/saved-wines/white'}><h5 id="white">See Whites</h5></Link>
-            <Link to={'/saved-wines/sparkling'}><h5 id="sparkling">See Sparkling</h5></Link>
-            <Link to={'/saved-wines/other'}><h5 id="other">See Other</h5></Link>
+            <h5>Choose a wine by type</h5>
+            <div id="links-to-types">
+                <Link to={'/saved-wines/red'}><img className="glass" alt="red wine glass"src="https://i.imgur.com/dl3mHFY.jpg"></img></Link>
+                <Link to={'/saved-wines/white'}><img className="glass"alt="white wine glass" src="https://i.imgur.com/d43ykBO.jpg"></img></Link>
+                <Link to={'/saved-wines/sparkling'}><img className="glass" alt="sparkling wine glass"src="https://i.imgur.com/nd8unGv.jpg"></img></Link>
+                <Link to={'/saved-wines/other'}><img className="glass" alt="dessert wine glass"src="https://i.imgur.com/94mPFSW.jpg"></img></Link>
+            </div>
 
             <div id="search-cellar">
                 <h2>Search Cellar:</h2>
                 <input icon='search' placeholder='search' value={searchInput}
                 onChange={(e)=>searchSaved(e.target.value)} />     
+            </div>
+
+            <div>
+                <img onClick={toggleShow}className="glass" src="https://i.imgur.com/Kb4obeQ.png"></img>
+                <h3 >add wine to your cellar</h3>
+                <Modal show={show} onHide={toggleShow}>
+                    <Link to="/pair">Search digital universe by varietal</Link>
+                    <Link to="/new">add new wine manually</Link>
+                </Modal>
             </div>
         
             <div id="search-cellar-results">
@@ -80,7 +95,8 @@ const SavedWines = (props)=>{
                         return(
                             <div id="each-search"key={wine._id}>
                                 <h3>{wine.name}</h3>
-                                <img src={wine.img}/>
+                                <img alt="wine label
+                                "src={wine.img}/>
                             </div>
                         )
                         
@@ -94,7 +110,7 @@ const SavedWines = (props)=>{
                 return(
                     <div id="each-wine"key={wine._id}>
                         <h3>{wine.name}</h3>
-                        <Link to={`/saved-wines/${wine._id}`}><img src={wine.img}></img></Link>
+                        <Link to={`/saved-wines/${wine._id}`}><img alt="wine label"src={wine.img}></img></Link>
                         <h4>{wine.varietal}</h4>
                         <h4>type:{wine.type}</h4>
                         <button onClick={()=>{deleteWine(wine._id)}}>Delete</button>

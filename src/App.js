@@ -1,13 +1,14 @@
 import logo from './logo.svg'
 import './App.css'
 import {useState, useEffect} from 'react'
+import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
 import Nav from './navContainer/nav'
 import Home from './homeContainer/home'
 import SignUp from './homeContainer/signUpComponent/signUp'
 import Login from './homeContainer/loginComponent/login'
 import Wines from './winesContainer/wines'
 import Pair from './winesContainer/pair';
-import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
+import NewWine from './winesContainer/savedWinesContainer/newWineContainer/newWine'
 import UserProfile from './userContainer/userProfile'
 import SavedWines from './winesContainer/savedWinesContainer/savedWines'
 import SavedByType from './winesContainer/savedWinesContainer/savedByTypeContainer/savedByType'
@@ -49,6 +50,7 @@ const [type, setType] = useState()
             <Route exact path="/user-profile" element={ < UserProfile currentUser={currentUser} />}/>
             <Route path="/wines" element={ < Wines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/pair" element={<Pair/>}/>
+            <Route path="/new" element={<NewWine currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/saved-wines" element={<SavedWines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/saved-wines/:id" element={<SavedWineShow currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="saved-wines/:id/edit" element={ <EditOneWine wineCellar={wineCellar} setWineCellar={setWineCellar}/>} />

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import '../../../App.css'
 
 const SavedByType = (props)=>{
     useEffect(() =>{
@@ -18,6 +18,8 @@ const SavedByType = (props)=>{
        } 
    
     const user = JSON.parse(localStorage.getItem('props.currentUser'))
+    const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)
+
     const getWines = async ()=>{
       try{
           const wineFetch = await fetch (`http://localhost:3001/wines/user/${user._id}`)
@@ -40,13 +42,13 @@ const SavedByType = (props)=>{
     }
     
     return(
-       
-        <div>
+        <div id="type-list">
+            <h2 id="type-title">{displayName}'s {type} wines:</h2>
             <div id="type">
-                <h2>{user.displayName}'s {type} wines:</h2>
+                
                 { typeShow.map ((type)=>{
                     return(
-                        <div key={type._id}>
+                        <div id="type-each" key={type._id}>
                             <h3>{type.name}</h3>
                             <img src={type.img}></img>
                         </div>

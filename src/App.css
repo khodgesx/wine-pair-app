@@ -34,7 +34,7 @@ nav a{
   padding: 10px;
   margin: 10px 19px;  
 }
-#home, #cellar-title{
+#home, #cellar-title, #type-title{
   text-align: center;
 }
 #user-profile{
@@ -74,6 +74,18 @@ nav a{
   display: block;
   margin: 0 auto;
 }
+#links-to-types{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0 auto;
+}
+.glass{
+  width: 15vw;
+}
+#links-to-types{
+  margin-bottom: 30px;
+}
 #cellar-page h2{
   font-size: 2.5vh;
 }
@@ -81,6 +93,9 @@ nav a{
   display:block;
   margin: 0 auto;
   text-align: center;
+}
+#search-cellar{
+  margin-bottom: 35px;
 }
 #each-search{
   display: block;
@@ -93,22 +108,22 @@ nav a{
 #each-search img{
   width: 35vw;
 }
-#cellar-list{
+#cellar-list, #type{
   display: grid;
   justify-content: center;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fill, 45vw);
 }
-#each-wine{
+#each-wine, #type-each{
   border: solid 1px black;
   padding: 5px;
   text-align: center;
   width:95%;
 }
-#each-wine h3{
+#each-wine h3, #type-each h3{
   font-size: 2vh;
 }
-#each-wine img{
+#each-wine img, #type-each img{
   width: 15vw;
   height:auto;
   border: solid 1px rgb(136, 19, 19);
@@ -183,10 +198,10 @@ nav a{
 #cellar-page h2{
   font-size: 4vh;
 }
-#cellar-list{
+#cellar-list, #type-list{
   grid-template-columns: repeat(auto-fill, 30vw);
 }
-#each-wine h3{
+#each-wine h3, #type-each h3{
   font-size: 3vh;
 }
 #each-search{
