@@ -5,6 +5,8 @@ import WineFormContainer from './wineFormContainer/wineFormContainer'
 const Wines = (props)=>{
     //input of wine varietal
     const [wineInput, setWineInput] = useState('')
+    //type - set on submit from varietal drop down
+    const [type, setType] = useState()
     //wines response from api based on input
     const [wines, setWines] = useState([])
     //saved wines array
@@ -12,10 +14,10 @@ const Wines = (props)=>{
     //state of new wine before inputs 
     const [newWine, setNewWine] = useState({
         name: '',
-        // type: '',
-        varietal:'', 
-        img:'',
-        notes:'',
+        varietal: '',
+        img: '',
+        type:'',
+        notes: '',
         user:''
     })
 
@@ -34,21 +36,22 @@ const Wines = (props)=>{
             console.log(err)
         } 
     }
-    
+
     const user = JSON.parse(localStorage.getItem('props.currentUser'))
 
   
     //create:
-    const saveWine = async (wineName, wineImage) =>{
+    const saveWine = async (wineName, wineImage, wineType) =>{
         try {
             const user = JSON.parse(localStorage.getItem('props.currentUser'))
-            // console.log(wineName, wineInput)
+            console.log(type)
             const createResponse = await fetch(`http://localhost:3001/wines/${user._id}`,{
                 method: "POST",
                 body: JSON.stringify({
                     name: wineName,
                     varietal: wineInput,
                     img: wineImage,
+                    type: wineType,
                     notes: ''
                 }),
                 headers: {
@@ -58,8 +61,8 @@ const Wines = (props)=>{
             const parsedResponse = await createResponse.json()
             if(parsedResponse.success){
                 setSavedWines([parsedResponse.data, ...savedWines])
-                console.log(parsedResponse.data.name)
-                testSet()
+                console.log(parsedResponse.data)
+                
                 
             }else{
                 console.log(parsedResponse.data)
@@ -69,21 +72,17 @@ const Wines = (props)=>{
             console.log(err)
         }
     }
-    const testSet=()=>{
-        props.setWineCellar(savedWines)
-    }
-
         const submitSave = async(e)=>{
             e.preventDefault()
-            saveWine(e.target[0].value, e.target[1].value) 
+            saveWine(e.target[0].value, e.target[1].value, e.target[2].value) 
         }
 
     return(
         <div id="wines-component">
              <section id="wines">
-                <h2>Find wines by type:</h2>
 
                 <WineFormContainer 
+                    setType={setType}
                     setWineInput={setWineInput}
                     getWines={getWines}
                 ></WineFormContainer>
@@ -93,6 +92,7 @@ const Wines = (props)=>{
                     return(
                         <div key={wine.id}>
                             <h2>{wine.title}</h2>
+                            <h2>test type: {type}</h2>
                             <img src={wine.imageUrl}/>
                             <h3>{wine.price}</h3>
                             <h4>rating count: {wine.ratingCount}</h4>
@@ -116,6 +116,11 @@ const Wines = (props)=>{
     
                                     <input hidden type="text" name="img"  defaultValue={wine.imageUrl}></input>
                 
+                                </div>  
+                                <div id="form-row">
+    
+                                    <input hidden type="text" name="type"  defaultValue={type}></input>
+
                                 </div>  
                                 {/* <div id="form-row"> 
                                     <label htmlFor="name">Notes:</label>

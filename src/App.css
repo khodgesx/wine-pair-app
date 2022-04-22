@@ -59,6 +59,17 @@ nav a{
   border: solid 1px black;
   margin: 5px;
 }
+#search-wines{
+  padding: 10px;
+  font-size: 2vh;
+}
+#search-wines button{
+  font-size: 1.5vh;
+  margin: 0 5px 2px 5px;
+  border-radius: 2%;
+  border: none;
+  background-color: #e19184;
+}
 #cellar-page{
   display: block;
   margin: 0 auto;
@@ -144,7 +155,28 @@ nav a{
   display: block;
   margin: 5px auto;
 }
-
+#search-wines{
+  padding: 10px;
+  font-size: 2.5vh;
+}
+#search-wines div{
+  border: solid 1px rgb(197, 148, 148);
+  margin: 10px 0;
+}
+#search-wines select{
+  height: 25px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 175px;
+}
+#search-wines button{
+  font-size: 2vh;
+  margin: 0 5px 25px 15px;
+  border-radius: 2%;
+  border: none;
+  background-color: #e19184;
+}
 #user-profile img{
   width: 35vw;
 }

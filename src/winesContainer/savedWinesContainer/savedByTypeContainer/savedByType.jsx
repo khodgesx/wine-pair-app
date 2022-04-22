@@ -22,7 +22,6 @@ const SavedByType = (props)=>{
 
     const sortWines =()=>{
         const redArray = wines.filter((wine)=>{
-            // return wine.varietal === 'pinot noir' || 'cabernet sauvignon' || 'cabernet franc' || ''
         }) 
     }
     

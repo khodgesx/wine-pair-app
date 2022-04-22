@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import '../../App.css'
+import WineFormContainer from '../wineFormContainer/wineFormContainer'
 import EditOneWine from './editOneWineContainer/editOneWine'
 
 const SavedWines = (props)=>{
@@ -91,6 +92,7 @@ const SavedWines = (props)=>{
                         <h3>{wine.name}</h3>
                         <Link to={`/saved-wines/${wine._id}`}><img src={wine.img}></img></Link>
                         <h4>{wine.varietal}</h4>
+                        <h4>type:{wine.type}</h4>
                         <button onClick={()=>{deleteWine(wine._id)}}>Delete</button>
                         
                     </div>

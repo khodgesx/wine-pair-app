@@ -5,66 +5,83 @@ const WineFormContainer = (props)=>{
     const inputChange=(e)=>{
         props.setWineInput([e.target.name]=e.target.value)
     }
-    const submitWine = async(e)=>{
+    const submitRed = async(e)=>{
         e.preventDefault()
         props.getWines()
+        props.setType('red') 
+    }
+    const submitWhite = async(e)=>{
+        e.preventDefault()
+        props.getWines()
+        props.setType('white') 
+    }
+    const submitSparkling = async(e)=>{
+        e.preventDefault()
+        props.getWines()
+        props.setType('sparkling') 
+    }
+
+    const submitOther = async(e)=>{
+        e.preventDefault()
+        props.getWines()
+        props.setType('other') 
     }
     return(
-        <div>
+        <div id="search-wines">
             <h2>Find wines by type:</h2>
-
-            <form onSubmit={submitWine}>
-                {/* <label htmlFor="name">Varietal: </label>
-                <input onChange={inputChange}type="text" name="wine" placeholder="input varietal" required></input> */}
-                <label htmlFor="varietal">Reds:</label>
-                <select onChange={inputChange} type="text"id="varietals" name="wine">
+        <div id="search-reds">
+             <form onSubmit={submitRed}>
+                <label id="label" htmlFor="varietal">Reds:</label>
+                <select onChange={inputChange} type="text" name="wine">
                     <option placeholder="wine"></option>
-                    <option value="agiorgitiko">agiorgitiko</option>
-                    <option value="aglianico">aglianico</option>
-                    <option value="baco noir">baco noir</option>
-                    <option value="bairrada">bairrada</option>
-                    <option value="barbera wine">barbera  wine</option>
-                    <option value="bonarda">bonarda</option>
-                    <option value="bordeaux">bordeaux</option>
+                    <option value="agiorgitiko">Agiorgitiko</option>
+                    <option value="aglianico">Aglianico</option>
+                    <option value="baco noir">Baco Noir</option>
+                    <option value="bairrada">Bairrada</option>
+                    <option value="barbera wine">Barbera</option>
+                    <option value="bonarda">Bonarda</option>
+                    <option value="bordeaux">Bordeaux</option>
                     <option value="cabernet franc">Cabernet Franc</option>
                     <option value="cabernet sauvignon">Cabernet Sauvignon</option>
-                    <option value="carignan">carignan</option>
-                    <option value="carmenere">carmenere</option>
-                    <option value="cesanese">cesanese</option>
-                    <option value="concord wine">concord</option>
+                    <option value="carignan">Carignan</option>
+                    <option value="carmenere">Carmenere</option>
+                    <option value="cesanese">Cesanese</option>
+                    <option value="concord wine">Concord</option>
                     <option value="corvina">Corvina</option>
-                    <option value="cotes du rhone">cotes du rhone</option>
-                    <option value="dolcetto">dolcetto</option>
-                    <option value="dornfelder">dornfelder</option>
-                    <option value="gamay">gamay</option>
-                    <option value="grenache">grenache</option>
-                    <option value="malbec">malbec</option>
-                    <option value="marsala">marsala</option>
-                    <option value="merlot">merlot</option>
-                    <option value="mourvedre">mourvedre</option>
-                    <option value="nebbiolo">nebbiolo</option>
-                    <option value="negroamaro">negroamaro</option>
-                    <option value="nero d avola">nero d avola</option>
-                    <option value="petite sirah">petite sirah</option>
-                    <option value="pinot noir">pinot noir</option>
-                    <option value="pinotage">pinotage</option>
-                    <option value="port">port</option>
-                    <option value="primitivo">primitivo</option>
-                    <option value="red burgundy">red burgundy</option>
-                    <option value="rioja">rioja</option>
-                    <option value="rose wine">rose</option>
-                    <option value="sangiovese">sangiovese</option>
-                    <option value="shiraz">shiraz</option>
-                    <option value="sparkling red wine">sparkling red wine</option>
-                    <option value="tannat">tannat</option>
-                    <option value="tempranillo">tempranillo</option>
-                    <option value="zinfandel">zinfandel</option>
-                    <option value="zweigelt">zweigelt</option>
+                    <option value="cotes du rhone">Cotes Du Rhone</option>
+                    <option value="dolcetto">Dolcetto</option>
+                    <option value="dornfelder">Dornfelder</option>
+                    <option value="gamay">Gamay</option>
+                    <option value="grenache">Grenache</option>
+                    <option value="malbec">Malbec</option>
+                    <option value="marsala">Marsala</option>
+                    <option value="merlot">Merlot</option>
+                    <option value="mourvedre">Mourvedre</option>
+                    <option value="nebbiolo">Nebbiolo</option>
+                    <option value="negroamaro">Negroamaro</option>
+                    <option value="nero d avola">Nero d Avola</option>
+                    <option value="petite sirah">Petite Sirah</option>
+                    <option value="pinot noir">Pinot Noir</option>
+                    <option value="pinotage">Pinotage</option>
+                    <option value="port">Port</option>
+                    <option value="primitivo">Primitivo</option>
+                    <option value="red burgundy">Red Burgundy</option>
+                    <option value="rioja">Rioja</option>
+                    <option value="rose wine">Rose</option>
+                    <option value="sangiovese">Sangiovese</option>
+                    <option value="shiraz">Shiraz</option>
+                    <option value="sparkling red wine">Sparkling Red</option>
+                    <option value="tannat">Tannat</option>
+                    <option value="tempranillo">Tempranillo</option>
+                    <option value="zinfandel">Zinfandel</option>
+                    <option value="zweigelt">Zweigelt</option>
                 </select>
-                <button type="submit">get wines</button>
+                <button type="submit">submit</button>
             </form>
-
-            <form onSubmit={submitWine}>
+        </div>
+           
+        <div id="search-whites">   
+            <form onSubmit={submitWhite}>
                 <label htmlFor="varietal">Whites:</label>
                 <select onChange={inputChange} type="text"id="varietals" name="wine">
                     <option placeholder="wine"></option>
@@ -107,10 +124,11 @@ const WineFormContainer = (props)=>{
                     <option value="white burgundy">White Burgundy</option>
                     <option value="white rioja">White Rioja</option>
                 </select>
-                <button type="submit">get wines</button>
+                <button type="submit">submit</button>
             </form>
-
-            <form onSubmit={submitWine}>
+        </div>         
+        <div id="search-sparkling"> 
+            <form onSubmit={submitSparkling}>
                 <label htmlFor="varietal">Sparkling:</label>
                 <select onChange={inputChange} type="text"id="varietals" name="wine">
                     <option placeholder="wine"></option>
@@ -121,10 +139,12 @@ const WineFormContainer = (props)=>{
                     <option value="spumante">Spumante</option>
                     <option value="sparkling rose">Sparkling Rose</option>
                 </select>
-                <button type="submit">get wines</button>
+                <button type="submit">submit</button>
             </form>
-
-            <form onSubmit={submitWine}>
+        </div>
+        
+        <div id="search-other">  
+            <form onSubmit={submitOther}>
                 <label htmlFor="varietal">Dessert & Other:</label>
                 <select onChange={inputChange} type="text"id="varietals" name="wine">
                     <option placeholder="wine"></option>
@@ -146,8 +166,9 @@ const WineFormContainer = (props)=>{
                     <option value="vin santo">Vin Santo</option>
                     <option value="white port">White Port</option>
                 </select>
-                <button type="submit">get wines</button>
+                <button type="submit">submit</button>
             </form>
+        </div>
         </div>
     )
 }
