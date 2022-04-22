@@ -35,7 +35,7 @@ const App =()=> {
         console.log(err)
     }
 }
-
+const [type, setType] = useState()
   return (
     <Router>
       <div className="App">
@@ -52,7 +52,10 @@ const App =()=> {
             <Route path="/saved-wines" element={<SavedWines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/saved-wines/:id" element={<SavedWineShow currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="saved-wines/:id/edit" element={ <EditOneWine wineCellar={wineCellar} setWineCellar={setWineCellar}/>} />
-            <Route path="/saved-wines/type" element={<SavedByType currentUser={currentUser} wineCellar={wineCellar}/>}/>
+            <Route path="/saved-wines/red" element={<SavedByType type={'red'}currentUser={currentUser} wineCellar={wineCellar}/>}/>
+            <Route path="/saved-wines/white" element={<SavedByType type={'white'}currentUser={currentUser} wineCellar={wineCellar}/>}/>
+            <Route path="/saved-wines/sparkling" element={<SavedByType type={'sparkling'}currentUser={currentUser} wineCellar={wineCellar}/>}/>
+            <Route path="/saved-wines/other" element={<SavedByType type={'other'}currentUser={currentUser} wineCellar={wineCellar}/>}/>
             <Route path="*" element={<Navigate to="/" replace/> }/>
           </Routes>
       </div>

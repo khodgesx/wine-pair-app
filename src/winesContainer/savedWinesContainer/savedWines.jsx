@@ -12,6 +12,7 @@ const SavedWines = (props)=>{
     const [searchInput, setSearchInput] = useState('')
     const [results, setResults] = useState([])
 
+
     const user = JSON.parse(localStorage.getItem('props.currentUser'))
     const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)
 
@@ -63,7 +64,11 @@ const SavedWines = (props)=>{
 
     return(
         <div id="cellar-page">
-            <Link to={'/saved-wines/type'}>See Cellar by Wine Type</Link>
+            <Link to={'/saved-wines/red'}><h5 id="red">See Reds</h5></Link>
+            <Link to={'/saved-wines/white'}><h5 id="white">See Whites</h5></Link>
+            <Link to={'/saved-wines/sparkling'}><h5 id="sparkling">See Sparkling</h5></Link>
+            <Link to={'/saved-wines/other'}><h5 id="other">See Other</h5></Link>
+
             <div id="search-cellar">
                 <h2>Search Cellar:</h2>
                 <input icon='search' placeholder='search' value={searchInput}
