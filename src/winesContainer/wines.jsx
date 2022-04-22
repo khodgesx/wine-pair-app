@@ -13,7 +13,7 @@ const Wines = (props)=>{
         name: '',
         // type: '',
         varietal:'', 
-        // img:'',
+        img:'',
         notes:'',
         user:''
     })
@@ -31,9 +31,7 @@ const Wines = (props)=>{
             }
         }catch(err){
             console.log(err)
-        }
-     
-        
+        } 
     }
     const inputChange=(e)=>{
         setWineInput([e.target.name]=e.target.value)
@@ -72,7 +70,7 @@ const Wines = (props)=>{
             }else{
                 console.log(parsedResponse.data)
             }
-            // props.setWineCellar([savedWines])
+         
         } catch (err) {
             console.log(err)
         }
@@ -80,23 +78,9 @@ const Wines = (props)=>{
     const testSet=()=>{
         props.setWineCellar(savedWines)
     }
-        //funciton for onChange
-        const inputSave =(e)=>{
-            setNewWine({
-                ...newWine,
-                [e.target.name]: e.target.value
-            })
-        }
-        const imageChange=(e)=>{
-            setNewWine({
-                ...newWine, 
-                img: e.target.files[0]
-            })   
-    }
-        //function for submit onSubmit
+
         const submitSave = async(e)=>{
             e.preventDefault()
-            // console.log(e)
             saveWine(e.target[0].value, e.target[1].value) 
         }
 
@@ -105,8 +89,15 @@ const Wines = (props)=>{
              <section id="wines">
                 <h2>Find by varietal</h2>
                 <form onSubmit={submitWine}>
-                    <label htmlFor="name">Varietal: </label>
-                    <input onChange={inputChange}type="text" name="wine" placeholder="input varietal" required></input>
+                    {/* <label htmlFor="name">Varietal: </label>
+                    <input onChange={inputChange}type="text" name="wine" placeholder="input varietal" required></input> */}
+                    <label htmlFor="varietal">Choose a varietal:</label>
+                    <select onChange={inputChange} type="text"id="varietals" name="wine">
+                        <option placeholder="wine"></option>
+                        <option value="pinot noir">Pinot Noir</option>
+                        <option value="cabernet franc">Cabernet Franc</option>
+                        <option value="cabernet sauvignon">Cabernet Sauvignon</option>
+                    </select>
                     <button type="submit">get wines</button>
                 </form>
                 <h3>need help?</h3>
