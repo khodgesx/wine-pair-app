@@ -25,7 +25,7 @@ const App =()=> {
   useEffect(() =>{
     getWines();
 }, [])
-  const user = JSON.parse(localStorage.getItem('props.currentUser'))
+  const user = JSON.parse(localStorage.getItem('currentUser'))
   const getWines = async ()=>{
     try{
         //get wines by user id = all saved wines for that user in mongodb

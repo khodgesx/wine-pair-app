@@ -114,8 +114,8 @@ const SavedWines = (props)=>{
                         <h3>{wine.name}</h3>
                         <Link to={`/saved-wines/${wine._id}`}><img alt="wine label"src={wine.img}></img></Link>
                         <h4>{wine.varietal}</h4>
-                        <h4>type:{wine.type}</h4>
-                        <button onClick={()=>{deleteWine(wine._id)}}>Delete</button>
+                        {/* <h4>type:{wine.type}</h4> */}
+                        <button id="delete"onClick={()=>{deleteWine(wine._id)}}>Delete</button>
                         
                     </div>
                 )

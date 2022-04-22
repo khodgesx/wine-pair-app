@@ -35,7 +35,7 @@ const Login =(props)=>{
         
             if(parsedResponse.success){
                localStorage.setItem('props.currentUser', JSON.stringify(parsedResponse.data))
-               console.log(localStorage.getItem('props.currentUser'))
+            //    console.log(localStorage.getItem('props.currentUser'))
                 setUserLogin(localStorage.getItem('props.currentUser'))
                 let userInfo = JSON.parse(localStorage.getItem('props.currentUser'))
                 let displayName = userInfo.displayName
@@ -64,7 +64,8 @@ const Login =(props)=>{
       if(user !== null){
           return(
             <section>
-            <button onClick={remove}>Logout</button>
+                <h2>are you sure you want to logout?</h2>
+            <button id="logout"onClick={remove}>Logout</button>
         </section>
           )
       }else{
