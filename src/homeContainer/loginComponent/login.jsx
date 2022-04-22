@@ -70,19 +70,19 @@ const Login =(props)=>{
       }else{
         return(
             <div id="login-form">
-                <section className="form-container">
+                <section className="login-form-container">
                     <form onSubmit={submitLogin} className="login-form-container">
                         
-                        <div id="form-row-container">
+                        <div id="login-form-row-container">
                             <label htmlFor="username">Username:</label>
                             <input onChange={inputChange} type="text" name="username" value={userLogin.username}required/>
                         </div>
     
-                        <div id="form-row-container">
+                        <div id="login-form-row-container">
                             <label htmlFor="password">Password:</label>
                             <input onChange={inputChange} type="password" name="password" value={userLogin.password}required/>
                         </div>
-                        <div id="form-row-container">
+                        <div id="login-form-row-container">
                             <input id="login-button" type="submit" value="Login"/>
                         </div>
                     </form>

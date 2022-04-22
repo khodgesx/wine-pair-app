@@ -67,7 +67,16 @@ const SavedWines = (props)=>{
 
     return(
         <div id="cellar-page">
-            <h5>Choose a wine by type</h5>
+              <div id="add-new-links">
+                <img onClick={toggleShow}className="glass" src="https://i.imgur.com/Kb4obeQ.png"></img>
+                <h3 id="add">add wine to your cellar</h3>
+                <Modal show={show} onHide={toggleShow}>
+                    <Link to="/pair">Search digital universe by varietal</Link>
+                    <Link to="/new">add new wine manually</Link>
+                </Modal>
+            </div>
+
+            <h5 id="choose">Choose a wine by type:</h5>
             <div id="links-to-types">
                 <Link to={'/saved-wines/red'}><img className="glass" alt="red wine glass"src="https://i.imgur.com/dl3mHFY.jpg"></img></Link>
                 <Link to={'/saved-wines/white'}><img className="glass"alt="white wine glass" src="https://i.imgur.com/d43ykBO.jpg"></img></Link>
@@ -81,14 +90,7 @@ const SavedWines = (props)=>{
                 onChange={(e)=>searchSaved(e.target.value)} />     
             </div>
 
-            <div>
-                <img onClick={toggleShow}className="glass" src="https://i.imgur.com/Kb4obeQ.png"></img>
-                <h3 >add wine to your cellar</h3>
-                <Modal show={show} onHide={toggleShow}>
-                    <Link to="/pair">Search digital universe by varietal</Link>
-                    <Link to="/new">add new wine manually</Link>
-                </Modal>
-            </div>
+          
         
             <div id="search-cellar-results">
                     {results.map((wine)=>{

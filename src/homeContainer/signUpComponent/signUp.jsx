@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
+import '../../App.css'
 
 
 
 const SignUp = () =>{
-    
+    let navigate = useNavigate()
     const [users, setUsers] = useState([])
     const [newUser, setNewUser] = useState({
         displayName:'',
@@ -25,7 +27,7 @@ const [url, setUrl] = useState('')
                 const data = new FormData()
             console.log("image prop", image)
             data.append('file', image)
-            data.append('upload_preset', 'wines')
+            data.append('upload_preset', 'nvmc5zgt')
     
             const imageUpload = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
                 method: "POST",
@@ -71,36 +73,36 @@ const [url, setUrl] = useState('')
         e.preventDefault()
         createUser(newUser)
         console.log('on submit create:', newUser)
-        
+        navigate('/login')
     }
 
 
     return(
         <div id="new-user-form"> 
 
-            <section className="form-container">
+            <section className="user-form-container">
                 <form onSubmit ={submitNew} className="new-user-form-container" encType="multipart/form-data">
 
-                    <div id="form-row-container">
+                    <div id="user-form-row-container">
                         <label htmlFor="displayName">Display Name:</label>
                         <input onChange ={inputChange}type="text" name="displayName" />
                     </div>
 
-                    <div id="form-row-container">
+                    <div id="user-form-row-container">
                         <label htmlFor="username">Username:</label>
                         <input onChange ={inputChange} type="text" name="username" />
                     </div>
 
-                    <div id="form-row-container">
+                    <div id="user-form-row-container">
                         <label htmlFor="password">Password:</label>
                         <input onChange ={inputChange} type="password" name="password" />
                     </div>
 
-                    <div id="form-row-container">
+                    <div id="user-form-row-container">
                         <label htmlFor="img">Profile Photo:</label>
                         <input onChange ={(e)=>setImage(e.target.files[0])} type="file" name="img" id="rest-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
                     </div>
-                    <div id="form-row-container">
+                    <div id="user-form-row-container">
                         <input id="reg-button"type="submit" value="Register"/>
                     </div>
                 </form>

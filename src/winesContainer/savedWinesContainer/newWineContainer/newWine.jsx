@@ -82,7 +82,7 @@ const NewWine = (props)=>{
                 <div id="form-row">
                 <div className="radio-row-container">
                             <div className="radio-option-container">
-                                <input onChange ={inputChange} type="radio" name="type" defaultValue='red'></input>
+                                <input onChange ={inputChange} type="radio" name="type" defaultValue='red' required></input>
                                 <label htmlFor="type">Red</label>
                             </div>
                             <div className="radio-option-container">

@@ -34,6 +34,23 @@ nav a{
   padding: 10px;
   margin: 10px 19px;  
 }
+
+#user-form-row-container, #login-form-row-container{
+  margin: 15px;
+  display: grid;
+  gap:10px;
+  width: 35%;
+}
+#reg-button, #login-button{
+  display: block;
+  margin:30px auto;
+  width: 35%;
+  text-align: center;
+  background-color:#e19184;
+  color:white;
+  border: none;
+  border-radius: 10px;
+}
 #home, #cellar-title, #type-title{
   text-align: center;
 }
@@ -78,16 +95,26 @@ nav a{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
 }
 .glass{
   width: 15vw;
+
 }
-#links-to-types{
-  margin-bottom: 30px;
-}
+
 #cellar-page h2{
   font-size: 2.5vh;
+}
+#add-new-links{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+}
+#choose{
+  text-align:center;
+  text-decoration:underline;
+  margin-top: 54px auto 0 auto; 
 }
 #search-cellar, #search-cellar-results{
   display:block;
@@ -162,8 +189,19 @@ nav a{
 #logo{
   font-size: 4vh;
 }
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  background: #e19184;
+  /* position: fixed;
+  top:0;
+  left:0;
+  right:0; */
+}
 nav a{
-  font-size: 3vh;
+  font-size: 2.5vh;
 }
 #wine-for-meal, #meal-for-wine, #wine-results{
   width: 65vw;
