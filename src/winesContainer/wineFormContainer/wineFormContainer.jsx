@@ -125,16 +125,26 @@ const WineFormContainer = (props)=>{
             </form>
 
             <form onSubmit={submitWine}>
-                <label htmlFor="varietal">Other:</label>
+                <label htmlFor="varietal">Dessert & Other:</label>
                 <select onChange={inputChange} type="text"id="varietals" name="wine">
                     <option placeholder="wine"></option>
-                    <option value="sherry">sherry</option>
-                    <option value="cream sherry">cream sherry</option>
-                    <option value="dry sherry">dry sherry</option>
-                    <option value="vermouth">Prosecco</option>
-                    <option value="dry vermouth">dry vermouth</option>
-                    <option value="fruit wine">fruit wine</option>
-                    <option value="mead">mead</option>
+                    <option value="banyuls">Banyuls</option>
+                    <option value="fruit wine">Fruit Wine</option>
+                    <option value="ice wine">Ice Wine</option>
+                    <option value="late harvest">Late Harvest</option>
+                    <option value="lambrusco dolce">Lambrusco Dolce</option>
+                    <option value="madeira">Madeira</option>
+                    <option value="mead">Mead</option>
+                    <option value="moscato">Moscato</option>
+                    <option value="pedro ximenez">Pedro Ximenez</option>
+                    <option value="port">Port</option>
+                    <option value="sherry">Sherry</option>
+                    <option value="cream sherry">Cream Sherry</option>
+                    <option value="dry sherry">Dry Sherry</option>
+                    <option value="vermouth">Vermouth</option>
+                    <option value="dry vermouth">Dry Vermouth</option>
+                    <option value="vin santo">Vin Santo</option>
+                    <option value="white port">White Port</option>
                 </select>
                 <button type="submit">get wines</button>
             </form>
