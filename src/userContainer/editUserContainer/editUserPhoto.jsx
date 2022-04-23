@@ -68,9 +68,11 @@ return(
 
       
         <form onSubmit={submitEditPhoto}encType="multipart/form">
+            <div id="form-container">
                 <label htmlFor="profile-picture">New Profile Picture: </label>
                 <input onChange ={(e)=>setImage(e.target.files[0])} type="file" name="img" accept="image/png, image/jpeg"></input>
-                <button type="submit">Submit</button>
+                <button id="submit" type="submit">Submit</button>
+            </div>
         </form>
        
       

@@ -43,7 +43,7 @@ nav a{
   gap:10px;
   width: 35%;
 }
-#reg-button, #login-button, #logout, #delete{
+#reg-button, #login-button, #logout, #delete, #submit{
   display: block;
   margin:30px auto;
   width: 35%;
@@ -73,6 +73,18 @@ nav a{
   display: block;
   margin: 0 auto;
   width: 35vw;
+}
+#current-profile{
+  border:solid 1px black;
+  margin: 10px;
+  padding: 10px;
+}
+#pic-label{
+  text-align: center;
+}
+#form-container{
+  text-align: center;
+  padding: 10px;
 }
 #wine-component, #pair-component{
   padding:5px;

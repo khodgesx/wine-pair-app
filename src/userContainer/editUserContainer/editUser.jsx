@@ -57,17 +57,19 @@ const submitEdit =(e)=>{
 }
 
 return(
-    <div>
+    <div id="current-profile">
         <h3>Current Profile Settings:</h3>
         <h4>username: {user.username}</h4>
         <h4>Display Name: {user.displayName}</h4>
-        <h4>Profile Picture:</h4><Link to="/edit-userphoto"><img id="user-pic"src={user.img}/></Link>
+        <h4 id="pic-label">Profile Picture:</h4><Link to="/edit-userphoto"><img id="user-pic"src={user.img}/></Link>
 
       
         <form onSubmit={submitEdit}>
+            <div id="form-container">
                 <label htmlFor="displayName">Display Name:</label>
                 <input onChange={inputChange}type="text" name="displayName" defaultValue={user.displayName} />
-                <button type="submit">Submit</button>
+                <button id="submit"type="submit">Submit</button>
+            </div>
         </form>
        
       
