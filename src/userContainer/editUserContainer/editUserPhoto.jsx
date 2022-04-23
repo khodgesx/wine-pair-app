@@ -7,12 +7,7 @@ import '../../App.css'
 const EditUserPhoto = () =>{
     const user = JSON.parse(localStorage.getItem('currentUser'))
     let navigate = useNavigate()
- //set state of place to prior values, unless changed
-    const [ edit, setEdit ] = useState({
-        username: user.username,
-        displayName: user.displayName,
-        img: user.img,
-    })
+
     const [editPhoto, setEditPhoto] = useState({
         img: user.img
     })
@@ -51,12 +46,7 @@ const editUserPhoto= async (idToEdit, userToEdit)=>{
         console.log(err)
     }
 }
-const inputChange=(e)=>{
-    setEditPhoto({
-        ...editPhoto,
-        [e.target.name]: e.target.value
-    })
-}
+
 const submitEditPhoto = (e)=>{
     e.preventDefault();
     editUserPhoto(user._id, image)
