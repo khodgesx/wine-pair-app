@@ -12,7 +12,7 @@ const UserProfile = (props)=>{
             </section>
             <section id="user-img-container">
                  <img src={user.img}></img>
-                 <Link to="/edit-user"><h4>edit user</h4></Link>
+                 <Link to="/edit-user"><h4 id="edit-link">edit user</h4></Link>
             </section>
             
         </div>

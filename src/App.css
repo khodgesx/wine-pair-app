@@ -69,6 +69,9 @@ nav a{
   margin: 0 auto;
   width: 65vw;
 }
+#edit-link{
+  text-align: center;
+}
 #user-pic{
   display: block;
   margin: 0 auto;
