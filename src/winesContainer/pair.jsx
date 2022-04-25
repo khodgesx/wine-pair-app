@@ -19,14 +19,13 @@ const Pair = ()=>{
         const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/pairing?food=${mealInput}&number=2&apiKey=cb507c45184a417d93e6e96bb372f637`)
         const parsedResponse = await apiResponse.json()
         if(parsedResponse.pairingText === '' || parsedResponse.status === 'failure'){
-            window.location.reload()
-            alert("oops no matches. Try again!")
+            setWinePairs([''])
+            setText('Try wording that differently')
         }else{
             console.log(parsedResponse)
             setWinePairs(parsedResponse.pairedWines)
             setText(parsedResponse.pairingText)
 
-    
             setMealTest(JSON.stringify(parsedResponse))
             console.log(JSON.stringify(mealTest.pairedWines))
             console.log(JSON.stringify(mealTest.pairingText))
@@ -44,9 +43,11 @@ const Pair = ()=>{
     const getMealPair = async()=>{
         const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/dishes?wine=${wineInput}&apiKey=cb507c45184a417d93e6e96bb372f637`)
         const parsedResponse = await apiResponse.json()
-        if(parsedResponse.code === 400){
-            window.location.reload()
-            alert("oops, not a valid wine type!")
+        if(parsedResponse.code === 400 || parsedResponse.status === 'failure'){
+            // window.location.reload()
+            // alert("oops, not a valid wine type!")
+            setMealPairs([''])
+            setMealText('Try again - check the drop down below for suggested varietals')
         }else{
             setMealPairs(parsedResponse.pairings)
             setMealText(parsedResponse.text)
