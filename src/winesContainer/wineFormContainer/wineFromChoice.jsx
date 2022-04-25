@@ -3,10 +3,18 @@ import '../../App.css'
 
 const WineFormChoice = () =>{
     return(
-        <div>
-            <Link to='/pair/wine-for'><h3>Find wines to pair with your meal</h3></Link>
-            <Link to='/pair/meal-for'><h3>Find meal suggestions for your favorite wine</h3></Link>
-            <Link to='/wines'><h3>Find wine by type</h3></Link>
+        <div id="portal-choice-page">
+              <Link to='/pair/wine-for'>
+                  <img className="form-img" alt="portal door to wine suggestions"src="https://i.imgur.com/D43bZxO.jpg"></img>
+            </Link>
+           
+            <Link to='/pair/meal-for'> 
+                <img className="form-img"alt="portal door to meal suggestions"src="https://i.imgur.com/FV4zB5d.jpg"></img>
+            </Link>
+            
+            <Link to='/wines'>
+                <img className="form-img"alt="portal door to wine search"src="https://i.imgur.com/A8UqKCz.jpg"></img>
+            </Link>
         </div>
     )
 }

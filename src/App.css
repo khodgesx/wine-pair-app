@@ -85,6 +85,14 @@ nav a{
 #pic-label{
   text-align: center;
 }
+.form-img{
+  width: 30vw;
+}
+#portal-choice-page{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+}
 #form-container{
   text-align: center;
   padding: 10px;
