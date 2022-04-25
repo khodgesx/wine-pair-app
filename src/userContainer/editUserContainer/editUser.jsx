@@ -5,14 +5,9 @@ import { Link, useNavigate } from 'react-router-dom'
 const EditUser = () =>{
     let navigate = useNavigate()
     const user = JSON.parse(localStorage.getItem('currentUser'))
-    // useEffect(()=>{
-    //     test();
-    // })
-    // const test=()=>{
-    //     console.log(user)
-    // }
+    const display = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)
 
-//     //set state of place to prior values, unless changed
+//set state of place to prior values, unless changed
     const [ edit, setEdit ] = useState({
         username: user.username,
         displayName: user.displayName,
@@ -37,7 +32,7 @@ const editUser= async (idToEdit, userToEdit)=>{
         console.log(parsedEdit.data)
         
         localStorage.setItem('currentUser', JSON.stringify(parsedEdit.data))
-        console.log(JSON.parse(localStorage.getItem('currentUser')))
+        // console.log(JSON.parse(localStorage.getItem('currentUser')))
         navigate('/user-profile')
         window.location.reload()
         }
@@ -55,16 +50,13 @@ const inputChange=(e)=>{
 const submitEdit =(e)=>{
     e.preventDefault();
     editUser(user._id, edit)
-    navigate('/user-profile')
-   
-    
 }
 
 return(
     <div id="current-profile">
         <h3>Current Profile Settings:</h3>
         <h4>username: {user.username}</h4>
-        <h4>Display Name: {user.displayName}</h4>
+        <h4>Display Name: {display}</h4>
         <h4 id="pic-label">Profile Picture:</h4><Link to="/edit-userphoto"><img id="user-pic"src={user.img}/></Link>
 
       

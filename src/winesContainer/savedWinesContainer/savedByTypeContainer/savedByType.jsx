@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import '../../../App.css'
 
 const SavedByType = (props)=>{
@@ -50,7 +51,7 @@ const SavedByType = (props)=>{
                     return(
                         <div id="type-each" key={type._id}>
                             <h3>{type.name}</h3>
-                            <img src={type.img}></img>
+                            <Link to={`/saved-wines/${type._id}`}><img src={type.img}></img></Link>
                         </div>
                     )
                 })}
