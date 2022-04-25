@@ -117,16 +117,52 @@ nav a{
   border: solid 1px black;
   margin: 5px;
 }
+#wine-for-meal{
+  background-color: #a2344a;
+  height: 100vh;
+  color:white;
+}
+#wine-for-meal a{
+  color:white;
+}
+#meal-for-wine{
+  background-color: #e6bb38;
+  height: 100vh;
+  color:rgb(110, 27, 27);
+  padding: 10px;
+}
 #search-wines{
+  text-align: center;
   padding: 10px;
   font-size: 2vh;
 }
+#wine-search-map{
+  display: block;
+  border: solid 1px black;
+  padding: 5px;
+  text-align: center;
+  width:95%;
+  margin: 10px auto;
+}
+
 #search-wines button{
   font-size: 1.5vh;
   margin: 0 5px 2px 5px;
-  border-radius: 2%;
+  border-radius: 10px;
   border: none;
   background-color: #e19184;
+}
+#search-wines h2{
+  color: purple;
+}
+#submit-save, #back-totop{
+  font-size: 2.5vh;
+  margin: 10px 5px 2px 5px;
+  border-radius: 20px;
+  border: none;
+  background-color: #e19184;
+  width: 35vw;
+  height: 4vh;
 }
 #cellar-page{
   display: block;
@@ -266,10 +302,15 @@ nav a{
 }
 #search-wines button{
   font-size: 2vh;
-  margin: 0 5px 25px 15px;
-  border-radius: 2%;
+  margin: 10px 5px 25px 15px;
+  border-radius: 10px;
   border: none;
   background-color: #e19184;
+  width: 15vw;
+}
+#submit-save, #back-totop{
+  width: 25vw;
+
 }
 #user-profile img{
   width: 35vw;

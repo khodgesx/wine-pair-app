@@ -29,8 +29,8 @@ const Wines = (props)=>{
             if(parsedResponse.code === 400){
                 setWines(['oops try again!'])
             }else{
-                // console.log(parsedResponse)
                 setWines(parsedResponse.recommendedWines)
+                console.log(parsedResponse)
             }
         }catch(err){
             console.log(err)
@@ -90,13 +90,13 @@ const Wines = (props)=>{
             
                 { wines.map ((wine)=>{
                     return(
-                        <div key={wine.id}>
-                            <h2>{wine.title}</h2>
+                        <div id="wine-search-map"key={wine.id}>
+                            <h2 id="wine-search-title">{wine.title}</h2>
                             <img src={wine.imageUrl}/>
-                            <h3>{wine.price}</h3>
-                            <h4>rating count: {wine.ratingCount}</h4>
-                            <h4>score: {wine.score}</h4>
-                            <p>{wine.description}</p>
+                            <h3 id="wine-search-price">{wine.price}</h3>
+                            <h4 id="wine-rating-count">rating count: {wine.ratingCount}</h4>
+                            <h4 id="wine-rating">score: {wine.score}</h4>
+                            <p id="wine-search-description">{wine.description}</p>
                             { user === null ? <p>login to save!</p> 
                             : 
                             <section key={wine.id}>
@@ -125,11 +125,11 @@ const Wines = (props)=>{
                                     <label htmlFor="name">Notes:</label>
                                     <input onChange ={inputSave} type="text" name="notes"value=''></input>
                                 </div> */}
-                                <button type="submit">Save</button> 
+                                <button id="submit-save"type="submit">Save</button> 
                                 </form>
                                 
                                 </section> }
-                                <button><a href="#wines-component">Back to Top</a></button>
+                                <button id="back-totop"><a href="#wines-component">Back to Top</a></button>
                         </div>
                     )
                 })}

@@ -69,7 +69,7 @@ const Pair = (props)=>{
                     <input onChange={inputChange}type="text" name="meal" placeholder="main or cuisine type" required/>
                     <button type="submit">get pair</button>
                 </form>
-            
+                
                 { winepairs.map ((wine)=>{
                     return(
                         <h2 key={wine.index}>{wine}</h2>
@@ -99,9 +99,7 @@ const Pair = (props)=>{
                 <p>{mealText}</p>
              </section>
              }
-             {/* <section id="wine-results">
-                 <Wines></Wines>
-             </section> */}
+        
             
         </div>
             

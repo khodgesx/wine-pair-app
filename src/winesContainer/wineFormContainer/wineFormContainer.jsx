@@ -28,7 +28,7 @@ const WineFormContainer = (props)=>{
     }
     return(
         <div id="search-wines">
-            <h2>Find wines by type:</h2>
+            <h2>Search wines by grape:</h2>
         <div id="search-reds">
              <form onSubmit={submitRed}>
                 <label id="label" htmlFor="varietal">Reds:</label>
