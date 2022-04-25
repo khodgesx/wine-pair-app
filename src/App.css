@@ -86,7 +86,18 @@ nav a{
   text-align: center;
 }
 .form-img{
+  margin-top:40px;
   width: 30vw;
+  border: solid 2px black;
+}
+#portal-background{
+  height: 600px;
+  background-color: #a2344a;
+}
+#portal-background h3{
+  text-align:center;
+  color:#d9c2bf;
+  padding-top:25px;
 }
 #portal-choice-page{
   display: flex;

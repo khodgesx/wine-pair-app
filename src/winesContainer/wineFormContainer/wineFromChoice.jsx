@@ -3,6 +3,9 @@ import '../../App.css'
 
 const WineFormChoice = () =>{
     return(
+        <div id="portal-background">
+
+        <h3>Choose a door:</h3>
         <div id="portal-choice-page">
               <Link to='/pair/wine-for'>
                   <img className="form-img" alt="portal door to wine suggestions"src="https://i.imgur.com/D43bZxO.jpg"></img>
@@ -15,6 +18,7 @@ const WineFormChoice = () =>{
             <Link to='/wines'>
                 <img className="form-img"alt="portal door to wine search"src="https://i.imgur.com/A8UqKCz.jpg"></img>
             </Link>
+        </div>
         </div>
     )
 }
