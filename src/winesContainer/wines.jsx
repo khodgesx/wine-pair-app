@@ -98,8 +98,8 @@ const Wines = (props)=>{
                 { wines.map ((wine)=>{
                     return(
                         <div id="wine-search-map"key={wine.id}>
-                            <h2 id="wine-search-title">{wine.title ? wine.title : wine.type }</h2>
-                            {wine.title ? <h2>{wine.title}</h2> : <h2>{wineInput}</h2>}
+                            <h2 id="wine-search-title">{wine.title ? wine.title : wineInput }</h2>
+    
                             <img src={wine.imageUrl}/>
                             <h3 id="wine-search-price">{wine.price}</h3>
                             <h4 id="wine-rating-count">rating count: {wine.ratingCount}</h4>

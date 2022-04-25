@@ -43,6 +43,27 @@ nav a{
   gap:10px;
   width: 35%;
 }
+
+#new-wine-form div{
+  display: grid;
+  grid-template-rows: auto;
+  width: 90%;
+  margin: 10px;
+}
+#upload-pic{
+  margin: 10px;
+}
+#photo-row input{
+  color: rgb(128, 0, 60);
+  font-weight: 500;
+}
+
+#radio-row-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 55%;
+}
+
 #reg-button, #login-button, #logout, #delete, #submit{
   display: block;
   margin:30px auto;
@@ -346,6 +367,20 @@ nav a{
   color:black;
   width: 100%;
 }
+#new-wine-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin: 10px;
+  border: solid 1px black;
+}
+#new-wine-form div{
+  width: 30%;
+}
+
+
 #cellar-page h2{
   font-size: 4vh;
 }

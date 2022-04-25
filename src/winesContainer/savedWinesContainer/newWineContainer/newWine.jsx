@@ -61,26 +61,21 @@ const NewWine = (props)=>{
     }
 
     return(
-        <div>
-            <h3>new wine</h3>
-            <form onSubmit={submitNew} encType="multipart/form">
-                <div id="form-row">
+        <div id="new-wine-box">
+            <form id="new-wine-form"onSubmit={submitNew} encType="multipart/form">
+                <div className="form-row">
                     <label htmlFor="name"> Wine Name:</label>
                     <input onChange ={inputChange} type="text" name="name" value={newWine.name}></input>
                 </div>
 
-                <div id="form-row">
+                <div className="form-row">
                     <label htmlFor="name">Varietal/Grape:</label>
                     <input onChange ={inputChange}type="text" name="varietal" value={newWine.varietal}></input>
                 </div>
                 
-                 <div id="form-row">
-                    <label htmlFor="name">Photo:</label>
-                    <input onChange ={(e)=>setImage(e.target.files[0])} type="file" name="img" id="rest-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
- 
-                </div>   
-                <div id="form-row">
-                <div className="radio-row-container">
+               
+        
+                <div id="radio-row-container">
                             <div className="radio-option-container">
                                 <input onChange ={inputChange} type="radio" name="type" defaultValue='red' required></input>
                                 <label htmlFor="type">Red</label>
@@ -97,13 +92,19 @@ const NewWine = (props)=>{
                                 <input onChange ={inputChange} type="radio" name="type" defaultValue='other'></input>
                                 <label htmlFor="type">Dessert/Other</label>
                             </div>
-                            <div className="radio-option-container">
+                           
+                 
+                </div>  
+                <div className="form-row">
                                 <label htmlFor="type">Notes: </label>
                                 <input onChange ={inputChange} type="text" name="notes" ></input>
                             </div>
-                        </div>
+                <div className="form-row" id="photo-row">
+                    <label htmlFor="name">Photo:</label>
+                    <input onChange ={(e)=>setImage(e.target.files[0])} type="file" name="img" id="upload-pic"accept="image/png, image/jpeg"></input>
+  
                 </div>
-                <button type="submit">add new wine!</button>
+                <button id="submit" type="submit">add to cellar</button>
                 </form>
         </div>
     )

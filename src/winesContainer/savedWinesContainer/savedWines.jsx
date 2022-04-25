@@ -73,7 +73,7 @@ const SavedWines = ()=>{
               
                 <Modal id="add-modal"show={show} onHide={toggleShow} closeButton>
                     <img id="add-img"src="https://i.imgur.com/Kb4obeQ.png"></img>
-                    <Link className="add-links" to="/pair"><li >Search digital universe by varietal</li></Link>
+                    <Link className="add-links" to="/wine-form-choice"><li >Search digital universe by varietal</li></Link>
                     <Link className="add-links"to="/new"><li >add new wine manually</li></Link>
                     <button onClick={toggleShow}>Close</button>
                 </Modal>
