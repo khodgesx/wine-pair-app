@@ -70,10 +70,14 @@ const SavedWines = ()=>{
               <div id="add-new-links">
                 <img onClick={toggleShow}className="glass" src="https://i.imgur.com/Kb4obeQ.png"></img>
                 <h3 id="add">add wine to your cellar</h3>
-                <Modal show={show} onHide={toggleShow}>
-                    <Link to="/pair">Search digital universe by varietal</Link>
-                    <Link to="/new">add new wine manually</Link>
+              
+                <Modal id="add-modal"show={show} onHide={toggleShow} closeButton>
+                    <img id="add-img"src="https://i.imgur.com/Kb4obeQ.png"></img>
+                    <Link className="add-links" to="/pair"><li >Search digital universe by varietal</li></Link>
+                    <Link className="add-links"to="/new"><li >add new wine manually</li></Link>
+                    <button onClick={toggleShow}>Close</button>
                 </Modal>
+           
             </div>
 
             <h5 id="choose">Choose a wine by type:</h5>
