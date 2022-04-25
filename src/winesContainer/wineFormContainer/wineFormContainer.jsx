@@ -32,7 +32,7 @@ const WineFormContainer = (props)=>{
         <div id="search-reds">
              <form onSubmit={submitRed}>
                 <label id="label" htmlFor="varietal">Reds:</label>
-                <select onChange={inputChange} type="text" name="wine">
+                <select onChange={inputChange} type="text" name="wine" required>
                     <option placeholder="wine"></option>
                     <option value="agiorgitiko">Agiorgitiko</option>
                     <option value="aglianico">Aglianico</option>
@@ -83,7 +83,7 @@ const WineFormContainer = (props)=>{
         <div id="search-whites">   
             <form onSubmit={submitWhite}>
                 <label htmlFor="varietal">Whites:</label>
-                <select onChange={inputChange} type="text"id="varietals" name="wine">
+                <select onChange={inputChange} type="text"id="varietals" name="wine" required>
                     <option placeholder="wine"></option>
                     <option value="albarino">Albarino</option>
                     <option value="arneis">arneis</option>
@@ -130,7 +130,7 @@ const WineFormContainer = (props)=>{
         <div id="search-sparkling"> 
             <form onSubmit={submitSparkling}>
                 <label htmlFor="varietal">Sparkling:</label>
-                <select onChange={inputChange} type="text"id="varietals" name="wine">
+                <select onChange={inputChange} type="text"id="varietals" name="wine" required>
                     <option placeholder="wine"></option>
                     <option value="cava">Cava</option>
                     <option value="cremant">Cremant</option>
@@ -146,7 +146,7 @@ const WineFormContainer = (props)=>{
         <div id="search-other">  
             <form onSubmit={submitOther}>
                 <label htmlFor="varietal">Dessert & Other:</label>
-                <select onChange={inputChange} type="text"id="varietals" name="wine">
+                <select onChange={inputChange} type="text"id="varietals" name="wine" required>
                     <option placeholder="wine"></option>
                     <option value="banyuls">Banyuls</option>
                     <option value="fruit wine">Fruit Wine</option>

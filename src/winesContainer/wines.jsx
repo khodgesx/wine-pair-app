@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import '../App.css'
 import WineFormContainer from './wineFormContainer/wineFormContainer'
+import REACT_APP_SPOONACULAR_KEY from '../.env'
 
 const Wines = (props)=>{
     //input of wine varietal
@@ -20,14 +21,14 @@ const Wines = (props)=>{
         notes: '',
         user:''
     })
+    const key = process.env.REACT_APP_SPOONACULAR_KEY
 
     const getWines = async()=>{
         try{
             const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/recommendation?wine=${wineInput}&number=100&apiKey=cb507c45184a417d93e6e96bb372f637`)
             const parsedResponse = await apiResponse.json()
             if(parsedResponse.code === 400){
-                window.location.reload()
-                alert("oops not a valid input!")
+                setWines(['oops try again!'])
             }else{
                 // console.log(parsedResponse)
                 setWines(parsedResponse.recommendedWines)
