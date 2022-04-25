@@ -15,7 +15,7 @@ const SavedByType = (props)=>{
     const getAndSort =async()=>{
         const wines = await getWines();
         sortWines(wines);
-        testing()
+        setWineType()
        } 
    
     const user = JSON.parse(localStorage.getItem('currentUser'))
@@ -37,25 +37,37 @@ const SavedByType = (props)=>{
             return wine.type === props.type
         })
         setTypeShow(arrayByType) 
+        console.log(type)
     }
-    const testing=()=>{
+    const setWineType=()=>{
         setType(props.type)
     }
     
     return(
         <div id="type-list">
             <h2 id="type-title">{displayName}'s {type} wines:</h2>
-            <div id="type">
+            { typeShow.length === 0 ? 
+            <div>
+                { type !== 'other' ?  
+                <h2>Your cellar does not have any wines in the category, '{type} wines'...<Link to='/pair'>find some here</Link></h2>
+                :
                 
-                { typeShow.map ((type)=>{
-                    return(
-                        <div id="type-each" key={type._id}>
-                            <h3>{type.name}</h3>
-                            <Link to={`/saved-wines/${type._id}`}><img src={type.img}></img></Link>
-                        </div>
-                    )
-                })}
+                <h2>Your cellar does not have any wines in the category, 'dessert/other wines'...<Link to='/pair'>find some here</Link></h2>
+            }
             </div>
+            : 
+            <div id="type">
+                    { typeShow.map ((type)=>{
+                        return(
+                            <div id="type-each" key={type._id}>
+                                <h3>{type.name}</h3>
+                                <Link to={`/saved-wines/${type._id}`}><img src={type.img}></img></Link>
+                            </div>
+                        )
+                    })}
+            
+                </div>
+            }
         </div>
        
     )
