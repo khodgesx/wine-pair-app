@@ -92,7 +92,6 @@ const Wines = (props)=>{
                     return(
                         <div key={wine.id}>
                             <h2>{wine.title}</h2>
-                            <h2>test type: {type}</h2>
                             <img src={wine.imageUrl}/>
                             <h3>{wine.price}</h3>
                             <h4>rating count: {wine.ratingCount}</h4>
