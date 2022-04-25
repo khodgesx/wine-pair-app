@@ -3,8 +3,9 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Wines from './wines'
+import { propTypes } from 'react-bootstrap/esm/Image'
 
-const Pair = ()=>{
+const Pair = (props)=>{
     const [mealInput, setMealInput] = useState('')
     const [winepairs, setWinePairs] = useState([])
     const [text, setText] = useState('')
@@ -59,6 +60,8 @@ const Pair = ()=>{
 
     return(
         <div id="pair-component">
+
+            {props.form === 'find-wine' ?
              <section id="wine-for-meal">
                 <h2>find wine for meal:</h2>
                 <form onSubmit={submitMeal}>
@@ -76,14 +79,7 @@ const Pair = ()=>{
                 {product ? <a href={product} target="_blank">Check this option out!</a> : <p></p>}
              </section>
 
-             <section>
-                 <div>
-
-                 </div>
-                 
-              
-                
-             </section>
+           :
              <section id="meal-for-wine">
                 <h2>find meal for wine:</h2>
                 <form onSubmit={submitWine}>
@@ -102,11 +98,13 @@ const Pair = ()=>{
                 })}
                 <p>{mealText}</p>
              </section>
-             <section id="wine-results">
+             }
+             {/* <section id="wine-results">
                  <Wines></Wines>
-             </section>
-
+             </section> */}
+            
         </div>
+            
        
     )
 }

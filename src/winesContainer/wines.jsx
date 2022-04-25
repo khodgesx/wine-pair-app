@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import '../App.css'
 import WineFormContainer from './wineFormContainer/wineFormContainer'
-import REACT_APP_SPOONACULAR_KEY from '../.env'
 
 const Wines = (props)=>{
     //input of wine varietal
@@ -21,7 +20,7 @@ const Wines = (props)=>{
         notes: '',
         user:''
     })
-    const key = process.env.REACT_APP_SPOONACULAR_KEY
+ 
 
     const getWines = async()=>{
         try{

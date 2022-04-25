@@ -16,6 +16,7 @@ import SavedWines from './winesContainer/savedWinesContainer/savedWines'
 import SavedByType from './winesContainer/savedWinesContainer/savedByTypeContainer/savedByType'
 import SavedWineShow from './winesContainer/savedWinesContainer/savedWineShowContainer/savedWineShowContainer'
 import EditOneWine from './winesContainer/savedWinesContainer/editOneWineContainer/editOneWine'
+import WineFormChoice from './winesContainer/wineFormContainer/wineFromChoice'
 
 
 const App =()=> {
@@ -40,6 +41,8 @@ const App =()=> {
     }
 }
 const [type, setType] = useState()
+const [form, setForm] = useState()
+
   return (
     <Router>
       <div className="App">
@@ -53,8 +56,10 @@ const [type, setType] = useState()
             <Route exact path="/user-profile" element={ < UserProfile currentUser={currentUser} />}/>
             <Route exact path="/edit-user" element={ < EditUser currentUser={currentUser} />}/>
             <Route exact path="/edit-userphoto" element={ < EditUserPhoto currentUser={currentUser} />}/>
+            <Route exact path="/wine-form-choice" element={ <WineFormChoice />} />
             <Route path="/wines" element={ < Wines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
-            <Route path="/pair" element={<Pair/>}/>
+            <Route path="/pair/wine-for" element={<Pair form={'find-wine'}/>}/>
+            <Route path="/pair/meal-for" element={<Pair form={'find-meal'}/>}/>
             <Route path="/new" element={<NewWine currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/saved-wines" element={<SavedWines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/saved-wines/:id" element={<SavedWineShow currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
