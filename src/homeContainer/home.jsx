@@ -9,7 +9,7 @@ const Home = () =>{
                 <div id="home-taglines">
                     <h1>Pour Pair</h1>
                     <h2>Find & save wines to your <Link to="/saved-wines">wine cellar</Link></h2>
-                    <h2>Look up wines to <Link to="/pair">pair</Link> with your meals <br></br>or meal suggestions for your favorite wines</h2>
+                    <h2>Look up wines to <Link to="/wine-form-choice">pair</Link> with your meals <br></br>or meal suggestions for your favorite wines</h2>
                 </div>
                 
                 <img id="home-img"src="https://media.giphy.com/media/JsbqCNmqYGZ62t8mPJ/giphy-downsized-large.gif"></img>
@@ -21,7 +21,7 @@ const Home = () =>{
                 <div id="home-taglines">
                     <h1>Pour Pair</h1>
                     <h2>Find & save wines to your  digital wine cellar</h2>
-                    <h2>Look up wines to <Link to="/pair">pair</Link> with your meals <br></br>or meal suggestions for your favorite wines</h2>
+                    <h2>Look up wines to <Link to="/wine-form-choice">pair</Link> with your meals <br></br>or meal suggestions for your favorite wines</h2>
                 </div>
                 
                 <img id="home-img"src="https://media.giphy.com/media/JsbqCNmqYGZ62t8mPJ/giphy-downsized-large.gif"></img>
