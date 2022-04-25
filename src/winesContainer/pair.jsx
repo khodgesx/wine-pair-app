@@ -18,7 +18,7 @@ const Pair = ()=>{
     const getWinePair = async()=>{
         const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/pairing?food=${mealInput}&number=2&apiKey=cb507c45184a417d93e6e96bb372f637`)
         const parsedResponse = await apiResponse.json()
-        if(parsedResponse.pairingText === ''){
+        if(parsedResponse.pairingText === '' || parsedResponse.status === 'failure'){
             window.location.reload()
             alert("oops no matches. Try again!")
         }else{
