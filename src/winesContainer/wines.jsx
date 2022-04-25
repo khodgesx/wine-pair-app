@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { Modal } from 'react-bootstrap'
 import '../App.css'
 import WineFormContainer from './wineFormContainer/wineFormContainer'
+
 
 const Wines = (props)=>{
     //input of wine varietal
@@ -20,6 +23,8 @@ const Wines = (props)=>{
         notes: '',
         user:''
     })
+    const [show, setShow] = useState(false)
+    const toggleShow = () => setShow(!show)
  
 
     const getWines = async()=>{
@@ -30,6 +35,7 @@ const Wines = (props)=>{
                 setWines(['oops try again!'])
             }else{
                 setWines(parsedResponse.recommendedWines)
+
                 console.log(parsedResponse)
             }
         }catch(err){
@@ -61,8 +67,9 @@ const Wines = (props)=>{
             const parsedResponse = await createResponse.json()
             if(parsedResponse.success){
                 setSavedWines([parsedResponse.data, ...savedWines])
-                console.log(parsedResponse.data)
-                
+                // console.log(parsedResponse.data)
+                // alert('wine saved!')
+                toggleShow()
                 
             }else{
                 console.log(parsedResponse.data)
@@ -91,7 +98,8 @@ const Wines = (props)=>{
                 { wines.map ((wine)=>{
                     return(
                         <div id="wine-search-map"key={wine.id}>
-                            <h2 id="wine-search-title">{wine.title}</h2>
+                            <h2 id="wine-search-title">{wine.title ? wine.title : wine.type }</h2>
+                            {wine.title ? <h2>{wine.title}</h2> : <h2>{wineInput}</h2>}
                             <img src={wine.imageUrl}/>
                             <h3 id="wine-search-price">{wine.price}</h3>
                             <h4 id="wine-rating-count">rating count: {wine.ratingCount}</h4>
@@ -103,7 +111,8 @@ const Wines = (props)=>{
                                 <form onSubmit={submitSave} encType="multipart/form">
                                 <div id="form-row">
                             
-                                    <input hidden type="text" name="name" defaultValue={wine.title}></input>
+                                    <input hidden type="text" name="name" 
+                                    defaultValue={wine.title ? wine.title : wineInput}></input>
                                 </div>
 
                                 {/* <div id="form-row">
@@ -130,7 +139,13 @@ const Wines = (props)=>{
                                 
                                 </section> }
                                 <button id="back-totop"><a href="#wines-component">Back to Top</a></button>
+                                <div>
+                            <Modal show={show} onHide={toggleShow}>
+                                save successful! close to keep browsing, or <Link to="/saved-wines">click here</Link> to see saved wines in your wine cellar
+                            </Modal>
                         </div>
+                        </div>
+                        
                     )
                 })}
                 
