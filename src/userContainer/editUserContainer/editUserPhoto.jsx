@@ -40,6 +40,7 @@ const editUserPhoto= async (idToEdit, userToEdit)=>{
         if(parsedEdit.success){
         localStorage.setItem('currentUser', JSON.stringify(parsedEdit.data))
         console.log(JSON.parse(localStorage.getItem('currentUser')))
+        navigate('/user-profile')
         }
 
     }catch(err){
@@ -50,6 +51,8 @@ const editUserPhoto= async (idToEdit, userToEdit)=>{
 const submitEditPhoto = (e)=>{
     e.preventDefault();
     editUserPhoto(user._id, image)
+    
+    
 }
 
 return(

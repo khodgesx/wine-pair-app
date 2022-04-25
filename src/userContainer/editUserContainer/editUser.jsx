@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const EditUser = () =>{
+    let navigate = useNavigate()
     const user = JSON.parse(localStorage.getItem('currentUser'))
     // useEffect(()=>{
     //     test();
@@ -37,6 +38,8 @@ const editUser= async (idToEdit, userToEdit)=>{
         
         localStorage.setItem('currentUser', JSON.stringify(parsedEdit.data))
         console.log(JSON.parse(localStorage.getItem('currentUser')))
+        navigate('/user-profile')
+        window.location.reload()
         }
 
     }catch(err){
@@ -52,6 +55,7 @@ const inputChange=(e)=>{
 const submitEdit =(e)=>{
     e.preventDefault();
     editUser(user._id, edit)
+    navigate('/user-profile')
    
     
 }
