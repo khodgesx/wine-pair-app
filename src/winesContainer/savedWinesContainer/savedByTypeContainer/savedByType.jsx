@@ -49,10 +49,12 @@ const SavedByType = (props)=>{
             { typeShow.length === 0 ? 
             <div>
                 { type !== 'other' ?  
-                <h2>Your cellar does not have any wines in the category, '{type} wines'...<Link to='/pair'>find some here</Link></h2>
+                <h2>Your cellar does not have any wines in the category, '{type} wines. ' <Link to='/pair'>Search for some here</Link> or
+                <Link to='/new'> add your own here</Link></h2>
                 :
                 
-                <h2>Your cellar does not have any wines in the category, 'dessert/other wines'...<Link to='/pair'>find some here</Link></h2>
+                <h2>Your cellar does not have any wines in the category, 'dessert/other wines. '<Link to='/pair'>Search for some here</Link> or   
+                <Link to='/new'> add your own here</Link></h2>
             }
             </div>
             : 
