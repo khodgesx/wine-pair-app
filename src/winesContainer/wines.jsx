@@ -43,13 +43,13 @@ const Wines = (props)=>{
         } 
     }
 
-    const user = JSON.parse(localStorage.getItem('props.currentUser'))
+    const user = JSON.parse(localStorage.getItem('currentUser'))
 
   
     //create:
     const saveWine = async (wineName, wineImage, wineType) =>{
         try {
-            const user = JSON.parse(localStorage.getItem('props.currentUser'))
+            const user = JSON.parse(localStorage.getItem('currentUser'))
             console.log(type)
             const createResponse = await fetch(`http://localhost:3001/wines/${user._id}`,{
                 method: "POST",
@@ -142,7 +142,7 @@ const Wines = (props)=>{
                                 <button id="back-totop"><a href="#wines-component">Back to Top</a></button>
                                 <div>
                             <Modal show={show} onHide={toggleShow}>
-                                save successful! close to keep browsing, or <Link to="/saved-wines">click here</Link> to see saved wines in your wine cellar
+                                save successful! <a onClick={toggleShow}>close</a> to keep browsing, or <Link to="/saved-wines">click here</Link> to see saved wines in your wine cellar
                             </Modal>
                         </div>
                         </div>
