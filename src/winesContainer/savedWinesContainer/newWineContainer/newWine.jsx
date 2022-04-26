@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../../../App.css'
 
 const NewWine = (props)=>{
+    let navigate = useNavigate()
     const [newWine, setNewWine] = useState({
         name: '',
         varietal: '',
@@ -44,6 +46,7 @@ const NewWine = (props)=>{
             if(parsedResponse.success){
                 console.log(parsedResponse.data.apiId)
                 props.setWineCellar([parsedResponse.data, ...props.wineCellar])
+                navigate('/saved-wines')
             }else{
                 console.log(parsedResponse.data)
             }
