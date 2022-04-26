@@ -17,7 +17,7 @@ const SavedWines = ()=>{
     const toggleShow = ()=>setShow(!show)
 
     const user = JSON.parse(localStorage.getItem('currentUser'))
-    const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)
+    const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1).toLowerCase()
 
     // wine cellar index:
     const getWines = async ()=>{
@@ -25,7 +25,7 @@ const SavedWines = ()=>{
             //get wines by user id = all saved wines for that user in mongodb
             const wines = await fetch (`http://localhost:3001/wines/user/${user._id}`)
             const parsedWines = await wines.json()
-            setWineCellar(parsedWines.data)
+            setWineCellar(parsedWines.data.reverse())
 
         }catch(err){
             console.log(err)
