@@ -50,7 +50,7 @@ const Wines = (props)=>{
     const saveWine = async (wineName, wineImage, wineType) =>{
         try {
             const user = JSON.parse(localStorage.getItem('currentUser'))
-            console.log(type)
+            console.log(wineName)
             const createResponse = await fetch(`http://localhost:3001/wines/${user._id}`,{
                 method: "POST",
                 body: JSON.stringify({
@@ -82,6 +82,7 @@ const Wines = (props)=>{
     }
         const submitSave = async(e)=>{
             e.preventDefault()
+            console.log(e.target[0].value)
             saveWine(e.target[0].value, e.target[1].value, e.target[2].value) 
         }
 
@@ -99,7 +100,7 @@ const Wines = (props)=>{
                 { wines.map ((wine)=>{
                     return(
                         <div id="wine-search-map"key={wine.id}>
-                            <h2 id="wine-search-title">{wine.title ? wine.title : wineInput }</h2>
+                            <h2 id="wine-search-title">{wine.title ? wine.title : '' }</h2>
     
                             <img src={wine.imageUrl}/>
                             <h3 id="wine-search-price">{wine.price}</h3>
@@ -113,7 +114,7 @@ const Wines = (props)=>{
                                 <div id="form-row">
                             
                                     <input hidden type="text" name="name" 
-                                    defaultValue={wine.title ? wine.title : wineInput}></input>
+                                    defaultValue={wine.title ? wine.title : wine.id}></input>
                                 </div>
 
                                 {/* <div id="form-row">
@@ -141,8 +142,13 @@ const Wines = (props)=>{
                                 </section> }
                                 <button id="back-totop"><a href="#wines-component">Back to Top</a></button>
                                 <div>
-                            <Modal show={show} onHide={toggleShow}>
-                                save successful! <a onClick={toggleShow}>close</a> to keep browsing, or <Link to="/saved-wines">click here</Link> to see saved wines in your wine cellar
+                            <Modal id="save-modal-border" show={show} onHide={toggleShow}>
+                                <Modal.Body id="save-modal">
+                                    <h3 id="save-success"> save successful!</h3> 
+                                    <h3 id="save-success-options"><a id="close"onClick={toggleShow}>Close </a> to keep browsing, or 
+                                    <Link id="link" to="/saved-wines"> Click here </Link> 
+                                        to see wines in your wine cellar</h3>
+                                 </Modal.Body>
                             </Modal>
                         </div>
                         </div>

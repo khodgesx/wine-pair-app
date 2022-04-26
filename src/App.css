@@ -197,6 +197,28 @@ nav a:hover{
   width: 35vw;
   height: 4vh;
 }
+
+#save-modal{
+  height: 200px;
+}
+#save-success{
+  margin: 10px;
+  font-size: 3vh;
+  text-align: center;
+  color: #d66553;
+}
+#save-success-options{
+  font-size: 2.5vh;
+  width: 70%;
+  display: block;
+  margin: 30px auto;
+}
+#close, #link{
+  text-decoration: underline;
+  color:rgb(182, 52, 52);
+  cursor: pointer;
+  font-size: 3vh;
+}
 #cellar-page{
   display: block;
   margin: 0 auto;
