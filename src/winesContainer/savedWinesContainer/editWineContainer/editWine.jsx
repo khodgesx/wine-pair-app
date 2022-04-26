@@ -8,6 +8,7 @@ const EditWine =(props)=>{
         varietal: props.editWine.varietal,
         img: props.editWine.img,
         notes: props.editWine.notes,
+        apiId:props.editWine.apiId,
         rating: props.editWine.rating
     })
     const close=()=>{

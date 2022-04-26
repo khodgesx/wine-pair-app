@@ -8,6 +8,7 @@ const NewWine = (props)=>{
         img: '',
         type:'',
         notes: '',
+        apiId:'',
         rating: null,
         user:''
     })
@@ -41,6 +42,7 @@ const NewWine = (props)=>{
             const parsedResponse = await createResponse.json()
             console.log(parsedResponse)
             if(parsedResponse.success){
+                console.log(parsedResponse.data.apiId)
                 props.setWineCellar([parsedResponse.data, ...props.wineCellar])
             }else{
                 console.log(parsedResponse.data)
@@ -52,7 +54,8 @@ const NewWine = (props)=>{
     const inputChange = (e)=>{
         setNewWine({
             ...newWine,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            apiId: newWine.name
         })
     }
 
@@ -100,6 +103,10 @@ const NewWine = (props)=>{
                                 <label htmlFor="type">Notes: </label>
                                 <input onChange ={inputChange} type="text" name="notes" ></input>
                             </div>
+                            <div className="form-row">
+                                <input hidden type="text" name="apiId" ></input>
+                            </div>
+
                 <div className="form-row">
                     <label htmlFor="rating">Rating: </label>
                     <select onChange ={inputChange} type="number" name="rating" >
