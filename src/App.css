@@ -77,7 +77,7 @@ nav a:hover{
 #reg-button, #login-button, #logout, #delete, #submit{
   display: block;
   margin:30px auto;
-  width: 35%;
+  width: 40%;
   text-align: center;
   background-color:#e19184;
   color:white;

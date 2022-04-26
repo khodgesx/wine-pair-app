@@ -53,8 +53,8 @@ const [form, setForm] = useState()
             <Route exact path="/" element={< Home />}/>
             <Route exact path ="/sign-up" element={< SignUp />} />
             <Route exact path="/login" element={ < Login loggedIn={loggedIn}setLoggedIn={setLoggedIn}currentUser={currentUser} />}/>
-            <Route exact path="/user-profile" element={ < UserProfile currentUser={currentUser} />}/>
-            <Route exact path="/edit-user" element={ < EditUser wineCellar={wineCellar}currentUser={currentUser} />}/>
+            <Route exact path="/user-profile" element={ < UserProfile  wineCellar={wineCellar}currentUser={currentUser} />}/>
+            <Route exact path="/edit-user" element={ < EditUser currentUser={currentUser} />}/>
             <Route exact path="/edit-userphoto" element={ < EditUserPhoto currentUser={currentUser} />}/>
             <Route exact path="/wine-form-choice" element={ <WineFormChoice />} />
             <Route path="/wines" element={ < Wines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>

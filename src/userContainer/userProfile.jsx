@@ -4,7 +4,7 @@ const UserProfile = (props)=>{
     const [wineCellar, setWineCellar] = useState([])
 
     useEffect(() =>{
-      getWines();
+      getWines()
   }, [])
     const getWines = async ()=>{
       try{
