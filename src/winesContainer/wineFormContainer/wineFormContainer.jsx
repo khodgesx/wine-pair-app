@@ -9,22 +9,26 @@ const WineFormContainer = (props)=>{
         e.preventDefault()
         props.getWines()
         props.setType('red') 
+        props.scrollToResults()
     }
     const submitWhite = async(e)=>{
         e.preventDefault()
         props.getWines()
-        props.setType('white') 
+        props.setType('white')
+        props.scrollToResults() 
     }
     const submitSparkling = async(e)=>{
         e.preventDefault()
         props.getWines()
         props.setType('sparkling') 
+        props.scrollToResults()
     }
 
     const submitOther = async(e)=>{
         e.preventDefault()
         props.getWines()
         props.setType('other') 
+        props.scrollToResults()
     }
     return(
         <div id="search-wines">
@@ -35,10 +39,10 @@ const WineFormContainer = (props)=>{
                 <select onChange={inputChange} type="text" name="wine" required>
                     <option placeholder="wine"></option>
                     <option value="Agiorgitiko">Agiorgitiko</option>
-                    <option value="aglianico">Aglianico</option>
-                    <option value="baco noir">Baco Noir</option>
-                    <option value="bairrada">Bairrada</option>
-                    <option value="barbera wine">Barbera</option>
+                    <option value="Aglianico">Aglianico</option>
+                    <option value="Baco Noir">Baco Noir</option>
+                    <option value="Bairrada">Bairrada</option>
+                    <option value="Barbera wine">Barbera</option>
                     <option value="bonarda">Bonarda</option>
                     <option value="bordeaux">Bordeaux</option>
                     <option value="cabernet franc">Cabernet Franc</option>

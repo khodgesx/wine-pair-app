@@ -1,11 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import '../App.css'
 import WineFormContainer from './wineFormContainer/wineFormContainer'
 
 
-const Wines = (props)=>{
+const Wines = ()=>{
+    const myRef = useRef()
+    const scrollToResults = () => myRef.current.scrollIntoView()
+
     //input of wine varietal
     const [wineInput, setWineInput] = useState('')
     //type - set on submit from varietal drop down
@@ -26,7 +29,8 @@ const Wines = (props)=>{
     })
     const [show, setShow] = useState(false)
     const toggleShow = () => setShow(!show)
- 
+    
+    
 
     const getWines = async()=>{
         try{
@@ -36,13 +40,31 @@ const Wines = (props)=>{
                 setWines(['oops try again!'])
             }else{
                 setWines(parsedResponse.recommendedWines)
-
-                console.log(parsedResponse)
+                // console.log(parsedResponse)
+                getMealPair()
             }
         }catch(err){
             console.log(err)
         } 
     }
+    ////////////////////////////////////////////////////////////////////////
+    const [pairText, setPairText] = useState('')
+    const [meals, setMeals] = useState([])
+    ////////////////////////////////////////////////////////////////////////
+    const getMealPair = async()=>{
+        const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/dishes?wine=${wineInput}&apiKey=cb507c45184a417d93e6e96bb372f637`)
+        const parsedResponse = await apiResponse.json()
+        if(parsedResponse.code === 400 || parsedResponse.status === 'failure'){
+            setMeals([`${wineInput} goes well with everything! Though, I'd start with a pizza pairing.`])
+            setPairText('Try again - check the drop down below for suggested varietals')
+        }else{
+            console.log(parsedResponse)
+            setMeals(parsedResponse.pairings)
+            setPairText(parsedResponse.text)
+        }
+        
+    }
+    ////////////////////////////////////////////////////////////////////////
 
     const user = JSON.parse(localStorage.getItem('currentUser'))
 
@@ -93,11 +115,14 @@ const Wines = (props)=>{
                     setType={setType}
                     setWineInput={setWineInput}
                     getWines={getWines}
+                    scrollToResults={scrollToResults}
                 ></WineFormContainer>
-              
+
+                <div ref={myRef}></div>
             
                 { wines.map ((wine)=>{
                     return(
+                        
                         <div id="wine-search-map"key={wine.id}>
                             <h2 id="wine-search-title">{wine.title ? wine.title : '' }</h2>
     
@@ -106,6 +131,7 @@ const Wines = (props)=>{
                             <h4 id="wine-rating-count">rating count: {wine.ratingCount}</h4>
                             <h4 id="wine-rating">score: {wine.score}</h4>
                             <p id="wine-search-description">{wine.description}</p>
+
                             { user === null ? <p>login to save!</p> 
                             : 
                             <section key={wine.id}>
@@ -143,25 +169,27 @@ const Wines = (props)=>{
                                 <button id="submit-save"type="submit">Save</button> 
                                 </form>
                                 
-                                </section> }
+                                
+                            </section> }
                                 <button id="back-totop"><a href="#wines-component">Back to Top</a></button>
+                               
                                 <div>
-                            <Modal id="save-modal-border" show={show} onHide={toggleShow}>
-                                <Modal.Body id="save-modal">
-                                    <h3 id="save-success"> save successful!</h3> 
-                                    <h3 id="save-success-options"><a id="close"onClick={toggleShow}>Close </a> to keep browsing, or 
-                                    <Link id="link" to="/saved-wines"> Click here </Link> 
-                                        to see wines in your wine cellar</h3>
-                                 </Modal.Body>
-                            </Modal>
-                        </div>
-                        </div>
-                        
+                                    <Modal id="save-modal-border" show={show} onHide={toggleShow}>
+                                        <Modal.Body id="save-modal">
+                                            <h3 id="save-success"> save successful!</h3> 
+                                            <h3 id="save-success-options"><a id="close"onClick={toggleShow}>Close </a> to keep browsing, or 
+                                            <Link id="link" to="/saved-wines"> Click here </Link> 
+                                                to see wines in your wine cellar</h3>
+                                        </Modal.Body>
+                                    </Modal>
+                                </div>
+                        </div> 
                     )
                 })}
-                
+              
              </section>
         </div>
+         
     )
 }
 
