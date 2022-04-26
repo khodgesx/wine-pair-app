@@ -68,8 +68,6 @@ const Wines = (props)=>{
             const parsedResponse = await createResponse.json()
             if(parsedResponse.success){
                 setSavedWines([parsedResponse.data, ...savedWines])
-                // console.log(parsedResponse.data)
-                // alert('wine saved!')
                 toggleShow()
                 
             }else{
@@ -82,7 +80,6 @@ const Wines = (props)=>{
     }
         const submitSave = async(e)=>{
             e.preventDefault()
-            console.log(e.target[0].value)
             saveWine(e.target[0].value, e.target[1].value, e.target[2].value) 
         }
 

@@ -37,7 +37,6 @@ const SavedByType = (props)=>{
             return wine.type === props.type
         })
         setTypeShow(arrayByType) 
-        console.log(type)
     }
     const setWineType=()=>{
         setType(props.type)
@@ -45,16 +44,28 @@ const SavedByType = (props)=>{
     
     return(
         <div id="type-list">
-            <h2 id="type-title">{displayName}'s {type} wines:</h2>
+            <h2 id="type-title">{displayName}'s {type !== 'other' ? type.charAt(0).toUpperCase() + type.slice(1).toLowerCase() : 'Dessert/Other Wines'} Wines:</h2>
             { typeShow.length === 0 ? 
-            <div>
-                { type !== 'other' ?  
-                <h2>Your cellar does not have any wines in the category, '{type} wines. ' <Link to='/pair'>Search for some here</Link> or
-                <Link to='/new'> add your own here</Link></h2>
-                :
+            <div id="no-wines-by-type">
+                { type !== 'other' ? 
+                <div className="no-type-message"> 
+                    { type === 'red' ? <img className="glass" alt="red wine glass"src="https://i.imgur.com/dl3mHFY.jpg"/>
+                    : type === 'white' ? <img className="glass" alt="white wine glass"src="https://i.imgur.com/d43ykBO.jpg"/> 
+                    :  <img className="glass" alt="sparkling wine glass"src="https://i.imgur.com/nd8unGv.jpg"/> }
+                    <h2>Your cellar does not have any wines in the category, '{type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()} Wines.' <br/><br/> 
+                    <Link to='/wines'>Search for some here</Link> or
+                    <Link to='/new'> add your own here</Link></h2>
+                    
+                </div>
                 
-                <h2>Your cellar does not have any wines in the category, 'dessert/other wines. '<Link to='/pair'>Search for some here</Link> or   
+                :
+                <div className="no-type-message">
+                    <img className="glass" alt="dessert wine glass"src="https://i.imgur.com/94mPFSW.jpg"/> 
+                <h2>Your cellar does not have any wines in the category, 'dessert/other wines.' <br/><br/>
+                <Link to='/wines'>Search for some here</Link> or   
                 <Link to='/new'> add your own here</Link></h2>
+                
+                </div>
             }
             </div>
             : 

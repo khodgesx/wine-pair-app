@@ -229,9 +229,19 @@ nav a:hover{
   justify-content: space-evenly;
   margin: 0 auto 30px auto;
 }
+#no-wines-by-type{
+  margin: 20px;
+}
+#no-wines-by-type h2{
+  font-size: 2vh;
+  text-align: center;
+}
+.no-type-message img{
+  display:block;
+  margin: 0 auto 25px auto;
+}
 .glass{
   width: 15vw;
-
 }
 
 #cellar-page h2{
@@ -426,6 +436,9 @@ nav a{
 }
 #cellar-list, #type-list{
   grid-template-columns: repeat(auto-fill, 30vw);
+}
+#no-wines-by-type h2{
+  font-size: 3vh;
 }
 #each-wine h3, #type-each h3{
   font-size: 3vh;
