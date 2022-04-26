@@ -2,7 +2,7 @@ import '../App.css'
 import { Link } from 'react-router-dom'
 
 const Home = () =>{
-    const user = JSON.parse(localStorage.getItem('props.currentUser'))
+    const user = JSON.parse(localStorage.getItem('currentUser'))
     if(user !== null){
         return(
             <div id="home">

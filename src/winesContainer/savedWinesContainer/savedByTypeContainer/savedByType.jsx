@@ -19,8 +19,8 @@ const SavedByType = (props)=>{
        } 
    
     const user = JSON.parse(localStorage.getItem('currentUser'))
-    const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)
-
+    const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1).toLowerCase()
+    
     const getWines = async ()=>{
       try{
           const wineFetch = await fetch (`http://localhost:3001/wines/user/${user._id}`)
@@ -44,29 +44,24 @@ const SavedByType = (props)=>{
     
     return(
         <div id="type-list">
-            <h2 id="type-title">{displayName}'s {type !== 'other' ? type.charAt(0).toUpperCase() + type.slice(1).toLowerCase() : 'Dessert/Other Wines'} Wines:</h2>
+            <h2 id="type-title">{displayName}'s {type === 'red' ? 'Red' : type === 'white' ? 'White' : type === 'sparkling' ?
+            'Sparkling' : 'Dessert/Other Wines'} Wines:</h2>
             { typeShow.length === 0 ? 
             <div id="no-wines-by-type">
-                { type !== 'other' ? 
+               
                 <div className="no-type-message"> 
                     { type === 'red' ? <img className="glass" alt="red wine glass"src="https://i.imgur.com/dl3mHFY.jpg"/>
                     : type === 'white' ? <img className="glass" alt="white wine glass"src="https://i.imgur.com/d43ykBO.jpg"/> 
-                    :  <img className="glass" alt="sparkling wine glass"src="https://i.imgur.com/nd8unGv.jpg"/> }
-                    <h2>Your cellar does not have any wines in the category, '{type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()} Wines.' <br/><br/> 
+                    : type === 'sparkling' ? <img className="glass" alt="sparkling wine glass"src="https://i.imgur.com/nd8unGv.jpg"/> 
+                    :  <img className="glass" alt="dessert wine glass"src="https://i.imgur.com/94mPFSW.jpg"/> }
+                    <h2>Your cellar does not have any wines in the category, 
+                        '{type === 'red' ? 'Red' : type === 'white' ? 'White' : type === 'sparkling' ?
+                        'Sparkling' : 'Dessert/Other Wines'} Wines.' <br/><br/> 
                     <Link to='/wines'>Search for some here</Link> or
                     <Link to='/new'> add your own here</Link></h2>
                     
                 </div>
-                
-                :
-                <div className="no-type-message">
-                    <img className="glass" alt="dessert wine glass"src="https://i.imgur.com/94mPFSW.jpg"/> 
-                <h2>Your cellar does not have any wines in the category, 'dessert/other wines.' <br/><br/>
-                <Link to='/wines'>Search for some here</Link> or   
-                <Link to='/new'> add your own here</Link></h2>
-                
-                </div>
-            }
+           
             </div>
             : 
             <div id="type">
