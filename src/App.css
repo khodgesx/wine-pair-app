@@ -182,8 +182,9 @@ nav a:hover{
 }
 #search-wines div{
 border: solid 1px rgb(197, 148, 148);
-margin: 10px 0;
+margin: 10px auto;
 display:block;
+width: 85%;
 }
 #wine-search-map{
   display: block;
@@ -195,33 +196,6 @@ display:block;
 }
 
 #search-wines button{
-  font-size: 1.5vh;
-  margin: 0 5px 2px 5px;
-  border-radius: 10px;
-  border: none;
-  background-color: #e19184;
-}
-#search-wines h2{
-  color: purple;
-}
-
-
-#search-wines{
-  padding: 10px;
-  font-size: 2.5vh;
-}
-#search-wines div{
-  border: solid 1px rgb(197, 148, 148);
-  margin: 10px 0;
-}
-#search-wines select{
-  height: 25px;
-  text-align: center;
-  display: block;
-  margin: 0 auto;
-  width: 175px;
-}
-#search-wines button{
   font-size: 2vh;
   margin: 10px 5px 25px 15px;
   border-radius: 10px;
@@ -229,6 +203,18 @@ display:block;
   background-color: #e19184;
   width: 15vw;
 }
+#search-wines h2{
+  color: purple;
+}
+
+#search-wines select{
+  height: 25px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 175px;
+}
+
 
 #submit-save, #back-totop{
   font-size: 2.5vh;
@@ -486,13 +472,23 @@ nav a{
 }
 #portal-choice-page img{
   width: 100%;
-
 }
 #portal-choice-page h4{
   font-size: 2.5vh;
 }
 .option{
   height: 400px;
+}
+#search-wines div{
+  width: 75%;
+  height: 150px;
+}
+#search-wines label{
+  font-size: 2.75vh;
+}
+#search-wines button{
+  margin: 35px auto 15px auto;
+  font-size: 2.5vh;
 }
 
 
