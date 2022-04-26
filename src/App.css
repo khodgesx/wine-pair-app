@@ -34,6 +34,12 @@ nav a{
   padding: 10px;
   margin: 10px 19px;  
 }
+#logout-link{
+  cursor: pointer;
+}
+#logout-link:hover{
+  color: white;
+}
 #home-taglines h2{
   font-size: 3vh;
 }

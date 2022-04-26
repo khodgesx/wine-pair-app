@@ -1,8 +1,16 @@
 import '../App.css';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 const Nav=(props)=> {
-  const user = JSON.parse(localStorage.getItem('props.currentUser'))
+  let navigate=useNavigate()
+
+  const remove = ()=>{
+    localStorage.removeItem('currentUser')
+    navigate('/')
+  }
+
+  const user = JSON.parse(localStorage.getItem('currentUser'))
   if(user !== null){
     return (
       <div>
@@ -11,7 +19,7 @@ const Nav=(props)=> {
              <ul className='nav-links'>
                  <Link to="/wine-form-choice"><li className="links">Pair Portal</li></Link>
                  <Link to="/user-profile"><li className="links">Profile</li></Link>
-                 <Link to="/login"><li className="links">Logout</li></Link>
+                <a id="logout-link"><li onClick={remove}className="links">Logout</li></a>
              </ul>
           </nav>
     

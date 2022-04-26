@@ -17,7 +17,7 @@ const Login =(props)=>{
         const submitLogin = async (e)=>{
             e.preventDefault()
             loginUser(userLogin)
-            console.log('on submit login:', userLogin.username)
+            // console.log('on submit login:', userLogin.username)
         }
 
     const loginUser = async (possibleUser) =>{
@@ -32,18 +32,20 @@ const Login =(props)=>{
                 }
             })
             const parsedResponse = await loginResponse.json()
+            console.log(parsedResponse)
         
             if(parsedResponse.success){
-               localStorage.setItem('props.currentUser', JSON.stringify(parsedResponse.data))
+               localStorage.setItem('currentUser', JSON.stringify(parsedResponse.data))
             //    console.log(localStorage.getItem('props.currentUser'))
-                setUserLogin(localStorage.getItem('props.currentUser'))
-                let userInfo = JSON.parse(localStorage.getItem('props.currentUser'))
+                setUserLogin(localStorage.getItem('currentUser'))
+                let userInfo = JSON.parse(localStorage.getItem('currentUser'))
                 let displayName = userInfo.displayName
                 console.log(displayName)
                 props.setLoggedIn(true)
                 navigate('/')
-            }else{
+            }else if(parsedResponse.success === false){
                 console.log('no success?', parsedResponse.data)
+                window.location.reload()
             }
         } catch (err) {
             console.log(err)
