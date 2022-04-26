@@ -29,7 +29,7 @@ const NewWine = (props)=>{
             newWine.img = await parsedImg.url
     
             }else{
-                newWine.img = 'https://i.imgur.com/IsRaUa5.png'
+                newWine.img = 'https://i.imgur.com/yNIVijD.jpg'
             }
             const user = JSON.parse(localStorage.getItem('currentUser'))
             const createResponse = await fetch (`http://localhost:3001/wines/new/${user._id}`,{

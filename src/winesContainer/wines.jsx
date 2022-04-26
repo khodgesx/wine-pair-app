@@ -113,7 +113,7 @@ const Wines = (props)=>{
                                 <div id="form-row">
                             
                                     <input hidden type="text" name="name" 
-                                    defaultValue={wine.title ? wine.title : wine.id}></input>
+                                    defaultValue={wine.title ? wine.title : wineInput}></input>
                                 </div>
 
                                 {/* <div id="form-row">
