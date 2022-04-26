@@ -330,6 +330,10 @@ nav{
   left:0;
   right:0; */
 }
+.nav-links{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 nav a{
   font-size: 2.5vh;
 }
@@ -385,7 +389,6 @@ nav a{
 #new-wine-form div{
   width: 30%;
 }
-
 
 #cellar-page h2{
   font-size: 4vh;
