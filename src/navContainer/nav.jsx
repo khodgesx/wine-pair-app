@@ -1,8 +1,7 @@
 import '../App.css';
 import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
 
-const Nav=(props)=> {
+const Nav=()=> {
   let navigate=useNavigate()
 
   const remove = ()=>{

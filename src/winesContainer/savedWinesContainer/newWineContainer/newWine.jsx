@@ -8,6 +8,7 @@ const NewWine = (props)=>{
         img: '',
         type:'',
         notes: '',
+        rating: null,
         user:''
     })
     const [image, setImage] = useState()
@@ -99,6 +100,21 @@ const NewWine = (props)=>{
                                 <label htmlFor="type">Notes: </label>
                                 <input onChange ={inputChange} type="text" name="notes" ></input>
                             </div>
+                <div className="form-row">
+                    <label htmlFor="rating">Rating: </label>
+                    <select onChange ={inputChange} type="number" name="rating" >
+                        <option placeholder="rating"></option>
+                        <option value="1">1</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                        <option value="2.5">2.5</option>
+                        <option value="3">3</option>
+                        <option value="3.5">3.5</option>
+                        <option value="4">4</option>
+                        <option value="4.5">4.5</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
                 <div className="form-row" id="photo-row">
                     <label htmlFor="name">Photo:</label>
                     <input onChange ={(e)=>setImage(e.target.files[0])} type="file" name="img" id="upload-pic"accept="image/png, image/jpeg"></input>

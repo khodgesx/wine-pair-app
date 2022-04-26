@@ -58,7 +58,8 @@ const Wines = (props)=>{
                     varietal: wineInput,
                     img: wineImage,
                     type: wineType,
-                    notes: ''
+                    notes: '',
+                    rating: null
                 }),
                 headers: {
                     "Content-Type": "application/json"
