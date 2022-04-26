@@ -45,7 +45,7 @@ const SavedByType = (props)=>{
     return(
         <div id="type-list">
             <h2 id="type-title">{displayName}'s {type === 'red' ? 'Red' : type === 'white' ? 'White' : type === 'sparkling' ?
-            'Sparkling' : 'Dessert/Other Wines'} Wines:</h2>
+            'Sparkling' : 'Dessert/Other'} Wines:</h2>
             { typeShow.length === 0 ? 
             <div id="no-wines-by-type">
                
@@ -56,7 +56,7 @@ const SavedByType = (props)=>{
                     :  <img className="glass" alt="dessert wine glass"src="https://i.imgur.com/94mPFSW.jpg"/> }
                     <h2>Your cellar does not have any wines in the category, 
                         '{type === 'red' ? 'Red' : type === 'white' ? 'White' : type === 'sparkling' ?
-                        'Sparkling' : 'Dessert/Other Wines'} Wines.' <br/><br/> 
+                        'Sparkling' : 'Dessert/Other'} Wines.' <br/><br/> 
                     <Link to='/wines'>Search for some here</Link> or
                     <Link to='/new'> add your own here</Link></h2>
                     

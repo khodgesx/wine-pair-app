@@ -19,6 +19,10 @@ const SavedWineShow = (props)=>{
     const toggleShow=()=>setShowModal(!showModal)
     const [editWine, setEditWine] = useState({})
 
+    const [wine, setWine] = useState()
+    const [mealPairs, setMealPairs] =useState([])
+    const [mealText, setMealText] =useState('')
+
     //wine cellar show one:
     const getWine = async ()=>{
         try{
@@ -26,9 +30,31 @@ const SavedWineShow = (props)=>{
             const parsedWine = await wine.json()
             setCurrentWine(parsedWine.data)
             setEditWine(parsedWine.data)
+            setWine(parsedWine.data.varietal)
         }catch(err){
             console.log(err)
         }
+    }
+    const getMealPair = async()=>{
+        console.log(wine)
+        const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/dishes?wine=${wine}&apiKey=cb507c45184a417d93e6e96bb372f637`)
+        const parsedResponse = await apiResponse.json()
+        if(parsedResponse.code === 400 || parsedResponse.status === 'failure'){
+
+            setMealPairs([''])
+            setMealText(`${wine} goes with everything, but try it with pizza first.`)
+        }else{
+       
+            setMealPairs(parsedResponse.pairings)
+            setMealText(parsedResponse.text)
+        }
+        
+    }
+
+  
+    const submitWine = async(e)=>{
+        e.preventDefault()
+        getMealPair()
     }
  
     return(
@@ -54,7 +80,10 @@ const SavedWineShow = (props)=>{
                             </EditWine>
                     </Modal.Body>
                 </Modal>
-          
+                <button onClick={submitWine}>Get foodzzzzzzzz</button>
+                <div>
+                    <p>{mealText}</p>
+                </div>
         </div>
         :
         null}

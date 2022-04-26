@@ -134,8 +134,19 @@ nav a:hover{
 }
 #portal-choice-page{
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   margin: 10px;
+}
+#portal-choice-page h4{
+  font-size: 2vh;
+}
+.option{
+  width: 50%;
+  text-align: center;
+  margin: 10px;
+  border: solid 1px black;
 }
 #form-container{
   text-align: center;
@@ -383,6 +394,7 @@ display:block;
   border: none;
   background-color: rgb(134, 19, 19);
   color:white;
+  margin: 10px;
 }
 @media only screen and (min-width: 768px) {  
 #logo{
@@ -469,5 +481,19 @@ nav a{
   width: 30vw;
   margin-bottom: 15px;
 }
+#portal-choice-page{
+  flex-direction: row;
+}
+#portal-choice-page img{
+  width: 100%;
+
+}
+#portal-choice-page h4{
+  font-size: 2.5vh;
+}
+.option{
+  height: 400px;
+}
+
 
 }

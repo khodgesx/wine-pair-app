@@ -34,7 +34,7 @@ const WineFormContainer = (props)=>{
                 <label id="label" htmlFor="varietal">Reds:</label>
                 <select onChange={inputChange} type="text" name="wine" required>
                     <option placeholder="wine"></option>
-                    <option value="agiorgitiko">Agiorgitiko</option>
+                    <option value="Agiorgitiko">Agiorgitiko</option>
                     <option value="aglianico">Aglianico</option>
                     <option value="baco noir">Baco Noir</option>
                     <option value="bairrada">Bairrada</option>
