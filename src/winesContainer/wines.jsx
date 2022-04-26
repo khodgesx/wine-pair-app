@@ -21,6 +21,7 @@ const Wines = (props)=>{
         img: '',
         type:'',
         notes: '',
+        apiId:'',
         user:''
     })
     const [show, setShow] = useState(false)
@@ -47,10 +48,10 @@ const Wines = (props)=>{
 
   
     //create:
-    const saveWine = async (wineName, wineImage, wineType) =>{
+    const saveWine = async (wineName, wineImage, wineType, wineId) =>{
         try {
             const user = JSON.parse(localStorage.getItem('currentUser'))
-            console.log(wineName)
+            console.log(wineId)
             const createResponse = await fetch(`http://localhost:3001/wines/${user._id}`,{
                 method: "POST",
                 body: JSON.stringify({
@@ -59,6 +60,7 @@ const Wines = (props)=>{
                     img: wineImage,
                     type: wineType,
                     notes: '',
+                    apiId: wineId,
                     rating: null
                 }),
                 headers: {
@@ -80,7 +82,7 @@ const Wines = (props)=>{
     }
         const submitSave = async(e)=>{
             e.preventDefault()
-            saveWine(e.target[0].value, e.target[1].value, e.target[2].value) 
+            saveWine(e.target[0].value, e.target[1].value, e.target[2].value, e.target[3].value) 
         }
 
     return(
@@ -127,6 +129,11 @@ const Wines = (props)=>{
                                 <div id="form-row">
     
                                     <input hidden type="text" name="type"  defaultValue={type}></input>
+
+                                </div>  
+                                <div id="form-row">
+    
+                                    <input hidden type="text" name="apiId"  defaultValue={wine.id}></input>
 
                                 </div>  
                                 {/* <div id="form-row"> 

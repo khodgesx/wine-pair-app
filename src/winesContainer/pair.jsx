@@ -1,9 +1,5 @@
 import '../App.css'
-import axios from 'axios'
-import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import Wines from './wines'
-import { propTypes } from 'react-bootstrap/esm/Image'
 
 const Pair = (props)=>{
     const [mealInput, setMealInput] = useState('')
@@ -22,7 +18,7 @@ const Pair = (props)=>{
             setWinePairs([''])
             setText('Try wording that differently')
         }else{
-            console.log(parsedResponse)
+            // console.log(parsedResponse)
             setWinePairs(parsedResponse.pairedWines)
             setText(parsedResponse.pairingText)
             setProduct(parsedResponse.productMatches[0].link)
@@ -40,11 +36,10 @@ const Pair = (props)=>{
         const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/dishes?wine=${wineInput}&apiKey=cb507c45184a417d93e6e96bb372f637`)
         const parsedResponse = await apiResponse.json()
         if(parsedResponse.code === 400 || parsedResponse.status === 'failure'){
-            // window.location.reload()
-            // alert("oops, not a valid wine type!")
             setMealPairs([''])
             setMealText('Try again - check the drop down below for suggested varietals')
         }else{
+            // console.log(parsedResponse)
             setMealPairs(parsedResponse.pairings)
             setMealText(parsedResponse.text)
         }
@@ -87,16 +82,17 @@ const Pair = (props)=>{
                     <input onChange={inputWineChange}type="text" name="wine" placeholder="wine varietal" required/>
                     <button type="submit">get pair</button>
                 </form>
-            
+                <p>{mealText}</p>
                 { mealpairs.map ((meal)=>{
                     return(
                         <div key={meal.id}>
+                            
                             <h2>{meal}</h2>
                         </div>
                         
                     )
                 })}
-                <p>{mealText}</p>
+                {/* <p>{mealText}</p> */}
              </section>
              }
         

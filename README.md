@@ -9,6 +9,7 @@ Wine pair will use an API to find wines to pair with your meals or vice versa. S
 
 ### API
 - Spoonacular 
+- Cloudinary
 
 ## MVP:
 - A working full-stack application built using MongoDB, Express.js, and Node.js for the back-end and React.js for the front-end
