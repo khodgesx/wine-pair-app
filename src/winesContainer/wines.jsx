@@ -25,6 +25,7 @@ const Wines = ()=>{
         type:'',
         notes: '',
         apiId:'',
+        mealPairs:[],
         user:''
     })
     const [show, setShow] = useState(false)
@@ -83,6 +84,7 @@ const Wines = ()=>{
                     type: wineType,
                     notes: '',
                     apiId: wineId,
+                    mealPairs:meals,
                     rating: null
                 }),
                 headers: {
@@ -91,6 +93,7 @@ const Wines = ()=>{
             })
             const parsedResponse = await createResponse.json()
             if(parsedResponse.success){
+                console.log(parsedResponse)
                 setSavedWines([parsedResponse.data, ...savedWines])
                 toggleShow()
                 
@@ -160,6 +163,11 @@ const Wines = ()=>{
                                 <div id="form-row">
     
                                     <input hidden type="text" name="apiId"  defaultValue={wine.id}></input>
+
+                                </div>  
+                                <div id="form-row">
+    
+                                    <input hidden type="text" name="mealPairs"  defaultValue={meals}></input>
 
                                 </div>  
                                 {/* <div id="form-row"> 

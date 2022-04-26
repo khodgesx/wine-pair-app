@@ -82,7 +82,13 @@ const SavedWineShow = (props)=>{
                 </Modal>
                 <button onClick={submitWine}>Get foodzzzzzzzz</button>
                 <div>
+                    <h4>recommended meal pairing options:</h4>
                     <p>{mealText}</p>
+                    { currentWine.mealPairs.map((meal)=>{
+                        return(
+                            <h3>{meal}</h3>
+                        )
+                    })}
                 </div>
         </div>
         :
