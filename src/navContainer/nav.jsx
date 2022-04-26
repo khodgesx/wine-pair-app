@@ -18,6 +18,7 @@ const Nav=(props)=> {
              <Link to="/"><h3 id='logo'>Pour Pair</h3></Link>
              <ul className='nav-links'>
                  <Link to="/wine-form-choice"><li className="links">Pair Portal</li></Link>
+                 <Link to="/saved-wines"><li className="links">Wine Cellar</li></Link>
                  <Link to="/user-profile"><li className="links">Profile</li></Link>
                 <a id="logout-link"><li onClick={remove}className="links">Logout</li></a>
              </ul>
