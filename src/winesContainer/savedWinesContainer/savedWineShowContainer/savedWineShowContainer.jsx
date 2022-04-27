@@ -66,10 +66,10 @@ const SavedWineShow = (props)=>{
 
 
                 { user._id === currentWine.user ? 
-                <>
-                <button onClick={setShowModal}>click to edit </button>
-                <button id="delete"onClick={()=>{deleteWine(id)}}>Delete</button>
-                </>
+                <div id="show-page-buttons">
+                    <button onClick={setShowModal}>click to edit </button>
+                    <button onClick={()=>{deleteWine(id)}}>Delete</button>
+                </div>
                 :
                 null
                 }

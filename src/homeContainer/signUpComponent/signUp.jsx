@@ -11,6 +11,7 @@ const SignUp = () =>{
         displayName:'',
         username: '',
         password: '',
+        faveVarietal:'',
         img: ''
     })
 
@@ -95,6 +96,10 @@ const [url, setUrl] = useState('')
                     <div id="user-form-row-container">
                         <label htmlFor="password">Password:</label>
                         <input onChange ={inputChange} type="password" name="password" />
+                    </div>
+                    <div id="user-form-row-container">
+                        <label htmlFor="faveVarietal">Favorite Wine Varietal:</label>
+                        <input onChange ={inputChange} type="text" name="faveVarietal" />
                     </div>
 
                     <div id="user-form-row-container">

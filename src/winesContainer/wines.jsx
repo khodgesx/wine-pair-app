@@ -184,7 +184,7 @@ const Wines = ()=>{
                                         <Modal.Body id="save-modal">
                                             <h3 id="save-success"> save successful!</h3> 
                                             <h3 id="save-success-options"><a id="close"onClick={toggleShow}>Close </a> to keep browsing, or 
-                                            <Link id="link" to="/saved-wines"> Click here </Link> 
+                                            <Link id="link" to={`/saved-wines/user/${user._id}`}> Click here </Link> 
                                                 to see wines in your wine cellar</h3>
                                         </Modal.Body>
                                     </Modal>

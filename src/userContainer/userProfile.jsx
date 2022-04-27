@@ -53,6 +53,7 @@ const UserProfile = (props)=>{
                  :
                  <h3><Link to={`/saved-wines/user/${userProfile._id}`}>{userProfile.displayName}'s Wine Cellar:</Link> {wineCellar.length} wines</h3>
                 }
+                <h3>Fave Wine: {userProfile.faveVarietal}</h3>
                  
             </section>
             

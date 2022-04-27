@@ -15,7 +15,6 @@ import EditUserPhoto from './userContainer/editUserContainer/editUserPhoto'
 import SavedWines from './winesContainer/savedWinesContainer/savedWines'
 import SavedByType from './winesContainer/savedWinesContainer/savedByTypeContainer/savedByType'
 import SavedWineShow from './winesContainer/savedWinesContainer/savedWineShowContainer/savedWineShowContainer'
-import EditOneWine from './winesContainer/savedWinesContainer/editOneWineContainer/editOneWine'
 import WineFormChoice from './winesContainer/wineFormContainer/wineFromChoice'
 import AllUsers from './userContainer/allUsersContainer/allUsers'
 
@@ -67,7 +66,6 @@ const [form, setForm] = useState()
             <Route path="/saved-wines" element={<SavedWines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/saved-wines/user/:id" element={<SavedWines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/saved-wines/:id" element={<SavedWineShow currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
-            <Route path="saved-wines/:id/edit" element={ <EditOneWine wineCellar={wineCellar} setWineCellar={setWineCellar}/>} />
             <Route path="/saved-wines/red" element={<SavedByType type={'red'}currentUser={currentUser} wineCellar={wineCellar}/>}/>
             <Route path="/saved-wines/white" element={<SavedByType type={'white'}currentUser={currentUser} wineCellar={wineCellar}/>}/>
             <Route path="/saved-wines/sparkling" element={<SavedByType type={'sparkling'}currentUser={currentUser} wineCellar={wineCellar}/>}/>

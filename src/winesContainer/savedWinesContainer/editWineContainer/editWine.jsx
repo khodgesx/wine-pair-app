@@ -51,12 +51,16 @@ const EditWine =(props)=>{
 return(
     <>
     { editWine ?
-        <div>
         
-        <h3>edit</h3>
-        <form onSubmit={submitEdit}>
+        <div id="edit-wine">
+            <h3>Edit {editWine.name}:</h3>
+            <form onSubmit={submitEdit}>
+
+                <div id="form-row">
+                    <label htmlFor="notes">Notes:</label>
                     <input onChange={inputChange}type="text" name="notes" />
-                    
+                </div>
+                <div id="form-row">    
                     <label htmlFor="rating">Rating:</label>
                     <select onChange ={inputChange} type="number" name="rating" >
                         <option placeholder="rating"></option>
@@ -70,12 +74,13 @@ return(
                         <option value="4.5">4.5</option>
                         <option value="5">5</option>
                     </select>
-                    <button type="submit">Submit</button>
+                    </div>
+                    <button id="submit" type="submit">Submit</button>
                 </form>
-        <button onClick={close}>Close</button>
+            <button id="submit" onClick={close}>Close</button>
        
         
-    </div>
+        </div>
     :
     null
     }
