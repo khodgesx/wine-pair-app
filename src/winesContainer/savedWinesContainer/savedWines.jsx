@@ -44,7 +44,7 @@ const SavedWines = ()=>{
             const user = await fetch (`http://localhost:3001/users/${id}`)
             const parsedUser = await user.json()
             setCellarOwner(parsedUser.data)
-            console.log(parsedUser.data)
+            // console.log(parsedUser.data)
         }catch(err){
             console.log(err)
         }
@@ -110,18 +110,19 @@ const SavedWines = ()=>{
             </div>
 
             <h2 id="cellar-title">{cellarOwner.displayName}'s Wine Cellar: </h2>
+
             <div id="cellar-list">   
             
-            { wineCellar.map((wine)=>{
-                return(
-                    <div id="each-wine"key={wine._id}>
-                        <h3>{wine.name}</h3>
-                        <Link to={`/saved-wines/${wine._id}`}><img alt="wine label"src={wine.img}></img></Link>
-                        <h4>{wine.varietal}</h4>
-                    </div>
-                )
-                
-            })}
+                { wineCellar.map((wine)=>{
+                    return(
+                        <div id="each-wine"key={wine._id}>
+                            <h3>{wine.name}</h3>
+                            <Link to={`/saved-wines/${wine._id}`}><img alt="wine label"src={wine.img}></img></Link>
+                            <h4>{wine.varietal}</h4>
+                        </div>
+                    )
+                    
+                })}
 
             </div>
             <div id="to-top">

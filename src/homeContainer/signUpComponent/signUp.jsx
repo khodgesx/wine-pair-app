@@ -37,7 +37,7 @@ const [url, setUrl] = useState('')
             const parsedImg = await imageUpload.json()
             newUser.img = await parsedImg.url
             }else{
-                newUser.img = 'https://i.imgur.com/Ccw5H8d.png'
+                newUser.img = 'https://i.imgur.com/91Bk3WG.png'
             }
             
             await console.log("new user\n", newUser)

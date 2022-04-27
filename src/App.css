@@ -2,6 +2,8 @@ body{
   width: 100%;
   padding-top: 15vh;
 }
+
+/* nav styling */
 nav{
   display: flex;
   justify-content: space-between;
@@ -39,20 +41,27 @@ nav{
 #nav-link-holder{
 text-align:center;
 }
+#logo{
+  height: 7vh;
+  border-radius: 50%;
+}
 
+/* home page styling */
 #home-taglines h2{
   font-size: 3vh;
+  
 }
+#home, #cellar-title, #type-title{
+  text-align: center;
+}
+/* register & login form styling */
 #user-form-row-container, #login-form-row-container{
   margin: 15px;
   display: grid;
   gap:10px;
   width: 35%;
 }
-#logo{
-  height: 7vh;
-  border-radius: 50%;
-}
+/* create new wine form */
 #new-wine-form div{
   display: grid;
   grid-template-rows: auto;
@@ -72,7 +81,7 @@ text-align:center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 55%;
 }
-
+/* button styling for forms */
 #reg-button, #login-button, #logout, #delete, #submit{
   display: block;
   margin:30px auto;
@@ -83,9 +92,8 @@ text-align:center;
   border: none;
   border-radius: 10px;
 }
-#home, #cellar-title, #type-title{
-  text-align: center;
-}
+
+/* user profile */
 #user-profile{
   display:grid;
   grid-template-rows: auto;
@@ -118,13 +126,30 @@ text-align:center;
 .form-img{
   margin-top:40px;
   width: 30vw;
-  /* border: solid 2px black; */
   border-radius: 40%;
 }
+
+/* users index page */
+#all-users{
+  display: grid;
+  justify-content: center;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 45vw);
+}
+#user-div{
+  display:grid;
+  grid-template-rows: auto;
+  margin-bottom: 20px;
+}
+#user-div img{
+  width: 15vw;
+}
+
+
+/* pair portal page and pairing form pages */
 #portal-background{
   height: 600px;
   margin-top: 10px;
-  /* background-color: #a2344a; */
 }
 #portal-background h3{
   text-align:center;
@@ -214,7 +239,6 @@ width: 85%;
   width: 175px;
 }
 
-
 #submit-save, #back-totop{
   font-size: 2.5vh;
   margin: 10px 5px 2px 5px;
@@ -246,6 +270,8 @@ width: 85%;
   cursor: pointer;
   font-size: 3vh;
 }
+
+/* wine cellar page */
 #cellar-page{
   display: block;
   margin: 0 auto;
@@ -462,7 +488,7 @@ color:rgb(233, 177, 171);
 #cellar-page h2{
   font-size: 4vh;
 }
-#cellar-list, #type-list{
+#cellar-list, #type-list, #all-users{
   grid-template-columns: repeat(auto-fill, 30vw);
 }
 #no-wines-by-type h2{

@@ -16,13 +16,14 @@ const AllUsers = () =>{
         }
     }
     return(
-        <div>
+        <div id="all-users">
             {users.map((user)=>{
                 return(
-                    <div key={user._id} id="user-div">
-                        <h3>{user.displayName}</h3>
-                        <Link to={`/saved-wines/user/${user._id}`}>{user.displayName}'s cellar</Link>
-                    </div>
+                        <div key={user._id} id="user-div">
+                            <h3>{user.displayName}</h3>
+                            <Link to={`/user-profile/${user._id}`}> <img src={user.img}></img></Link>
+                            <Link to={`/saved-wines/user/${user._id}`}>{user.displayName}'s cellar</Link>
+                        </div>
                 )
             })}
         </div>
