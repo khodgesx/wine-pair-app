@@ -35,7 +35,7 @@ const UserProfile = (props)=>{
     
     const user = JSON.parse(localStorage.getItem('currentUser'))
     //make first letter of displayName uppercase and the rest lowercase:
-    const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1).toLowerCase()
+    // const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1).toLowerCase()
     return(
         <div id="user-profile">
             <section id="user-info">

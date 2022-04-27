@@ -25,7 +25,7 @@ const NavBar=()=> {
                 <Nav.Link id="white"className='nav-links'href='/wine-form-choice'>Pair Portal</Nav.Link>
                 <Nav.Link id="white"className='nav-links'href='/users'>Users</Nav.Link>
                 <Nav.Link id="white"className='nav-links'href={`/saved-wines/user/${user._id}`}>Wine Cellar</Nav.Link>
-                <Nav.Link id="white"className='nav-links'href='/user-profile'>Profile</Nav.Link>
+                <Nav.Link id="white"className='nav-links'href={`/user-profile/${user._id}`}>Profile</Nav.Link>
                 <Nav.Link id="logout-link"className='nav-links'onClick={remove}>Logout</Nav.Link>
               </Nav>
             </Navbar.Collapse>
