@@ -33,23 +33,6 @@ const SavedWines = ()=>{
     }
   
 
-    const deleteWine = async(wine)=>{
-       
-        try{
-            const deleteResponse = await fetch(`http://localhost:3001/wines/${(wine)}`,{
-                method:"DELETE"
-            })
-            const newList = wineCellar.filter((wine)=>wine._id !==(wine))
-                setWineCellar(newList)
-                getWines()
-            if(deleteResponse.status === 204){
-                navigate ("/saved-wines")
-            } 
-                
-        }catch(err){
-            console.log(err)
-        }
-    }
 
     const searchSaved = (searchValue)=>{
         setSearchInput(searchValue)
@@ -118,9 +101,6 @@ const SavedWines = ()=>{
                         <h3>{wine.name}</h3>
                         <Link to={`/saved-wines/${wine._id}`}><img alt="wine label"src={wine.img}></img></Link>
                         <h4>{wine.varietal}</h4>
-                        {/* <h4>type:{wine.type}</h4> */}
-                        <button id="delete"onClick={()=>{deleteWine(wine._id)}}>Delete</button>
-                        
                     </div>
                 )
                 

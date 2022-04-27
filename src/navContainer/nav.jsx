@@ -16,7 +16,7 @@ const NavBar=()=> {
       <div>
         <Navbar className='top-nav'collapseOnSelect fixed='top' expand='sm' >
           <Container className='top-nav'>
-          <img id="logo"src='https://i.imgur.com/zeFwe21.png'></img>
+          <img id="logo"src='https://i.imgur.com/sN3mdMB.jpg'></img>
             <Navbar.Toggle id='toggle'aria-controls='responsive-navbar-nav' />
             <Navbar.Collapse id='responsive-navbar-nav'>
               <Nav id="nav-link-holder">
