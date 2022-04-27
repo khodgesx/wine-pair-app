@@ -47,7 +47,6 @@ const [url, setUrl] = useState('')
                 body: JSON.stringify(newUser),
                 headers: {
                     "Content-Type": "application/json"
-                    // "accept": "application/json"
                 }
             })
             const parsedResponse = await createResponse.json()
