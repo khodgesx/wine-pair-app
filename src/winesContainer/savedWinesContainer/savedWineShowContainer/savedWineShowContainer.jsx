@@ -34,9 +34,9 @@ const SavedWineShow = (props)=>{
             setEditWine(parsedWine.data)
             setWine(parsedWine.data.varietal)
             //cellar owner id:
-            console.log(parsedWine.data.user)
+            // console.log(parsedWine.data.user)
             //current user logged in id:
-            console.log(user._id)
+            // console.log(user._id)
         }catch(err){
             console.log(err)
         }
@@ -49,7 +49,7 @@ const SavedWineShow = (props)=>{
             })
             const newList = props.wineCellar.filter((wine)=>wine._id !==(wine))
                 props.setWineCellar(newList)
-                navigate ("/saved-wines")
+                navigate (`/saved-wines/user/${user._id}`)
         }catch(err){
             console.log(err)
         }
@@ -90,7 +90,7 @@ const SavedWineShow = (props)=>{
                     <h4>recommended meal pairing:</h4>
                     { currentWine.mealPairs.map((meal)=>{
                         return(
-                            <li>{meal}</li>
+                            <li key={meal.length + meal.charAt(meal.length-1)}>{meal}</li>
                         )
                     })}
                 </div>
