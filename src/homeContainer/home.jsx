@@ -8,7 +8,7 @@ const Home = () =>{
             <div id="home">
                 <div id="home-taglines">
                     <h1>Pour Pair</h1>
-                    <h2>Find & save wines to your <Link to="/saved-wines">wine cellar</Link></h2>
+                    <h2>Find & save wines to your <Link to={`/saved-wines/user/${user._id}`}>wine cellar</Link></h2>
                     <h2>Look up wines to <Link to="/wine-form-choice">pair</Link> with your meals <br></br>or meal suggestions for your favorite wines</h2>
                 </div>
                 
