@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { Modal } from 'react-bootstrap'
+import { Modal, Pagination } from 'react-bootstrap'
 import '../App.css'
 import WineFormContainer from './wineFormContainer/wineFormContainer'
 
@@ -110,9 +110,13 @@ const Wines = ()=>{
             saveWine(e.target[0].value, e.target[1].value, e.target[2].value, e.target[3].value) 
         }
 
+    ////////////////pagination///////////////
+
+
     return(
         <div id="wines-component">
              <section id="wines">
+                 
             
                 <WineFormContainer 
                     setType={setType}
@@ -128,7 +132,7 @@ const Wines = ()=>{
                     return(
                         
                         <div id="wine-search-map"key={wine.id}>
-                            <h2 id="wine-search-title">{wine.title ? wine.title : '' }</h2>
+                            <h2 id="wine-search-title">{wine.title ? wine.title : wineInput }</h2>
     
                             <img src={wine.imageUrl}/>
                             <h3 id="wine-search-price">{wine.price}</h3>
@@ -136,7 +140,7 @@ const Wines = ()=>{
                             <h4 id="wine-rating">score: {wine.score}</h4>
                             <p id="wine-search-description">{wine.description}</p>
 
-                            { user === null ? <p>login to save!</p> 
+                            { user === null ? <p>Login to save!</p> 
                             : 
                             <section key={wine.id}>
                                 <form onSubmit={submitSave} encType="multipart/form">
@@ -146,10 +150,6 @@ const Wines = ()=>{
                                     defaultValue={wine.title ? wine.title : wineInput}></input>
                                 </div>
 
-                                {/* <div id="form-row">
-                                    <label htmlFor="name">Varietal</label>
-                                    <input onChange ={inputSave}type="text" name="varietal" value={wineInput}></input>
-                                </div> */}
                                 
                                 <div id="form-row">
     
@@ -171,10 +171,7 @@ const Wines = ()=>{
                                     <input hidden type="text" name="mealPairs"  defaultValue={meals}></input>
 
                                 </div>  
-                                {/* <div id="form-row"> 
-                                    <label htmlFor="name">Notes:</label>
-                                    <input onChange ={inputSave} type="text" name="notes"value=''></input>
-                                </div> */}
+                           
                                 <button id="submit-save"type="submit">Save</button> 
                                 </form>
                                 

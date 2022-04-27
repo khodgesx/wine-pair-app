@@ -2,7 +2,7 @@ import logo from './logo.svg'
 import './App.css'
 import {useState, useEffect} from 'react'
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
-import Nav from './navContainer/nav'
+import NavBar from './navContainer/nav'
 import Home from './homeContainer/home'
 import SignUp from './homeContainer/signUpComponent/signUp'
 import Login from './homeContainer/loginComponent/login'
@@ -17,6 +17,7 @@ import SavedByType from './winesContainer/savedWinesContainer/savedByTypeContain
 import SavedWineShow from './winesContainer/savedWinesContainer/savedWineShowContainer/savedWineShowContainer'
 import EditOneWine from './winesContainer/savedWinesContainer/editOneWineContainer/editOneWine'
 import WineFormChoice from './winesContainer/wineFormContainer/wineFromChoice'
+
 
 
 const App =()=> {
@@ -48,7 +49,7 @@ const [form, setForm] = useState()
       <div className="App">
         
           
-        <Nav currentUser={currentUser} loggedIn={loggedIn}/>
+        <NavBar currentUser={currentUser} loggedIn={loggedIn}/>
           <Routes>
             <Route exact path="/" element={< Home />}/>
             <Route exact path ="/sign-up" element={< SignUp />} />
