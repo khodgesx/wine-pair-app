@@ -22,6 +22,8 @@ const SavedWineShow = (props)=>{
 
     const [wine, setWine] = useState()
 
+    //current user who is logged in:
+    const user = JSON.parse(localStorage.getItem('currentUser'))
 
     //wine cellar show one:
     const getWine = async ()=>{
@@ -31,7 +33,10 @@ const SavedWineShow = (props)=>{
             setCurrentWine(parsedWine.data)
             setEditWine(parsedWine.data)
             setWine(parsedWine.data.varietal)
-            console.log(id)
+            //cellar owner id:
+            console.log(parsedWine.data.user)
+            //current user logged in id:
+            console.log(user._id)
         }catch(err){
             console.log(err)
         }
@@ -58,9 +63,16 @@ const SavedWineShow = (props)=>{
                 <img src={currentWine.img}/>
                  {currentWine.rating?<h3>Rating: {currentWine.rating}/5 </h3>: <h3>No rating</h3>}
                  {currentWine.notes?<h3>Notes: {currentWine.notes} </h3>: <h3>No notes</h3>}
-                
+
+
+                { user._id === currentWine.user ? 
+                <>
                 <button onClick={setShowModal}>click to edit </button>
                 <button id="delete"onClick={()=>{deleteWine(id)}}>Delete</button>
+                </>
+                :
+                null
+                }
 
                 <Modal show={showModal} onHide={toggleShow}>
                     <Modal.Body>

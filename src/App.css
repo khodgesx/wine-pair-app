@@ -396,17 +396,13 @@ width: 85%;
 #logo{
   font-size: 3vh;
 }
-nav{
+/* nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 10vh;
   background: #e19184;
-  /* position: fixed;
-  top:0;
-  left:0;
-  right:0; */
-}
+} */
 .top-nav{
   text-align: center;
 }
