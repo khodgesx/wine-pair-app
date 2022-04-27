@@ -413,14 +413,12 @@ nav{
 .nav-links{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 10px;
   width: fit-content;
-  font-size:1.75vh;
+  font-size:1.5vh;
   font-weight:400;
 }
-#nav-link-holder{
-  padding-left: 65px;
-}
+
 #white:hover{
 color:rgb(233, 177, 171);
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useParams } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import '../../App.css'
 
@@ -7,8 +7,11 @@ import '../../App.css'
 const SavedWines = ()=>{
     useEffect(() =>{
         getWines();
+        getUserInfo()
     }, [])
     let navigate = useNavigate()
+    let params = useParams()
+    let id = params.id
     const [wineCellar, setWineCellar] = useState([])
     const [searchInput, setSearchInput] = useState('')
     const [results, setResults] = useState([])
@@ -16,22 +19,36 @@ const SavedWines = ()=>{
     const [show, setShow] = useState(false)
     const toggleShow = ()=>setShow(!show)
 
+    //current user who is logged in:
     const user = JSON.parse(localStorage.getItem('currentUser'))
     const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1).toLowerCase()
+    
+    //user whose cellar it is:
+    const [cellarOwner, setCellarOwner] = useState({})
 
     // wine cellar index:
     const getWines = async ()=>{
         try{
             //get wines by user id = all saved wines for that user in mongodb
-            const wines = await fetch (`http://localhost:3001/wines/user/${user._id}`)
+            // const wines = await fetch (`http://localhost:3001/wines/user/${user._id}`)
+            const wines = await fetch (`http://localhost:3001/wines/user/${id}`)
             const parsedWines = await wines.json()
             setWineCellar(parsedWines.data.reverse())
-
         }catch(err){
             console.log(err)
         }
     }
-  
+    //get info about whose cellar this is:
+    const getUserInfo = async ()=>{
+        try{
+            const user = await fetch (`http://localhost:3001/users/${id}`)
+            const parsedUser = await user.json()
+            setCellarOwner(parsedUser.data)
+            console.log(parsedUser.data)
+        }catch(err){
+            console.log(err)
+        }
+    }
 
 
     const searchSaved = (searchValue)=>{
@@ -92,7 +109,7 @@ const SavedWines = ()=>{
                     })}
             </div>
 
-            <h2 id="cellar-title">{displayName}'s Wine Cellar: </h2>
+            <h2 id="cellar-title">{cellarOwner.displayName}'s Wine Cellar: </h2>
             <div id="cellar-list">   
             
             { wineCellar.map((wine)=>{

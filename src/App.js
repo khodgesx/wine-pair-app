@@ -17,6 +17,7 @@ import SavedByType from './winesContainer/savedWinesContainer/savedByTypeContain
 import SavedWineShow from './winesContainer/savedWinesContainer/savedWineShowContainer/savedWineShowContainer'
 import EditOneWine from './winesContainer/savedWinesContainer/editOneWineContainer/editOneWine'
 import WineFormChoice from './winesContainer/wineFormContainer/wineFromChoice'
+import AllUsers from './userContainer/allUsersContainer/allUsers'
 
 
 
@@ -57,12 +58,14 @@ const [form, setForm] = useState()
             <Route exact path="/user-profile" element={ < UserProfile  wineCellar={wineCellar}currentUser={currentUser} />}/>
             <Route exact path="/edit-user" element={ < EditUser currentUser={currentUser} />}/>
             <Route exact path="/edit-userphoto" element={ < EditUserPhoto currentUser={currentUser} />}/>
+            <Route exact path="/users" element={ < AllUsers />} />
             <Route exact path="/wine-form-choice" element={ <WineFormChoice />} />
             <Route path="/wines" element={ < Wines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/pair/wine-for" element={<Pair form={'find-wine'}/>}/>
             <Route path="/pair/meal-for" element={<Pair form={'find-meal'}/>}/>
             <Route path="/new" element={<NewWine currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/saved-wines" element={<SavedWines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
+            <Route path="/saved-wines/user/:id" element={<SavedWines currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="/saved-wines/:id" element={<SavedWineShow currentUser={currentUser} wineCellar={wineCellar} setWineCellar={setWineCellar}/>}/>
             <Route path="saved-wines/:id/edit" element={ <EditOneWine wineCellar={wineCellar} setWineCellar={setWineCellar}/>} />
             <Route path="/saved-wines/red" element={<SavedByType type={'red'}currentUser={currentUser} wineCellar={wineCellar}/>}/>
