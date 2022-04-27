@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, useParams, Link } from 'react-router-dom'
-import EditOneWine from '../editOneWineContainer/editOneWine'
+import { useParams } from 'react-router-dom'
 import EditWine from '../editWineContainer/editWine'
 import { Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -10,6 +9,7 @@ import '../../../App.css'
 const SavedWineShow = (props)=>{
     let params = useParams()
     const id = params.id
+
     useEffect(() =>{
         getWine();
     }, [])
@@ -20,8 +20,7 @@ const SavedWineShow = (props)=>{
     const [editWine, setEditWine] = useState({})
 
     const [wine, setWine] = useState()
-    const [mealPairs, setMealPairs] =useState([])
-    const [mealText, setMealText] =useState('')
+
 
     //wine cellar show one:
     const getWine = async ()=>{
@@ -35,28 +34,7 @@ const SavedWineShow = (props)=>{
             console.log(err)
         }
     }
-    const getMealPair = async()=>{
-        console.log(wine)
-        const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/dishes?wine=${wine}&apiKey=cb507c45184a417d93e6e96bb372f637`)
-        const parsedResponse = await apiResponse.json()
-        if(parsedResponse.code === 400 || parsedResponse.status === 'failure'){
 
-            setMealPairs([''])
-            setMealText(`${wine} goes with everything, but try it with pizza first.`)
-        }else{
-       
-            setMealPairs(parsedResponse.pairings)
-            setMealText(parsedResponse.text)
-        }
-        
-    }
-
-  
-    const submitWine = async(e)=>{
-        e.preventDefault()
-        getMealPair()
-    }
- 
     return(
         <>
         { currentWine ? 
@@ -80,13 +58,11 @@ const SavedWineShow = (props)=>{
                             </EditWine>
                     </Modal.Body>
                 </Modal>
-                <button onClick={submitWine}>Get foodzzzzzzzz</button>
-                <div>
-                    <h4>recommended meal pairing options:</h4>
-                    <p>{mealText}</p>
+                <div id="saved-wine-meals">
+                    <h4>recommended meal pairing:</h4>
                     { currentWine.mealPairs.map((meal)=>{
                         return(
-                            <h3>{meal}</h3>
+                            <li>{meal}</li>
                         )
                     })}
                 </div>

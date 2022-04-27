@@ -113,7 +113,7 @@ const Wines = ()=>{
     return(
         <div id="wines-component">
              <section id="wines">
-
+            
                 <WineFormContainer 
                     setType={setType}
                     setWineInput={setWineInput}
@@ -121,7 +121,8 @@ const Wines = ()=>{
                     scrollToResults={scrollToResults}
                 ></WineFormContainer>
 
-                <div ref={myRef}></div>
+                 <div ref={myRef}></div>
+               
             
                 { wines.map ((wine)=>{
                     return(
