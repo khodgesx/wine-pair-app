@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../../../App.css'
+import apiUrl from '../../../apiConfig'
 
 const NewWine = (props)=>{
     let navigate = useNavigate()
@@ -34,7 +35,7 @@ const NewWine = (props)=>{
                 newWine.img = 'https://i.imgur.com/yNIVijD.jpg'
             }
             const user = JSON.parse(localStorage.getItem('currentUser'))
-            const createResponse = await fetch (`http://localhost:3001/wines/new/${user._id}`,{
+            const createResponse = await fetch (`${apiUrl}/wines/new/${user._id}`,{
                 method: "POST",
                 body: JSON.stringify(newWine),
                 headers: {

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import '../../App.css'
 import Footer from '../footerContainer/footer'
+import apiUrl from '../../apiConfig'
 
 const Login =(props)=>{
     let navigate = useNavigate()
@@ -24,7 +25,7 @@ const Login =(props)=>{
     const loginUser = async (possibleUser) =>{
 
         try {
-            const loginResponse = await fetch (`http://localhost:3001/users/login`,{
+            const loginResponse = await fetch (`${apiUrl}/users/login`,{
                 method: "POST",
                 body: JSON.stringify(possibleUser),
                 headers: {
@@ -37,7 +38,6 @@ const Login =(props)=>{
         
             if(parsedResponse.success){
                localStorage.setItem('currentUser', JSON.stringify(parsedResponse.data))
-            //    console.log(localStorage.getItem('props.currentUser'))
                 setUserLogin(localStorage.getItem('currentUser'))
                 let userInfo = JSON.parse(localStorage.getItem('currentUser'))
                 let displayName = userInfo.displayName

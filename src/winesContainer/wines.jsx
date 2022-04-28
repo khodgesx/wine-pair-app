@@ -4,6 +4,7 @@ import { Modal, Pagination } from 'react-bootstrap'
 import '../App.css'
 import WineFormContainer from './wineFormContainer/wineFormContainer'
 import Footer from '../homeContainer/footerContainer/footer'
+import apiUrl from '../apiConfig'
 
 const Wines = ()=>{
     const myRef = useRef()
@@ -75,7 +76,7 @@ const Wines = ()=>{
         try {
             const user = JSON.parse(localStorage.getItem('currentUser'))
             console.log(wineId)
-            const createResponse = await fetch(`http://localhost:3001/wines/${user._id}`,{
+            const createResponse = await fetch(`${apiUrl}/wines/${user._id}`,{
                 method: "POST",
                 body: JSON.stringify({
                     name: wineName,

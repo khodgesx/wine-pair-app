@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../../../App.css'
 import Footer from '../../../homeContainer/footerContainer/footer'
+import apiUrl from '../../../apiConfig'
 
 const SavedByType = (props)=>{
     useEffect(() =>{
@@ -20,11 +21,10 @@ const SavedByType = (props)=>{
        } 
    
     const user = JSON.parse(localStorage.getItem('currentUser'))
-    const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1).toLowerCase()
     
     const getWines = async ()=>{
       try{
-          const wineFetch = await fetch (`http://localhost:3001/wines/user/${user._id}`)
+          const wineFetch = await fetch (`${apiUrl}/wines/user/${user._id}`)
           const parsedWines = await wineFetch.json()
           setWines(parsedWines.data)
           return parsedWines.data
@@ -45,7 +45,7 @@ const SavedByType = (props)=>{
     
     return(
         <div id="type-list">
-            <h2 id="type-title">{displayName}'s {type === 'red' ? 'Red' : type === 'white' ? 'White' : type === 'sparkling' ?
+            <h2 id="type-title">{user.displayName}'s {type === 'red' ? 'Red' : type === 'white' ? 'White' : type === 'sparkling' ?
             'Sparkling' : 'Dessert/Other'} Wines:</h2>
             { typeShow.length === 0 ? 
             <div id="no-wines-by-type">

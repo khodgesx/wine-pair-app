@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Footer from '../homeContainer/footerContainer/footer'
+import apiUrl from '../apiConfig'
 
 const UserProfile = (props)=>{
     const [wineCellar, setWineCellar] = useState([])
@@ -16,7 +17,7 @@ const UserProfile = (props)=>{
     const getWines = async ()=>{
       try{
           //get wines by user id = all saved wines for that user in mongodb
-          const wines = await fetch (`http://localhost:3001/wines/user/${id}`)
+          const wines = await fetch (`${apiUrl}/wines/user/${id}`)
           const parsedWines = await wines.json()
           setWineCellar(parsedWines.data)
       }catch(err){
@@ -26,7 +27,7 @@ const UserProfile = (props)=>{
       //get info about whose profile this is:
       const getUserInfo = async ()=>{
         try{
-            const user = await fetch (`http://localhost:3001/users/${id}`)
+            const user = await fetch (`${apiUrl}/users/${id}`)
             const parsedUser = await user.json()
             setUserProfile(parsedUser.data)
             // console.log(parsedUser.data)

@@ -5,6 +5,7 @@ import { Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../../../App.css'
 import Footer from '../../../homeContainer/footerContainer/footer'
+import apiUrl from '../../../apiConfig'
 
 
 const SavedWineShow = (props)=>{
@@ -29,7 +30,7 @@ const SavedWineShow = (props)=>{
     //wine cellar show one:
     const getWine = async ()=>{
         try{
-            const wine = await fetch (`http://localhost:3001/wines/${id}`)
+            const wine = await fetch (`${apiUrl}/wines/${id}`)
             const parsedWine = await wine.json()
             setCurrentWine(parsedWine.data)
             setEditWine(parsedWine.data)
@@ -45,7 +46,7 @@ const SavedWineShow = (props)=>{
     const deleteWine = async(wine)=>{
        
         try{
-            const deleteResponse = await fetch(`http://localhost:3001/wines/${(wine)}`,{
+            const deleteResponse = await fetch(`${apiUrl}/wines/${(wine)}`,{
                 method:"DELETE"
             })
             const newList = props.wineCellar.filter((wine)=>wine._id !==(wine))
@@ -62,6 +63,7 @@ const SavedWineShow = (props)=>{
             <div id="one-wine-show">
                 <h2>{currentWine.name}</h2>
                 <img src={currentWine.img}/>
+                <h3>Vatietal: {currentWine.varietal} </h3>
                  {currentWine.rating?<h3>Rating: {currentWine.rating}/5 </h3>: <h3>No rating</h3>}
                  {currentWine.notes?<h3>Notes: {currentWine.notes} </h3>: <h3>No notes</h3>}
 

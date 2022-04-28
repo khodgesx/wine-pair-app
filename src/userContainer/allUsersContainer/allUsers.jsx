@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../../homeContainer/footerContainer/footer'
+import apiUrl from '../../apiConfig'
 
 const AllUsers = () =>{
     useEffect(() =>{
@@ -9,7 +10,7 @@ const AllUsers = () =>{
     const [users, setUsers] = useState([])
     const getUsers = async ()=>{
         try{
-            const users = await fetch (`http://localhost:3001/users`)
+            const users = await fetch (`${apiUrl}/users`)
             const parsedUsers = await users.json()
             setUsers(parsedUsers.data)
         }catch(err){

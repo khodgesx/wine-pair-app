@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom'
 import Footer from "../../homeContainer/footerContainer/footer";
+import apiUrl from "../../apiConfig";
 
 
 const EditUser = () =>{
@@ -21,7 +22,7 @@ const EditUser = () =>{
 const editUser= async (idToEdit, userToEdit)=>{
     try{
 
-        const editResponse = await fetch(`http://localhost:3001/users/${idToEdit}`, {
+        const editResponse = await fetch(`${apiUrl}/users/${idToEdit}`, {
             method:"PUT",
             body:JSON.stringify(userToEdit),
             headers:{

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import '../../App.css'
 import Footer from "../footerContainer/footer";
-
+import apiUrl from "../../apiConfig";
 
 
 const SignUp = () =>{
@@ -44,7 +44,7 @@ const [url, setUrl] = useState('')
             
             await console.log("new user\n", newUser)
             // newPlace.img = await url
-            const createResponse = await fetch (`http://localhost:3001/users`,{
+            const createResponse = await fetch (`${apiUrl}/users`,{
                 method: "POST",
                 body: JSON.stringify(newUser),
                 headers: {

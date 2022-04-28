@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '../../../App.css' 
+import apiUrl from '../../../apiConfig'
 
 
 const EditWine =(props)=>{
@@ -18,7 +19,7 @@ const EditWine =(props)=>{
       const editOneWine = async (idToEdit, wineToEdit)=>{
         try{
 
-            const editResponse = await fetch(`http://localhost:3001/wines/${idToEdit}`, {
+            const editResponse = await fetch(`${apiUrl}/wines/${idToEdit}`, {
                 method:"PUT",
                 body:JSON.stringify(wineToEdit),
                 headers:{
@@ -55,6 +56,10 @@ return(
         <div id="edit-wine">
             <h3>Edit {editWine.name}:</h3>
             <form onSubmit={submitEdit}>
+            <div id="form-row">
+                    <label htmlFor="name">Name:</label>
+                    <input onChange={inputChange}type="text" name="name" defaultValue={editWine.name}/>
+                </div>
 
                 <div id="form-row">
                     <label htmlFor="notes">Notes:</label>

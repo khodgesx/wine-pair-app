@@ -3,6 +3,7 @@ import { useNavigate, Link, useParams } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import '../../App.css'
 import Footer from '../../homeContainer/footerContainer/footer'
+import apiUrl from '../../apiConfig'
 
 
 const SavedWines = ()=>{
@@ -31,8 +32,7 @@ const SavedWines = ()=>{
     const getWines = async ()=>{
         try{
             //get wines by user id = all saved wines for that user in mongodb
-            // const wines = await fetch (`http://localhost:3001/wines/user/${user._id}`)
-            const wines = await fetch (`http://localhost:3001/wines/user/${id}`)
+            const wines = await fetch (`${apiUrl}/wines/user/${id}`)
             const parsedWines = await wines.json()
             setWineCellar(parsedWines.data.reverse())
         }catch(err){
@@ -42,7 +42,7 @@ const SavedWines = ()=>{
     //get info about whose cellar this is:
     const getUserInfo = async ()=>{
         try{
-            const user = await fetch (`http://localhost:3001/users/${id}`)
+            const user = await fetch (`${apiUrl}/users/${id}`)
             const parsedUser = await user.json()
             setCellarOwner(parsedUser.data)
             // console.log(parsedUser.data)

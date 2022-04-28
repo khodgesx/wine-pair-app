@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import '../../App.css'
 import Footer from "../../homeContainer/footerContainer/footer";
-
+import apiUrl from "../../apiConfig";
 
 
 const EditUserPhoto = () =>{
@@ -30,7 +30,7 @@ const editUserPhoto= async (idToEdit, userToEdit)=>{
 
             // await console.log('updated img', userToEdit.img)
 
-        const editResponse = await fetch(`http://localhost:3001/users/update-photo/${idToEdit}`, {
+        const editResponse = await fetch(`${apiUrl}/users/update-photo/${idToEdit}`, {
             method:"PUT",
             body:JSON.stringify(userToEdit),
             headers:{
