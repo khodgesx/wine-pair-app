@@ -17,6 +17,7 @@ import SavedByType from './winesContainer/savedWinesContainer/savedByTypeContain
 import SavedWineShow from './winesContainer/savedWinesContainer/savedWineShowContainer/savedWineShowContainer'
 import WineFormChoice from './winesContainer/wineFormContainer/wineFromChoice'
 import AllUsers from './userContainer/allUsersContainer/allUsers'
+import Footer from './homeContainer/footerContainer/footer'
 
 
 
@@ -72,10 +73,12 @@ const [form, setForm] = useState()
             <Route path="/saved-wines/other" element={<SavedByType type={'other'}currentUser={currentUser} wineCellar={wineCellar}/>}/>
             <Route path="*" element={<Navigate to="/" replace/> }/>
           </Routes>
+         
       </div>
-      
     </Router>
+
   );
+ 
 }
 
 export default App;

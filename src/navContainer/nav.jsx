@@ -1,6 +1,7 @@
 import '../App.css';
 import { Link, useNavigate } from 'react-router-dom'
 import {Navbar, Nav, Container} from 'react-bootstrap'
+import Footer from '../homeContainer/footerContainer/footer';
 
 const NavBar=()=> {
   let navigate=useNavigate()
@@ -31,6 +32,7 @@ const NavBar=()=> {
             </Navbar.Collapse>
           </Container>
         </Navbar>
+     
     
       </div>
     );

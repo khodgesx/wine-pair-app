@@ -1,5 +1,6 @@
 import '../App.css'
 import { Link } from 'react-router-dom'
+import Footer from '../homeContainer/footerContainer/footer'
 
 const Home = () =>{
     const user = JSON.parse(localStorage.getItem('currentUser'))
@@ -13,6 +14,7 @@ const Home = () =>{
                 </div>
                 
                 <img id="home-img"src="https://media.giphy.com/media/JsbqCNmqYGZ62t8mPJ/giphy-downsized-large.gif"></img>
+                <Footer></Footer>
             </div>
             )  
     }else{
@@ -25,9 +27,12 @@ const Home = () =>{
                 </div>
                 
                 <img id="home-img"src="https://media.giphy.com/media/JsbqCNmqYGZ62t8mPJ/giphy-downsized-large.gif"></img>
+                <Footer></Footer>
             </div>
+            
             )  
     }
+   
    
 }
   

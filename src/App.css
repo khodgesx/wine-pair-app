@@ -2,7 +2,13 @@ body{
   width: 100%;
   padding-top: 15vh;
 }
-
+footer{
+  position:absolute;
+  bottom:0;
+  background-color: black;;
+  height: 5vh;
+  width:100%;
+}
 /* nav styling */
 nav{
   display: flex;
@@ -47,13 +53,20 @@ text-align:center;
 }
 
 /* home page styling */
-#home-taglines h2{
-  font-size: 3vh;
-  
-}
 #home, #cellar-title, #type-title{
   text-align: center;
 }
+#home-img{
+  margin-top: 25px;
+  border-radius: 50%;
+}#home-taglines h1{
+  font-size: 3vh;
+}
+#home-taglines h2{
+  font-size: 2.5vh; 
+}
+
+
 /* register & login form styling */
 #user-form-row-container, #login-form-row-container{
   margin: 15px;

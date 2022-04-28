@@ -49,11 +49,16 @@ const UserProfile = (props)=>{
                  null}
                  
                  { userProfile._id === user._id ? 
-                 <h3><Link to={`/saved-wines/user/${user._id}`}>Your Wine Cellar:</Link> {wineCellar.length} wines</h3>
+                 <h3><Link to={`/saved-wines/user/${user._id}`}>Your Wine Cellar:</Link> 
+                 {wineCellar.length} wines</h3>
                  :
-                 <h3><Link to={`/saved-wines/user/${userProfile._id}`}>{userProfile.displayName}'s Wine Cellar:</Link> {wineCellar.length} wines</h3>
+                 <h3><Link to={`/saved-wines/user/${userProfile._id}`}>
+            {userProfile.displayName}'s Wine Cellar:</Link> 
+                     {wineCellar.length} wines</h3>
                 }
-                <h3>Fave Wine: {userProfile.faveVarietal}</h3>
+                {userProfile.faveVarietal ? <h3>Fave Wine: {userProfile.faveVarietal}</h3>
+                : null }
+                
                  
             </section>
             
