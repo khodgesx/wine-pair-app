@@ -16,6 +16,9 @@ footer{
   display: flex;
   justify-content: space-around;
 }
+#footer-img{
+  height: 5vh;
+}
 #portal-footer, #all-users-footer, #footer{
   position: fixed;
   bottom: 0;
@@ -67,15 +70,25 @@ text-align:center;
 }
 
 /* home page styling */
+#logo-home{
+  height: 40vh;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
 #home, #cellar-title, #type-title{
   text-align: center;
   font-family: 'Manrope', sans-serif;
 }
 #home-img{
-  margin-top: 25px;
-  border-radius: 50%;
-}#home-taglines h1{
+  margin: 5px auto 15px auto;
+  height: 15vh;
+}
+
+#home-taglines h1{
   font-size: 3vh;
+  text-align:center;
 }
 #home-taglines h2{
   font-size: 2.5vh; 

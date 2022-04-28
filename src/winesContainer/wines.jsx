@@ -141,7 +141,7 @@ const Wines = ()=>{
                             <h4 id="wine-rating">score: {wine.score}</h4>
                             <p id="wine-search-description">{wine.description}</p>
 
-                            { user === null ? <p>Login to save!</p> 
+                            { user === null ? <p><b>Login to save!</b></p> 
                             : 
                             <section key={wine.id}>
                                 <form onSubmit={submitSave} encType="multipart/form">

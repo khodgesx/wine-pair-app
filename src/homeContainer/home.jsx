@@ -8,12 +8,19 @@ const Home = () =>{
         return(
             <div id="home">
                 <div id="home-taglines">
-                    <h1>Pour Pair</h1>
+                <h1>Pour Pair</h1>
+                 
+                        <img id="home-img"src="https://media.giphy.com/media/JsbqCNmqYGZ62t8mPJ/giphy-downsized-large.gif"></img>
+                
+   
                     <h2>Find & save wines to your <Link to={`/saved-wines/user/${user._id}`}>wine cellar</Link></h2>
+                    <br></br>
                     <h2>Look up wines to <Link to="/wine-form-choice">pair</Link> with your meals <br></br>or meal suggestions for your favorite wines</h2>
                 </div>
                 
-                <img id="home-img"src="https://media.giphy.com/media/JsbqCNmqYGZ62t8mPJ/giphy-downsized-large.gif"></img>
+                <img id="logo-home"src='https://i.imgur.com/sN3mdMB.jpg'></img>
+            
+                
                 <Footer></Footer>
             </div>
             )  
@@ -22,11 +29,12 @@ const Home = () =>{
             <div id="home">
                 <div id="home-taglines">
                     <h1>Pour Pair</h1>
+                    <img id="home-img"src="https://media.giphy.com/media/JsbqCNmqYGZ62t8mPJ/giphy-downsized-large.gif"></img>
                     <h2>Find & save wines to your  digital wine cellar</h2>
                     <h2>Look up wines to <Link to="/wine-form-choice">pair</Link> with your meals <br></br>or meal suggestions for your favorite wines</h2>
                 </div>
                 
-                <img id="home-img"src="https://media.giphy.com/media/JsbqCNmqYGZ62t8mPJ/giphy-downsized-large.gif"></img>
+                <img id="logo-home"src='https://i.imgur.com/sN3mdMB.jpg'></img>
                 <Footer></Footer>
             </div>
             

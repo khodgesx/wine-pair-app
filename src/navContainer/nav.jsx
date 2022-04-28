@@ -9,6 +9,7 @@ const NavBar=()=> {
   const remove = ()=>{
     localStorage.removeItem('currentUser')
     navigate('/')
+    window.location.reload()
   }
 
   const user = JSON.parse(localStorage.getItem('currentUser'))
