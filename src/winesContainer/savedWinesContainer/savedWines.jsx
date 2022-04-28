@@ -12,6 +12,7 @@ const SavedWines = ()=>{
         getUserInfo()
     }, [])
     let navigate = useNavigate()
+    
     let params = useParams()
     let id = params.id
     const [wineCellar, setWineCellar] = useState([])
@@ -23,7 +24,6 @@ const SavedWines = ()=>{
 
     //current user who is logged in:
     const user = JSON.parse(localStorage.getItem('currentUser'))
-    const displayName = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1).toLowerCase()
     
     //user whose cellar it is:
     const [cellarOwner, setCellarOwner] = useState({})

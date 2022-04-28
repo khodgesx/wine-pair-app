@@ -47,7 +47,7 @@ const NewWine = (props)=>{
             if(parsedResponse.success){
                 console.log(parsedResponse.data.apiId)
                 props.setWineCellar([parsedResponse.data, ...props.wineCellar])
-                navigate('/saved-wines')
+                navigate(`/saved-wines/user/${user._id}`)
             }else{
                 console.log(parsedResponse.data)
             }

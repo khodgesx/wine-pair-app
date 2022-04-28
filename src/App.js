@@ -17,7 +17,7 @@ import SavedByType from './winesContainer/savedWinesContainer/savedByTypeContain
 import SavedWineShow from './winesContainer/savedWinesContainer/savedWineShowContainer/savedWineShowContainer'
 import WineFormChoice from './winesContainer/wineFormContainer/wineFromChoice'
 import AllUsers from './userContainer/allUsersContainer/allUsers'
-import Footer from './homeContainer/footerContainer/footer'
+import apiUrl from './apiConfig'
 
 
 
@@ -39,7 +39,7 @@ const App =()=> {
   const getWines = async ()=>{
     try{
         //get wines by user id = all saved wines for that user in mongodb
-        const wines = await fetch (`http://localhost:3001/wines/user/${user._id}`)
+        const wines = await fetch (`${apiUrl}/wines/user/${user._id}`)
         const parsedWines = await wines.json()
         setWineCellar(parsedWines.data)
     }catch(err){
