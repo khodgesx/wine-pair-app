@@ -106,14 +106,20 @@ const SavedWineShow = (props)=>{
                             </EditWinePhoto>
                     </Modal.Body>
                 </Modal>
+                { currentWine.mealpairs ? 
                 <div id="saved-wine-meals">
+                   
+                    
                     <h4>recommended meal pairing:</h4>
                     { currentWine.mealPairs.map((meal)=>{
                         return(
                             <li key={meal.length + meal.charAt(meal.length-1) + meal.charAt(0)}>{meal}</li>
                         )
                     })}
+                        
+                   
                 </div>
+                :null}
                 { user._id === currentWine.user ? 
                 <div id="show-page-buttons">
                     <button onClick={()=>{deleteWine(id)}}>Delete</button>

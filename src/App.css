@@ -633,7 +633,7 @@ color:rgb(233, 177, 171);
 #edit-photo{
   border: solid 1px black;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 75px auto;
   width: 60%;
 }
 

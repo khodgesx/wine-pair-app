@@ -40,8 +40,7 @@ const editUserPhoto= async (idToEdit, userToEdit)=>{
         const parsedEdit = await editResponse.json()
         if(parsedEdit.success){
         localStorage.setItem('currentUser', JSON.stringify(parsedEdit.data))
-        console.log(JSON.parse(localStorage.getItem('currentUser')))
-        navigate('/user-profile')
+        navigate(`/user-profile/${user._id}`)
         }
 
     }catch(err){

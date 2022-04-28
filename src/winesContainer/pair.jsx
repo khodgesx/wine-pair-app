@@ -38,7 +38,7 @@ const Pair = (props)=>{
         const parsedResponse = await apiResponse.json()
         if(parsedResponse.code === 400 || parsedResponse.status === 'failure'){
             setMealPairs([''])
-            setMealText('Try again - check the drop down below for suggested varietals')
+            setMealText("Try again - that input didn't show any matches")
         }else{
             setMealPairs(parsedResponse.pairings)
             setMealText(parsedResponse.text)
