@@ -8,6 +8,18 @@ footer{
   background-color: black;;
   height: 5vh;
   width:100%;
+  display: flex;
+  justify-content: space-around;
+}
+#portal-footer, #all-users-footer, #footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+  z-index:1;
 }
 /* nav styling */
 nav{
@@ -163,6 +175,7 @@ text-align:center;
   justify-content: center;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fill, 45vw);
+  margin-bottom: 50px; 
 }
 #user-div{
   display:grid;
@@ -187,7 +200,8 @@ text-align:center;
 #portal-background h3{
   text-align:center;
   color:#d37367;
-  padding-top:25px;
+  padding-top:10px;
+  padding-bottom: 10px;
 }
 #portal-choice-page{
   display: flex;
@@ -205,6 +219,10 @@ text-align:center;
   margin: 10px;
   border: solid 1px black;
 }
+#last-choice{
+  margin-bottom: 150px;
+}
+
 #form-container{
   text-align: center;
   padding: 10px;
@@ -621,6 +639,9 @@ color:rgb(233, 177, 171);
 }
 .option{
   height: 400px;
+}
+#last-choice{
+  margin-bottom: auto;
 }
 #search-wines div{
   width: 75%;

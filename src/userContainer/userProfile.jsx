@@ -1,5 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import Footer from '../homeContainer/footerContainer/footer'
+
 const UserProfile = (props)=>{
     const [wineCellar, setWineCellar] = useState([])
 
@@ -61,7 +63,9 @@ const UserProfile = (props)=>{
                 
                  
             </section>
-            
+            <div id="footer">
+                <Footer></Footer>
+            </div>
         </div>
     )
 }

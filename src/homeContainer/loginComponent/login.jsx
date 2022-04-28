@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import '../../App.css'
+import Footer from '../footerContainer/footer'
 
 const Login =(props)=>{
     let navigate = useNavigate()
@@ -91,7 +92,9 @@ const Login =(props)=>{
                     </form>
                 </section>
     
-                
+                <div id="footer">
+                    <Footer></Footer>
+                </div>
             </div>
         )
     }

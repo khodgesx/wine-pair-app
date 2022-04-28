@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Modal, Pagination } from 'react-bootstrap'
 import '../App.css'
 import WineFormContainer from './wineFormContainer/wineFormContainer'
-
+import Footer from '../homeContainer/footerContainer/footer'
 
 const Wines = ()=>{
     const myRef = useRef()
@@ -126,7 +126,9 @@ const Wines = ()=>{
                 ></WineFormContainer>
 
                  <div ref={myRef}></div>
-               
+                 <div id="footer">
+                                <Footer></Footer>
+                            </div>
             
                 { wines.map ((wine)=>{
                     return(
@@ -175,7 +177,7 @@ const Wines = ()=>{
                                 <button id="submit-save"type="submit">Save</button> 
                                 </form>
                                 
-                                
+                               
                             </section> }
                                 <button id="back-totop"><a href="#wines-component">Back to Top</a></button>
                                
@@ -189,6 +191,7 @@ const Wines = ()=>{
                                         </Modal.Body>
                                     </Modal>
                                 </div>
+                            
                         </div> 
                     )
                 })}

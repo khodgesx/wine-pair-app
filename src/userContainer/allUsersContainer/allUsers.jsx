@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Footer from '../../homeContainer/footerContainer/footer'
 
 const AllUsers = () =>{
     useEffect(() =>{
@@ -26,6 +27,10 @@ const AllUsers = () =>{
                         </div>
                 )
             })}
+            <div id="all-users-footer">
+                <Footer></Footer>
+            </div>
+            
         </div>
     )
 }

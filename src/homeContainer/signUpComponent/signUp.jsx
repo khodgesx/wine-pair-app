@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import '../../App.css'
+import Footer from "../footerContainer/footer";
 
 
 
@@ -111,7 +112,10 @@ const [url, setUrl] = useState('')
                     </div>
                 </form>
             </section>
-       
+
+            <div id="footer">
+                <Footer></Footer>
+            </div>
 
         </div>
     )

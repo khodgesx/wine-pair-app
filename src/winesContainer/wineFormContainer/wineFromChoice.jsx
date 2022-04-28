@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import '../../App.css'
+import Footer from '../../homeContainer/footerContainer/footer'
 
 const WineFormChoice = () =>{
     return(
@@ -21,14 +22,19 @@ const WineFormChoice = () =>{
             </Link>
             </div>
 
-            <div className="option">    
+            <div id="last-choice" className="option">    
             <Link to='/wines'>
                 <img className="form-img"alt="portal door to wine search"src="https://i.imgur.com/5tApgPX.png"></img>
                 <h4>Find Wines by Grape</h4>
             </Link>
             </div>
         </div>
+        <div id='portal-footer'>
+        <Footer></Footer>
         </div>
+        
+        </div>
+
     )
 }
 

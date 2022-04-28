@@ -1,6 +1,7 @@
 import '../App.css'
 import { useState } from 'react'
-
+import Footer
+ from '../homeContainer/footerContainer/footer'
 const Pair = (props)=>{
     const [mealInput, setMealInput] = useState('')
     const [winepairs, setWinePairs] = useState([])
@@ -72,6 +73,9 @@ const Pair = (props)=>{
                 })}
                 <p key={text.id}>{text}</p>
                 {product ? <a href={product} target="_blank">Check this option out!</a> : <p></p>}
+                <div id="footer">
+                    <Footer></Footer>
+                </div>
              </section>
 
            :
@@ -93,6 +97,9 @@ const Pair = (props)=>{
                     )
                 })}
                 {/* <p>{mealText}</p> */}
+                <div id="footer">
+                    <Footer></Footer>
+                </div>
              </section>
              }
         
