@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../../../App.css'
+import Footer from '../../../homeContainer/footerContainer/footer'
 
 const SavedByType = (props)=>{
     useEffect(() =>{
@@ -62,6 +63,7 @@ const SavedByType = (props)=>{
                     
                 </div>
            
+           
             </div>
             : 
             <div id="type">
@@ -76,6 +78,9 @@ const SavedByType = (props)=>{
             
                 </div>
             }
+            <div id="footer">
+            <Footer></Footer>
+        </div>
         </div>
        
     )

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import '../../App.css'
+import Footer from "../../homeContainer/footerContainer/footer";
 
 
 
@@ -56,10 +57,10 @@ const submitEditPhoto = (e)=>{
 }
 
 return(
-    <div>
-        <h4>Current Profile Picture:</h4><img id="user-pic"src={user.img}/>
+    <div id="edit-photo">
+        <h4>Current Profile Picture:</h4>
+        <img id="user-pic"src={user.img}/>
 
-      
         <form onSubmit={submitEditPhoto}encType="multipart/form">
             <div id="form-container">
                 <label htmlFor="profile-picture">New Profile Picture: </label>
@@ -67,7 +68,9 @@ return(
                 <button id="submit" type="submit">Submit</button>
             </div>
         </form>
-       
+        <div id="footer">
+             <Footer></Footer>
+         </div>
       
     </div>
     

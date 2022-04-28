@@ -4,6 +4,7 @@ import EditWine from '../editWineContainer/editWine'
 import { Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../../../App.css'
+import Footer from '../../../homeContainer/footerContainer/footer'
 
 
 const SavedWineShow = (props)=>{
@@ -67,7 +68,7 @@ const SavedWineShow = (props)=>{
 
                 { user._id === currentWine.user ? 
                 <div id="show-page-buttons">
-                    <button onClick={setShowModal}>click to edit </button>
+                    <button onClick={setShowModal}>Click to Edit </button>
                     <button onClick={()=>{deleteWine(id)}}>Delete</button>
                 </div>
                 :
@@ -97,6 +98,9 @@ const SavedWineShow = (props)=>{
         </div>
         :
         null}
+        <div id="footer">
+            <Footer></Footer>
+        </div>
          </>
        
     )

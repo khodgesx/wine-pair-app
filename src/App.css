@@ -39,10 +39,7 @@ nav{
   left:0;
   right:0; */
 }
-/* .top-nav{
-  background-color: #a2344a;
-  height: 10vh;
-} */
+
 #white{
   color:white;
 }
@@ -60,7 +57,6 @@ nav{
   padding: 10px;
   margin: 10px 19px;  
   font-size: 2.5vh;
-  /* font-weight:600; */
 }
 #nav-link-holder{
 text-align:center;
@@ -88,11 +84,12 @@ text-align:center;
 
 /* register & login form styling */
 #user-form-row-container, #login-form-row-container{
-  margin: 15px;
+  margin: 15px auto;
   display: grid;
   gap:10px;
-  width: 35%;
+  width: 85%;
 }
+
 /* create new wine form */
 #new-wine-form div{
   display: grid;
@@ -113,18 +110,18 @@ text-align:center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 55%;
 }
+
 /* button styling for forms */
-#reg-button, #login-button, #logout, #delete, #submit{
+#reg-button, #login-button, #logout, #delete, #submit, #wine-for-meal button, #meal-for-wine button, #edit-link{
   display: block;
   margin:30px auto;
-  width: 40%;
+  width: 20vw;
   text-align: center;
   background-color:#e19184;
   color:white;
   border: none;
   border-radius: 10px;
   font-family: 'Manrope', sans-serif;
-  font-weight:800;
 }
 
 /* user profile */
@@ -143,11 +140,32 @@ text-align:center;
   margin: 15px;
   font-size: 2.5vh;
   font-family: 'Manrope', sans-serif;
+
 }
 #user-profile img{
   display: block;
   margin: 0 auto;
   width: 30vw;
+}
+#form-container input{
+  display: block;
+  margin: 10px auto;
+}
+#user-profile{
+  margin-bottom: 50px;
+}
+#current-profile h3, #edit-photo h4{
+  font-size: 2.5vh;
+  padding:10px;
+  text-align: center;
+}
+#edit-link{
+  text-decoration: none;
+}
+
+#edit-photo{
+  border: solid 1px black;
+  margin: 10px;
 }
 #edit-photo-button{
   border: none;
@@ -248,6 +266,9 @@ text-align:center;
   margin: 5px;
   font-family: 'Manrope', sans-serif;
 }
+#wines-component{
+  margin-bottom: 50px;
+}
 #wine-for-meal, #meal-for-wine, #wine-results{
   text-align: center;
   border: solid 1px black;
@@ -258,6 +279,13 @@ text-align:center;
   background-color: #a2344a;
   height: 100vh;
   color:white;
+}
+#wine-for-meal form{
+  padding:10px;
+  margin: 10px;
+}
+#wine-for-meal button{
+  margin: 10px auto;
 }
 #wine-for-meal a{
   color:white;
@@ -279,6 +307,9 @@ border: solid 1px rgb(197, 148, 148);
 margin: 10px auto;
 display:block;
 width: 85%;
+}
+#search-reds form{
+  overflow: scroll;
 }
 #wine-search-map{
   display: block;
@@ -305,14 +336,15 @@ width: 85%;
 }
 
 #search-wines select{
-  height: 25px;
+  height: 30px;
   text-align: center;
   display: block;
   margin: 0 auto;
   width: 175px;
+
 }
 
-#submit-save, #back-totop{
+#submit-save, #back-totop, #edit-photo-button{
   font-size: 2.5vh;
   margin: 10px 5px 2px 5px;
   border-radius: 20px;
@@ -320,6 +352,10 @@ width: 85%;
   background-color: #e19184;
   width: 35vw;
   height: 4vh;
+}
+
+#edit-photo-button{
+  margin: 10px auto;
 }
 
 #save-modal{
@@ -472,6 +508,7 @@ width: 85%;
   display: block;
   margin: 10px auto;
   border: solid 1px black;
+  margin-bottom: 150px;
 }
 
 #one-wine-show h2{
@@ -515,6 +552,9 @@ width: 85%;
   margin: 10px;
   text-align: center;
 }
+#type-list{
+  margin-bottom: 50px;
+}
 @media only screen and (min-width: 768px) {  
 #logo{
   font-size: 3vh;
@@ -528,11 +568,12 @@ width: 85%;
 } */
 .top-nav{
   text-align: center;
+  min-width:95%;
 }
 .nav-links{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: auto;
+  gap: 8px;
   width: fit-content;
   font-size:1.5vh;
   font-weight:400;
@@ -547,7 +588,9 @@ color:rgb(233, 177, 171);
 #logout-link:hover{
   color: rgb(4, 0, 255);
 }
-
+#user-form-row-container, #login-form-row-container{
+  width:45%;
+}
 #wine-for-meal, #meal-for-wine, #wine-results{
   width: 65vw;
   display: block;
@@ -561,13 +604,26 @@ color:rgb(233, 177, 171);
   width: 25vw;
 
 }
-#reg-button, #login-button, #logout, #delete, #submit{
-  width: 15vw;
+#reg-button, #login-button, #logout, #delete, #submit, #wine-for-meal button, #meal-for-wine button{
+  width: 10vw;
 }
 #user-profile img{
   width: 20vw;
 }
 /* edit user profile pic hover */
+#current-profile{
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  margin-bottom: 150px;
+}
+#edit-photo{
+  border: solid 1px black;
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+}
+
 #edit-photo-button{
   display: none;
 }
@@ -588,12 +644,6 @@ color:rgb(233, 177, 171);
   visibility: none; opacity: 0;
   transition: opacity 0.3s;
 }
-/* #message button{
-  border: none;
-  background-color: rgb(134, 19, 19);
-  color:white;
-  margin: 10px;
-} */
 
 #image-to-edit:hover #message {
   visibility: visible; opacity: 1;
@@ -624,6 +674,7 @@ color:rgb(233, 177, 171);
 #cellar-list, #type-list, #all-users{
   grid-template-columns: repeat(auto-fill, 30vw);
 }
+
 #no-wines-by-type h2{
   font-size: 3vh;
 }
@@ -640,6 +691,7 @@ color:rgb(233, 177, 171);
   display: block;
   margin: 10px auto;
   border: solid 1px black;
+  margin-bottom: 150px;
 }
 #one-wine-show h2{
   margin-top:15px;
@@ -656,6 +708,9 @@ color:rgb(233, 177, 171);
   width: 60%;
   border: none;
 }
+#type-list{
+  margin-bottom: 50px;
+}
 #portal-choice-page{
   flex-direction: row;
 }
@@ -666,7 +721,8 @@ color:rgb(233, 177, 171);
   font-size: 2.5vh;
 }
 .option{
-  height: 400px;
+  height: fit-content;
+  min-height: 400px;
 }
 #last-choice{
   margin-bottom: auto;
@@ -674,13 +730,19 @@ color:rgb(233, 177, 171);
 #search-wines div{
   width: 75%;
   height: 150px;
+  font-size: 2vh;
 }
 #search-wines label{
-  font-size: 2.75vh;
+  font-size: 2vh;
 }
 #search-wines button{
   margin: 35px auto 15px auto;
-  font-size: 2.5vh;
+  font-size: 2vh;
+}
+#submit-save, #back-totop{
+  font-size: 2vh;
+  margin: 15px auto;
+  width:15vw;
 }
 
 }

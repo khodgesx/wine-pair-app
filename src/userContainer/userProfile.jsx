@@ -46,7 +46,7 @@ const UserProfile = (props)=>{
             </section>
             <section id="user-img-container">
                  <img src={userProfile.img}></img>
-                 {userProfile._id === user._id ?  <Link to="/edit-user"><h4 id="edit-link">edit user</h4></Link>
+                 {userProfile._id === user._id ?  <Link id="edit-link" to="/edit-user"><button id="edit-link">Edit Profile</button></Link>
                  :
                  null}
                  

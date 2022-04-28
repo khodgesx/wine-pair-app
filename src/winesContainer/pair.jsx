@@ -59,7 +59,7 @@ const Pair = (props)=>{
 
             {props.form === 'find-wine' ?
              <section id="wine-for-meal">
-                <h2>find wine for meal:</h2>
+                <h2>Find Wine Pairing for <b>Meal</b>:</h2>
                 <form onSubmit={submitMeal}>
                     <label htmlFor="meal">Meal: </label>
                     <input onChange={inputChange}type="text" name="meal" placeholder="main or cuisine type" required/>
@@ -80,7 +80,7 @@ const Pair = (props)=>{
 
            :
              <section id="meal-for-wine">
-                <h2>find meal for wine:</h2>
+                <h2>Find Meal Pairing for <b>Wine</b>:</h2>
                 <form onSubmit={submitWine}>
                     <label htmlFor="wine">Wine: </label>
                     <input onChange={inputWineChange}type="text" name="wine" placeholder="wine varietal" required/>

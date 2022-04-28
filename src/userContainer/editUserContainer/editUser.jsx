@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom'
+import Footer from "../../homeContainer/footerContainer/footer";
 
 
 const EditUser = () =>{
     let navigate = useNavigate()
     const user = JSON.parse(localStorage.getItem('currentUser'))
-    // const display = user.displayName.charAt(0).toUpperCase() + user.displayName.slice(1)
 
 //set state of place to prior values, unless changed
     const [ edit, setEdit ] = useState({
@@ -56,9 +56,8 @@ const submitEdit =(e)=>{
 return(
     <div id="current-profile">
         <h3>Current Profile Settings:</h3>
-        {/* <h4>username: {user.username}</h4>
-        <h4>Display Name: {user.displayName}</h4> */}
-        <h4 id="pic-label">Profile Picture:</h4>
+
+        <h3 id="pic-label">Profile Picture:</h3>
         <div id='image-to-edit'>
             <img id="user-pic"src={user.img}/>
             <Link id="button-link" to="/edit-userphoto"><button id="edit-photo-button">Edit Photo</button></Link>
@@ -68,7 +67,6 @@ return(
              </div>
         </div>
 
-      
         <form onSubmit={submitEdit}>
             <div id="form-container">
                 <label htmlFor="displayName">Display Name:</label>
@@ -81,7 +79,9 @@ return(
             </div>
         </form>
        
-      
+        <div id="footer">
+            <Footer></Footer>
+        </div>
     </div>
     
 )

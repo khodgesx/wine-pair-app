@@ -110,9 +110,6 @@ const Wines = ()=>{
             saveWine(e.target[0].value, e.target[1].value, e.target[2].value, e.target[3].value) 
         }
 
-    ////////////////pagination///////////////
-
-
     return(
         <div id="wines-component">
              <section id="wines">
@@ -127,8 +124,8 @@ const Wines = ()=>{
 
                  <div ref={myRef}></div>
                  <div id="footer">
-                                <Footer></Footer>
-                            </div>
+                        <Footer></Footer>
+                </div>
             
                 { wines.map ((wine)=>{
                     return(

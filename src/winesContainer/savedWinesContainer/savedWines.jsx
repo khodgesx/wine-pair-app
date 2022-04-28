@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, Link, useParams } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import '../../App.css'
+import Footer from '../../homeContainer/footerContainer/footer'
 
 
 const SavedWines = ()=>{
@@ -129,7 +130,9 @@ const SavedWines = ()=>{
                <a href="#cellar-page">back to top</a>
             </div>
             
-         
+            <div id="footer">
+            <Footer></Footer>
+        </div>
         </div>
     )
 }
