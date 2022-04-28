@@ -1,5 +1,13 @@
-# wine-pair
-Wine pair will use an API to find wines to pair with your meals or vice versa. Search wine by main ingredient to find a suggested wine or search by wine varietal to get suggested meal pairings. The user can further search for different wines matching the suggested varietal. The user will have a list of saved wines that they can add to. This will include wines they had and what they paired it with and any notes they want to add about the wine and/or pairing. 
+# Pour Pair
+Pour Pair is a place for users to search meal pairings for wine, search wine pairings for meals, or search wines to discover and save. Users can also create their own wine data. The user can access their saved wines (those from external API and those created by user) in their wine cellar. Users can add ratings and notes to their wines and edit as they need. Meal Pairings show on the wine show page. 
+
+#### Created By: Kelly Hodges
+##### April 2022
+
+### Deployed [Pour Pair](https://pour-pair.herokuapp.com/)
+
+## User Flow: 
+![alt text](https://i.imgur.com/pOA43D9.png "Pour Pair User Flow")
 
 ## Tech Stack: MERN
 ### Front-End: React.js
@@ -8,8 +16,8 @@ Wine pair will use an API to find wines to pair with your meals or vice versa. S
 
 
 ### API
-- Spoonacular 
-- Cloudinary
+- Spoonacular - pairing data and wine search data
+- Cloudinary - photo upload and storage for wines and users
 
 ## MVP:
 - A working full-stack application built using MongoDB, Express.js, and Node.js for the back-end and React.js for the front-end
@@ -21,6 +29,8 @@ Wine pair will use an API to find wines to pair with your meals or vice versa. S
 - displayName
 - username
 - password
+- img
+- faveWine
 - wines
 
 ### Wines Model:
@@ -30,9 +40,15 @@ Wine pair will use an API to find wines to pair with your meals or vice versa. S
 - mealPairs
 - notes
 - user
+- apiId
 
 ## Stretch Goals:
 - User can save information directly from API response 
+- User can see other users, their profile pages, and their wine cellars
 
+## Future Goals:
+- Pagination for API wine response 
+- Add more user to user interaction (saving others' wines, etc.)
+- Better Styling
 
 
