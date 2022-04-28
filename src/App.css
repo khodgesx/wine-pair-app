@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
+
 body{
   width: 100%;
   padding-top: 15vh;
+  font-family: 'Manrope', sans-serif;
 }
 footer{
   position:absolute;
@@ -27,6 +32,7 @@ nav{
   justify-content: space-between;
   align-items: center;
   min-height: 11vh;
+  font-family: 'Manrope', sans-serif;
   /* background: #e19184; */
   /* position: fixed;
   top:0;
@@ -54,7 +60,7 @@ nav{
   padding: 10px;
   margin: 10px 19px;  
   font-size: 2.5vh;
-  font-weight:600;
+  /* font-weight:600; */
 }
 #nav-link-holder{
 text-align:center;
@@ -67,6 +73,7 @@ text-align:center;
 /* home page styling */
 #home, #cellar-title, #type-title{
   text-align: center;
+  font-family: 'Manrope', sans-serif;
 }
 #home-img{
   margin-top: 25px;
@@ -116,6 +123,8 @@ text-align:center;
   color:white;
   border: none;
   border-radius: 10px;
+  font-family: 'Manrope', sans-serif;
+  font-weight:800;
 }
 
 /* user profile */
@@ -123,14 +132,17 @@ text-align:center;
   display:grid;
   grid-template-rows: auto;
   width: 100%;
+  font-family: 'Manrope', sans-serif;
 }
 #user-info, #user-profile{
   text-align: center;
   padding:10px;
+  font-family: 'Manrope', sans-serif;
 }
 #user-img-container h3{
   margin: 15px;
   font-size: 2.5vh;
+  font-family: 'Manrope', sans-serif;
 }
 #user-profile img{
   display: block;
@@ -202,6 +214,7 @@ text-align:center;
   color:#d37367;
   padding-top:10px;
   padding-bottom: 10px;
+  font-family: 'Manrope', sans-serif;
 }
 #portal-choice-page{
   display: flex;
@@ -209,15 +222,18 @@ text-align:center;
   justify-content: space-evenly;
   align-items: center;
   margin: 10px;
+  font-family: 'Manrope', sans-serif;
 }
 #portal-choice-page h4{
   font-size: 2vh;
+  font-family: 'Manrope', sans-serif;
 }
 .option{
   width: 50%;
   text-align: center;
   margin: 10px;
   border: solid 1px black;
+  font-family: 'Manrope', sans-serif;
 }
 #last-choice{
   margin-bottom: 150px;
@@ -230,11 +246,13 @@ text-align:center;
 #wine-component, #pair-component{
   padding:5px;
   margin: 5px;
+  font-family: 'Manrope', sans-serif;
 }
 #wine-for-meal, #meal-for-wine, #wine-results{
   text-align: center;
   border: solid 1px black;
   margin: 5px;
+  font-family: 'Manrope', sans-serif;
 }
 #wine-for-meal{
   background-color: #a2344a;
@@ -253,7 +271,8 @@ text-align:center;
 #search-wines{
   text-align: center;
   padding: 10px;
-  font-size: 2vh;
+  font-size: 2.75vh;
+  font-family: 'Manrope', sans-serif;
 }
 #search-wines div{
 border: solid 1px rgb(197, 148, 148);
@@ -268,6 +287,7 @@ width: 85%;
   text-align: center;
   width:95%;
   margin: 10px auto;
+  font-family: 'Manrope', sans-serif;
 }
 
 #search-wines button{
@@ -277,9 +297,11 @@ width: 85%;
   border: none;
   background-color: #e19184;
   width: 15vw;
+  font-family: 'Manrope', sans-serif;
 }
 #search-wines h2{
   color: purple;
+  font-family: 'Manrope', sans-serif;
 }
 
 #search-wines select{
@@ -302,18 +324,21 @@ width: 85%;
 
 #save-modal{
   height: 200px;
+  font-family: 'Manrope', sans-serif;
 }
 #save-success{
   margin: 10px;
   font-size: 3vh;
   text-align: center;
   color: #d66553;
+  font-family: 'Manrope', sans-serif;
 }
 #save-success-options{
   font-size: 2.5vh;
   width: 70%;
   display: block;
   margin: 30px auto;
+  font-family: 'Manrope', sans-serif;
 }
 #close, #link{
   text-decoration: underline;
@@ -326,6 +351,7 @@ width: 85%;
 #cellar-page{
   display: block;
   margin: 0 auto;
+  font-family: 'Manrope', sans-serif;
 }
 #links-to-types{
   display: flex;
@@ -335,6 +361,7 @@ width: 85%;
 }
 #no-wines-by-type{
   margin: 20px;
+  font-family: 'Manrope', sans-serif;
 }
 #no-wines-by-type h2{
   font-size: 2vh;
@@ -373,6 +400,7 @@ width: 85%;
 .add-links{
   margin: 5px 35px;
   color:black;
+  font-family: 'Manrope', sans-serif;
   
 }
 #add-modal button, #message button{
@@ -440,12 +468,12 @@ width: 85%;
   padding: 5px;
   text-align: center;
   width:95%;
-}
-#one-wine-show{
+  font-family: 'Manrope', sans-serif;
   display: block;
   margin: 10px auto;
   border: solid 1px black;
 }
+
 #one-wine-show h2{
   margin-top:15px;
   font-size: 3vh;
