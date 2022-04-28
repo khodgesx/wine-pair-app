@@ -61,7 +61,7 @@ const Wines = ()=>{
             setMeals([`${wineInput} goes well with everything! Though, I'd start with a pizza pairing.`])
             setPairText('Try again - check the drop down below for suggested varietals')
         }else{
-            console.log(parsedResponse)
+            // console.log(parsedResponse)
             setMeals(parsedResponse.pairings)
             setPairText(parsedResponse.text)
         }
@@ -76,7 +76,7 @@ const Wines = ()=>{
     const saveWine = async (wineName, wineImage, wineType, wineId) =>{
         try {
             const user = JSON.parse(localStorage.getItem('currentUser'))
-            console.log(wineId)
+            // console.log(wineId)
             const createResponse = await fetch(`${apiUrl}/wines/${user._id}`,{
                 method: "POST",
                 body: JSON.stringify({
