@@ -123,7 +123,7 @@ const SavedWineShow = (props)=>{
                     })}
                     </div>
                     :
-                    <p>Find Pairing <Link to='/pair'>Here</Link></p>
+                    <p>Find Pairing <Link to='/pair/meal-for'>Here</Link></p>
                 }
                         
                    

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import '../../../App.css'
 import apiUrl from '../../../apiConfig'
@@ -25,7 +25,8 @@ const NewWine = (props)=>{
     const [mealText, setMealText] = useState('')
 
     const [image, setImage] = useState()
-    const createNew = async (newWine) =>{
+
+    const createNew = async (newWine, mealPairsArray) =>{
         try {
             if(image){
                 const data = new FormData()
@@ -44,6 +45,7 @@ const NewWine = (props)=>{
                 newWine.img = 'https://i.imgur.com/yNIVijD.jpg'
             }
             const user = JSON.parse(localStorage.getItem('currentUser'))
+            console.log(mealPairsResponse)
             const createResponse = await fetch (`${apiUrl}/wines/new/${user._id}`,{
                 method: "POST",
                 body: JSON.stringify({
@@ -53,7 +55,7 @@ const NewWine = (props)=>{
                     type: newWine.type, 
                     notes: newWine.notes, 
                     apiId:newWine.name,
-                    mealPairs: mealPairsResponse, 
+                    mealPairs: mealPairsArray, 
                     rating:newWine.rating
                 }),
                 headers: {
@@ -61,7 +63,7 @@ const NewWine = (props)=>{
                 }
             })
             const parsedResponse = await createResponse.json()
-
+            console.log(parsedResponse)
             if(parsedResponse.success){
                 // console.log(parsedResponse.data.apiId)
                 props.setWineCellar([parsedResponse.data, ...props.wineCellar])
@@ -89,12 +91,9 @@ const NewWine = (props)=>{
         const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/dishes?wine=${wineInput}&apiKey=cb507c45184a417d93e6e96bb372f637`)
         const parsedResponse = await apiResponse.json()
         if(parsedResponse.code === 400 || parsedResponse.status === 'failure'){
-            setMealPairsResponse([''])
-            setMealText("Try again - that input didn't show any matches")
+            createNew(newWine, '')
         }else{
-            setMealPairsResponse(parsedResponse.pairings)
-            setMealText(parsedResponse.text)
-            createNew(newWine)
+            await createNew(newWine, parsedResponse.pairings)
         }
         
     }
