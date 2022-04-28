@@ -1,10 +1,15 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Modal } from 'react-bootstrap'
 import '../../../App.css'
 import apiUrl from '../../../apiConfig'
 
 const NewWine = (props)=>{
     let navigate = useNavigate()
+
+    const [showError, setShowError] = useState(false)
+    const toggleError = () => setShowError(!showError)
+
     const [newWine, setNewWine] = useState({
         name: '',
         varietal: '',
@@ -50,6 +55,7 @@ const NewWine = (props)=>{
                 navigate(`/saved-wines/user/${user._id}`)
             }else{
                 console.log(parsedResponse.data)
+                toggleError()
             }
         } catch (err) {
             console.log(err)
@@ -133,6 +139,15 @@ const NewWine = (props)=>{
                 </div>
                 <button id="submit" type="submit">add to cellar</button>
                 </form>
+                <div>
+                                    <Modal id="save-modal-border" show={showError} onHide={toggleError}>
+                                        <Modal.Header closeButton></Modal.Header>
+                                        <Modal.Body id="save-modal">
+                                            <h3 id="save-success"> Looks like you've already added a wine with that name. 
+                                            <br></br><br></br>You must really love it!</h3> 
+                                        </Modal.Body>
+                                    </Modal>
+                                </div>
         </div>
     )
 }

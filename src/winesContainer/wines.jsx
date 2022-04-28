@@ -32,7 +32,8 @@ const Wines = ()=>{
     const [show, setShow] = useState(false)
     const toggleShow = () => setShow(!show)
     
-    
+    const [showError, setShowError] = useState(false)
+    const toggleError = () => setShowError(!showError)
 
     const getWines = async()=>{
         try{
@@ -94,12 +95,12 @@ const Wines = ()=>{
             })
             const parsedResponse = await createResponse.json()
             if(parsedResponse.success){
-                console.log(parsedResponse)
                 setSavedWines([parsedResponse.data, ...savedWines])
                 toggleShow()
                 
             }else{
-                console.log(parsedResponse.data)
+                console.log(parsedResponse)
+                toggleError()
             }
          
         } catch (err) {
@@ -189,6 +190,14 @@ const Wines = ()=>{
                                             null}
                                             
                                                 to see wines in your wine cellar</h3>
+                                        </Modal.Body>
+                                    </Modal>
+                                </div>
+                                <div>
+                                    <Modal id="save-modal-border" show={showError} onHide={toggleError}>
+                                        <Modal.Header closeButton></Modal.Header>
+                                        <Modal.Body id="save-modal">
+                                            <h3 id="save-success"> Looks like you've already saved that wine. You must really love it!</h3> 
                                         </Modal.Body>
                                     </Modal>
                                 </div>
