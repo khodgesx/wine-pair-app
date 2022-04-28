@@ -39,7 +39,6 @@ const SavedWineShow = (props)=>{
             setCurrentWine(parsedWine.data)
             setEditWine(parsedWine.data)
             setWine(parsedWine.data.varietal)
-            console.log(currentWine._id)
             //cellar owner id:
             // console.log(parsedWine.data.user)
 
@@ -111,7 +110,7 @@ const SavedWineShow = (props)=>{
                     <h4>recommended meal pairing:</h4>
                     { currentWine.mealPairs.map((meal)=>{
                         return(
-                            <li key={meal.length + meal.charAt(meal.length-1)}>{meal}</li>
+                            <li key={meal.length + meal.charAt(meal.length-1) + meal.charAt(0)}>{meal}</li>
                         )
                     })}
                 </div>

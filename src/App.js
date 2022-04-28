@@ -29,9 +29,13 @@ const App =()=> {
   const [wineCellar, setWineCellar] = useState([])
 
   useEffect(() =>{
-    getWines();
+    if(user){
+      getWines();
+    }
+    
 }, [])
   const user = JSON.parse(localStorage.getItem('currentUser'))
+  
   const getWines = async ()=>{
     try{
         //get wines by user id = all saved wines for that user in mongodb
@@ -42,6 +46,7 @@ const App =()=> {
         console.log(err)
     }
 }
+
 const [type, setType] = useState()
 const [form, setForm] = useState()
 
