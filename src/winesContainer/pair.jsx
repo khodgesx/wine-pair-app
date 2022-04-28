@@ -18,8 +18,8 @@ const Pair = (props)=>{
         if(parsedResponse.pairingText === '' || parsedResponse.status === 'failure'){
             setWinePairs([''])
             setText('Try wording that differently')
+            setProduct('')
         }else{
-            // console.log(parsedResponse)
             setWinePairs(parsedResponse.pairedWines)
             setText(parsedResponse.pairingText)
             setProduct(parsedResponse.productMatches[0].link)
@@ -40,7 +40,6 @@ const Pair = (props)=>{
             setMealPairs([''])
             setMealText('Try again - check the drop down below for suggested varietals')
         }else{
-            // console.log(parsedResponse)
             setMealPairs(parsedResponse.pairings)
             setMealText(parsedResponse.text)
         }
@@ -68,11 +67,11 @@ const Pair = (props)=>{
                 
                 { winepairs.map ((wine)=>{
                     return(
-                        <h2 key={wine.index}>{wine}</h2>
+                        <h2 key={wine.length}>{wine}</h2>
                     )
                 })}
-                <p key={text.id}>{text}</p>
-                {product ? <a href={product} target="_blank">Check this option out!</a> : <p></p>}
+                <p>{text}</p>
+                {product !== '' ? <a href={product} target="_blank">Check this option out!</a> : <p></p>}
                 <div id="footer">
                     <Footer></Footer>
                 </div>
