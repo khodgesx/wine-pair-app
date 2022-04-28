@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import EditWine from '../editWineContainer/editWine'
+import EditWinePhoto from '../editWineContainer/editWinePhoto'
 import { Modal } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../../../App.css'
@@ -20,6 +21,9 @@ const SavedWineShow = (props)=>{
 
     const [showModal, setShowModal] = useState(false)
     const toggleShow=()=>setShowModal(!showModal)
+    const [showPicModal, setShowPicModal] = useState(false)
+    const toggleShowPicMod=()=>setShowPicModal(!showPicModal)
+
     const [editWine, setEditWine] = useState({})
 
     const [wine, setWine] = useState()
@@ -35,8 +39,10 @@ const SavedWineShow = (props)=>{
             setCurrentWine(parsedWine.data)
             setEditWine(parsedWine.data)
             setWine(parsedWine.data.varietal)
+            console.log(currentWine._id)
             //cellar owner id:
             // console.log(parsedWine.data.user)
+
             //current user logged in id:
             // console.log(user._id)
         }catch(err){
@@ -71,7 +77,7 @@ const SavedWineShow = (props)=>{
                 { user._id === currentWine.user ? 
                 <div id="show-page-buttons">
                     <button onClick={setShowModal}>Click to Edit </button>
-                    <button onClick={()=>{deleteWine(id)}}>Delete</button>
+                    <button onClick={setShowPicModal}>Edit Photo </button>
                 </div>
                 :
                 null
@@ -89,6 +95,18 @@ const SavedWineShow = (props)=>{
                             </EditWine>
                     </Modal.Body>
                 </Modal>
+                <Modal show={showPicModal} onHide={toggleShowPicMod}>
+                    <Modal.Body>
+                            <EditWinePhoto 
+                                id={id}
+                                currentWine={currentWine}
+                                editWine={editWine}
+                                wineCellar={props.wineCellar}
+                                setWineCellar={props.setWineCellar}
+                                toggleShowPicMod={toggleShowPicMod}>
+                            </EditWinePhoto>
+                    </Modal.Body>
+                </Modal>
                 <div id="saved-wine-meals">
                     <h4>recommended meal pairing:</h4>
                     { currentWine.mealPairs.map((meal)=>{
@@ -97,6 +115,13 @@ const SavedWineShow = (props)=>{
                         )
                     })}
                 </div>
+                { user._id === currentWine.user ? 
+                <div id="show-page-buttons">
+                    <button onClick={()=>{deleteWine(id)}}>Delete</button>
+                </div>
+                :
+                null
+                }
         </div>
         :
         null}
