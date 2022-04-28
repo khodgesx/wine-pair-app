@@ -17,9 +17,13 @@ const NewWine = (props)=>{
         type:'',
         notes: '',
         apiId:'',
+        mealPairs:[],
         rating: null,
         user:''
     })
+    const [mealPairsResponse, setMealPairsResponse] = useState([])
+    const [mealText, setMealText] = useState('')
+
     const [image, setImage] = useState()
     const createNew = async (newWine) =>{
         try {
@@ -42,15 +46,24 @@ const NewWine = (props)=>{
             const user = JSON.parse(localStorage.getItem('currentUser'))
             const createResponse = await fetch (`${apiUrl}/wines/new/${user._id}`,{
                 method: "POST",
-                body: JSON.stringify(newWine),
+                body: JSON.stringify({
+                    name: newWine.name,
+                    varietal: newWine.varietal, 
+                    img: newWine.img, 
+                    type: newWine.type, 
+                    notes: newWine.notes, 
+                    apiId:newWine.name,
+                    mealPairs: mealPairsResponse, 
+                    rating:newWine.rating
+                }),
                 headers: {
                     "Content-Type": "application/json"
                 }
             })
             const parsedResponse = await createResponse.json()
-            console.log(parsedResponse)
+
             if(parsedResponse.success){
-                console.log(parsedResponse.data.apiId)
+                // console.log(parsedResponse.data.apiId)
                 props.setWineCellar([parsedResponse.data, ...props.wineCellar])
                 navigate(`/saved-wines/user/${user._id}`)
             }else{
@@ -65,13 +78,25 @@ const NewWine = (props)=>{
         setNewWine({
             ...newWine,
             [e.target.name]: e.target.value,
-            apiId: newWine.name
         })
     }
 
     const submitNew = async (e)=>{
         e.preventDefault()
-        createNew(newWine) 
+        await getMealPair(newWine.varietal)
+    }
+    const getMealPair = async(wineInput)=>{
+        const apiResponse = await fetch (`https://api.spoonacular.com/food/wine/dishes?wine=${wineInput}&apiKey=cb507c45184a417d93e6e96bb372f637`)
+        const parsedResponse = await apiResponse.json()
+        if(parsedResponse.code === 400 || parsedResponse.status === 'failure'){
+            setMealPairsResponse([''])
+            setMealText("Try again - that input didn't show any matches")
+        }else{
+            setMealPairsResponse(parsedResponse.pairings)
+            setMealText(parsedResponse.text)
+            createNew(newWine)
+        }
+        
     }
 
     return(

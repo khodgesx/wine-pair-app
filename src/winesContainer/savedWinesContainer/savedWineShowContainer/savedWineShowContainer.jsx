@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import EditWine from '../editWineContainer/editWine'
 import EditWinePhoto from '../editWineContainer/editWinePhoto'
 import { Modal } from 'react-bootstrap'
@@ -106,20 +106,30 @@ const SavedWineShow = (props)=>{
                             </EditWinePhoto>
                     </Modal.Body>
                 </Modal>
-                { currentWine.mealpairs ? 
+             
                 <div id="saved-wine-meals">
                    
                     
                     <h4>recommended meal pairing:</h4>
+                    { currentWine.mealPairs[0] ?
+                    <div>
                     { currentWine.mealPairs.map((meal)=>{
+                    
                         return(
+                            
                             <li key={meal.length + meal.charAt(meal.length-1) + meal.charAt(0)}>{meal}</li>
                         )
+                      
                     })}
+                    </div>
+                    :
+                    <p>Find Pairing <Link to='/pair'>Here</Link></p>
+                }
                         
                    
                 </div>
-                :null}
+                   
+               
                 { user._id === currentWine.user ? 
                 <div id="show-page-buttons">
                     <button onClick={()=>{deleteWine(id)}}>Delete</button>
