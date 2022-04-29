@@ -1,7 +1,6 @@
 const Footer = ()=>{
     return(
-        <footer>&copy; Kelly Hodges
-            {/* <br></br><a href='https://www.linkedin.com/in/kelly-hodges1/'>LinkedIn</a> */}
+        <footer><h5>Pour Pair</h5><h5>&copy; Kelly Hodges</h5>
         </footer>
     )
 }

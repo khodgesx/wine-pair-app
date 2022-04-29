@@ -31,6 +31,7 @@ const Home = () =>{
                     <h1>Pour Pair</h1>
                     <img id="home-img"src="https://media.giphy.com/media/JsbqCNmqYGZ62t8mPJ/giphy-downsized-large.gif"></img>
                     <h2>Find & save wines to your  digital wine cellar</h2>
+                    <br></br>
                     <h2>Look up wines to <Link to="/wine-form-choice">pair</Link> with your meals <br></br>or meal suggestions for your favorite wines</h2>
                 </div>
                 

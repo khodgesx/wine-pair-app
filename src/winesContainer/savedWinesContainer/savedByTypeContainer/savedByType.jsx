@@ -72,6 +72,7 @@ const SavedByType = (props)=>{
                             <div id="type-each" key={type._id}>
                                 <h3>{type.name}</h3>
                                 <Link to={`/saved-wines/${type._id}`}><img src={type.img}></img></Link>
+                                <h3>{type.varietal}</h3>
                             </div>
                         )
                     })}

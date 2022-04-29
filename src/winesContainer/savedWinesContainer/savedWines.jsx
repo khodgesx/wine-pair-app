@@ -117,7 +117,6 @@ const SavedWines = ()=>{
                 { wineCellar.map((wine)=>{
                     return(
                         <div id="each-wine"key={wine._id}>
-                            <h3>{wine.name}</h3>
                             <Link to={`/saved-wines/${wine._id}`}><img alt="wine label"src={wine.img}></img></Link>
                             <h4>{wine.varietal}</h4>
                         </div>
