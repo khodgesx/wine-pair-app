@@ -30,18 +30,16 @@ const Login =(props)=>{
                 body: JSON.stringify(possibleUser),
                 headers: {
                     "Content-Type": "application/json"
-                    // "accept": "application/json"
                 }
             })
             const parsedResponse = await loginResponse.json()
-            console.log(parsedResponse)
         
             if(parsedResponse.success){
                localStorage.setItem('currentUser', JSON.stringify(parsedResponse.data))
                 setUserLogin(localStorage.getItem('currentUser'))
                 let userInfo = JSON.parse(localStorage.getItem('currentUser'))
                 let displayName = userInfo.displayName
-                console.log(displayName)
+                
                 props.setLoggedIn(true)
                 navigate('/')
             }else if(parsedResponse.success === false){

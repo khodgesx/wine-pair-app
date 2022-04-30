@@ -42,7 +42,7 @@ const [url, setUrl] = useState('')
                 newUser.img = 'https://i.imgur.com/91Bk3WG.png'
             }
             
-            await console.log("new user\n", newUser)
+            await console.log("new user\n")
             // newPlace.img = await url
             const createResponse = await fetch (`${apiUrl}/users`,{
                 method: "POST",
@@ -52,10 +52,10 @@ const [url, setUrl] = useState('')
                 }
             })
             const parsedResponse = await createResponse.json()
-            console.log('resp from backend', parsedResponse)
+            // console.log('resp from backend', parsedResponse)
             if(parsedResponse.success){
                 setUsers([parsedResponse.data, ...users])
-                console.log('user created:', parsedResponse.data)
+                // console.log('user created:', parsedResponse.data)
     
             }else{
                 console.log('no success?', parsedResponse.data)
@@ -73,7 +73,7 @@ const [url, setUrl] = useState('')
     const submitNew = async (e)=>{
         e.preventDefault()
         createUser(newUser)
-        console.log('on submit create:', newUser)
+        // console.log('on submit create:', newUser)
         navigate('/login')
     }
 
