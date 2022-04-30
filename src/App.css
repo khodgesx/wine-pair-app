@@ -131,13 +131,16 @@ text-align:center;
 #reg-button, #login-button, #logout, #delete, #submit, #wine-for-meal button, #meal-for-wine button, #edit-link{
   display: block;
   margin:30px auto;
-  width: 25vw;
+  width: 37vw;
   text-align: center;
   background-color:#e19184;
   color:white;
   border: none;
   border-radius: 10px;
   font-family: 'Manrope', sans-serif;
+}
+#wines button{
+  padding:0, 40px 0 40px;
 }
 
 /* user profile */
@@ -350,7 +353,7 @@ width: 85%;
   border-radius: 10px;
   border: none;
   background-color: #e19184;
-  width: 15vw;
+  width: 24vw;
   font-family: 'Manrope', sans-serif;
 }
 #search-wines h2{
@@ -625,7 +628,7 @@ color:rgb(233, 177, 171);
   width: 25vw;
 
 }
-#reg-button, #login-button, #logout, #delete, #submit, #wine-for-meal button, #meal-for-wine button{
+#reg-button, #login-button, #logout, #delete, #submit, #wine-for-meal button, #meal-for-wine button, #search-wines button{
   width: 10vw;
 }
 #user-profile img{

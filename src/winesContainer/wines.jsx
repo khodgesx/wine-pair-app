@@ -43,7 +43,6 @@ const Wines = ()=>{
                 setWines(['oops try again!'])
             }else{
                 setWines(parsedResponse.recommendedWines)
-                // console.log(parsedResponse)
                 getMealPair()
             }
         }catch(err){

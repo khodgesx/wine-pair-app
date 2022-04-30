@@ -1,7 +1,6 @@
 import '../App.css';
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import {Navbar, Nav, Container} from 'react-bootstrap'
-import Footer from '../homeContainer/footerContainer/footer';
 
 const NavBar=()=> {
   let navigate=useNavigate()
@@ -13,7 +12,7 @@ const NavBar=()=> {
   }
 
   const user = JSON.parse(localStorage.getItem('currentUser'))
-  if(user !== null){
+  if(user){
     return (
       <div>
         <Navbar className='top-nav'collapseOnSelect fixed='top' expand='sm' bg='dark' variant='dark' >
@@ -41,12 +40,12 @@ const NavBar=()=> {
     return (
       
       <div>
-        <Navbar collapseOnSelect fixed='top' expand='sm' bg='dark' variant='dark'>
+        <Navbar className='top-nav'collapseOnSelect fixed='top' expand='sm' bg='dark' variant='dark'>
           <Container >
           <img id="logo"src='https://i.imgur.com/sN3mdMB.jpg'></img>
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
             <Navbar.Collapse id='responsive-navbar-nav'>
-              <Nav>
+              <Nav id="nav-link-holder">
                 <Nav.Link id="white"className='nav-links' href='/'>Home</Nav.Link>
                 <Nav.Link id="white"className='nav-links' href='/sign-up'>Register</Nav.Link>
                 <Nav.Link id="white"className='nav-links' href='/login'>Login</Nav.Link>

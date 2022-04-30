@@ -68,7 +68,7 @@ const SavedWineShow = (props)=>{
             <div id="one-wine-show">
                 <h2>{currentWine.name}</h2>
                 <img src={currentWine.img}/>
-                <h3>Vatietal: {currentWine.varietal} </h3>
+                <h3>Varietal: {currentWine.varietal} </h3>
                  {currentWine.rating?<h3>Rating: {currentWine.rating}/5 </h3>: <h3>No rating</h3>}
                  {currentWine.notes?<h3>Notes: {currentWine.notes} </h3>: <h3>No notes</h3>}
 
