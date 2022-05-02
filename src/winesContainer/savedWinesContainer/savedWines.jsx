@@ -67,9 +67,8 @@ const SavedWines = ()=>{
         
     }
 
-    if(user._id === id){
+    if(user._id == id){
 
-    
     return(
         <div id="cellar-page">
          
