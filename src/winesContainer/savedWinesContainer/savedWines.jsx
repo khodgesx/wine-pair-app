@@ -46,6 +46,8 @@ const SavedWines = ()=>{
             const user = await fetch (`${apiUrl}/users/${id}`)
             const parsedUser = await user.json()
             setCellarOwner(parsedUser.data)
+            // console.log('3',id)
+            // console.log('4',JSON.parse(localStorage.getItem('currentUser'))._id)
             // console.log(parsedUser.data)
         }catch(err){
             console.log(err)
@@ -67,7 +69,7 @@ const SavedWines = ()=>{
         
     }
 
-    if(user.displayName !== cellarOwner.displayName){
+    if(id !== JSON.parse(localStorage.getItem('currentUser'))._id){
         return(
             <div id="cellar-page">
     
