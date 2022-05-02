@@ -421,6 +421,10 @@ width: 85%;
   justify-content: space-evenly;
   margin: 0 auto 30px auto;
 }
+#type-glass-show{
+  display: block;
+  margin:0 auto;
+}
 #no-wines-by-type{
   margin: 20px;
   font-family: 'Manrope', sans-serif;

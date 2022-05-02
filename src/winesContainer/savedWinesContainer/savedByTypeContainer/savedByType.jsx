@@ -67,6 +67,10 @@ const SavedByType = (props)=>{
     return(
        
         <div id="type-list">
+            {/* { type === 'red'? <img className="glass" id="type-glass-show" src="https://i.imgur.com/dl3mHFY.jpg"></img>
+            : type === 'white'?  <img className="glass" id="type-glass-show" src="https://i.imgur.com/d43ykBO.jpg"></img>
+            : type === 'sparkling'?  <img className="glass" id="type-glass-show" src="https://i.imgur.com/nd8unGv.jpg"></img>
+            :  <img className="glass" id="type-glass-show" src="https://i.imgur.com/94mPFSW.jpg"></img> } */}
             <h2 id="type-title">{user.displayName}'s {type === 'red' ? 'Red' : type === 'white' ? 'White' : type === 'sparkling' ?
             'Sparkling' : 'Dessert/Other'} Wines:</h2>
             { typeShow.length === 0 ? 
