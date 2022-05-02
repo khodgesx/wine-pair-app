@@ -1,23 +1,44 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import '../../../App.css'
 import Footer from '../../../homeContainer/footerContainer/footer'
 import apiUrl from '../../../apiConfig'
 
 const SavedByType = (props)=>{
     useEffect(() =>{
-       getAndSort();
+        getAndSort();
+        // getUserInfo();
+       
     }, [])
     const [wines, setWines] = useState([])
     const [typeShow, setTypeShow] = useState([])
     const [type, setType] = useState()
+////////////////////////////////////
+    let params = useParams()
+    let cellarId = params.id
 
-   
+    // const [cellarOwner, setCellarOwner] = useState({})
+    //  //get info about whose cellar this is:
+    //  const getUserInfo = async ()=>{
+    //     try{
+    //         const user = await fetch (`${apiUrl}/users/${cellarId}`)
+    //         const parsedUser = await user.json()
+    //         await setCellarOwner(parsedUser.data)
+    //         console.log('params', cellarId)
+    //         console.log('cellar-owner state id', cellarOwner._id)
+    //         getAndSort()
+    //     }catch(err){
+    //         console.log(err)
+    //     }
+    // }
+
+/////////////////////////////////////
 
     const getAndSort =async()=>{
         const wines = await getWines();
         sortWines(wines);
         setWineType()
+        // console.log(cellarId)
        } 
    
     const user = JSON.parse(localStorage.getItem('currentUser'))
@@ -44,6 +65,7 @@ const SavedByType = (props)=>{
     }
     
     return(
+       
         <div id="type-list">
             <h2 id="type-title">{user.displayName}'s {type === 'red' ? 'Red' : type === 'white' ? 'White' : type === 'sparkling' ?
             'Sparkling' : 'Dessert/Other'} Wines:</h2>

@@ -68,6 +68,8 @@ const SavedWines = ()=>{
 
     return(
         <div id="cellar-page">
+            { user._id === cellarOwner._id ?
+           
               <div id="add-new-links">
                 <img onClick={toggleShow}className="glass" src="https://i.imgur.com/Kb4obeQ.png"></img>
                 <h3 id="add">add wine to your cellar</h3>
@@ -78,16 +80,27 @@ const SavedWines = ()=>{
                     <Link className="add-links"to="/new"><li >add new wine manually</li></Link>
                     <button onClick={toggleShow}>Close</button>
                 </Modal>
-           
             </div>
-
+           
+           :
+           <p></p>
+            }
+            { user._id === cellarOwner._id ?
             <h5 id="choose">Choose a wine by type:</h5>
+            :
+            <h5></h5>
+            }
+            
+            { user._id === cellarOwner._id ?
             <div id="links-to-types">
-                <Link to={'/saved-wines/red'}><img className="glass" alt="red wine glass"src="https://i.imgur.com/dl3mHFY.jpg"></img></Link>
+                <Link to={`/saved-wines/red`}><img className="glass" alt="red wine glass"src="https://i.imgur.com/dl3mHFY.jpg"></img></Link>
                 <Link to={'/saved-wines/white'}><img className="glass"alt="white wine glass" src="https://i.imgur.com/d43ykBO.jpg"></img></Link>
                 <Link to={'/saved-wines/sparkling'}><img className="glass" alt="sparkling wine glass"src="https://i.imgur.com/nd8unGv.jpg"></img></Link>
                 <Link to={'/saved-wines/other'}><img className="glass" alt="dessert wine glass"src="https://i.imgur.com/94mPFSW.jpg"></img></Link>
             </div>
+             :
+             <h5></h5>
+             }
 
             <div id="search-cellar">
                 <h2>Search Cellar:</h2>
