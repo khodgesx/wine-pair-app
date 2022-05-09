@@ -73,7 +73,7 @@ return(
                 <label htmlFor="displayName">Display Name:</label>
                 <input onChange={inputChange}type="text" name="displayName" defaultValue={user.displayName} />
                
-                <label htmlFor="displayName">Favorite Wine Varietal:</label>
+                <label htmlFor="favoriteVarietal">Favorite Wine Varietal:</label>
                 <input onChange={inputChange}type="text" name="faveVarietal" defaultValue={user.faveVarietal} />
 
                 <button id="submit"type="submit">Submit</button>
