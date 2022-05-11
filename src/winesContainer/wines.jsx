@@ -60,7 +60,6 @@ const Wines = ()=>{
             setMeals([`${wineInput} goes well with everything! Though, I'd start with a pizza pairing.`])
             setPairText('Try again - check the drop down below for suggested varietals')
         }else{
-            // console.log(parsedResponse)
             setMeals(parsedResponse.pairings)
             setPairText(parsedResponse.text)
         }
@@ -136,8 +135,8 @@ const Wines = ()=>{
     
                             <img src={wine.imageUrl}/>
                             <h3 id="wine-search-price">{wine.price}</h3>
-                            <h4 id="wine-rating-count">rating count: {wine.ratingCount}</h4>
-                            <h4 id="wine-rating">score: {wine.score}</h4>
+                            <h4 id="wine-rating">score: {Math.round(wine.score*100)}%</h4>
+                            <h4 id="wine-rating-count">number of ratings: {wine.ratingCount}</h4>
                             <p id="wine-search-description">{wine.description}</p>
 
                             { user === null ? <p><b>Login to save!</b></p> 

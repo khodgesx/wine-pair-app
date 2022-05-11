@@ -42,7 +42,7 @@ const UserProfile = (props)=>{
     return(
         <div id="user-profile">
             <section id="user-info">
-                <h1>{userProfile.displayName}'s Pour Page:</h1>
+                {userProfile ? <h1>{userProfile.displayName}'s Pour Page:</h1> : <h1>Your Pour Page</h1> }
                 
             </section>
             <section id="user-img-container">

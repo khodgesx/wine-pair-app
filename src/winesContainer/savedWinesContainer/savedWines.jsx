@@ -46,9 +46,6 @@ const SavedWines = ()=>{
             const user = await fetch (`${apiUrl}/users/${id}`)
             const parsedUser = await user.json()
             setCellarOwner(parsedUser.data)
-            // console.log('3',id)
-            // console.log('4',JSON.parse(localStorage.getItem('currentUser'))._id)
-            // console.log(parsedUser.data)
         }catch(err){
             console.log(err)
         }
@@ -57,7 +54,6 @@ const SavedWines = ()=>{
 
     const searchSaved = (searchValue)=>{
         setSearchInput(searchValue)
-        console.log(searchValue)
         if(searchInput !== ''){
             const filtered = wineCellar.filter((wine)=>{
                 return Object.values(wine).join('').toLowerCase().includes(searchInput.toLowerCase())

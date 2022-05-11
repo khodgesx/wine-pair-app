@@ -40,7 +40,6 @@ const WineFormContainer = (props)=>{
                     <option placeholder="wine"></option>
                     <option value="Agiorgitiko">Agiorgitiko</option>
                     <option value="Aglianico">Aglianico</option>
-                    {/* <option value="Baco Noir">Baco Noir</option> */}
                     <option value="Bairrada">Bairrada</option>
                     <option value="Barbera wine">Barbera</option>
                     <option value="Bonarda">Bonarda</option>
@@ -49,7 +48,6 @@ const WineFormContainer = (props)=>{
                     <option value="Cabernet Sauvignon">Cabernet Sauvignon</option>
                     <option value="Carignan">Carignan</option>
                     <option value="Carmenere">Carmenere</option>
-                    {/* <option value="Cesanese">Cesanese</option> */}
                     <option value="Concord wine">Concord</option>
                     <option value="Corvina">Corvina</option>
                     <option value="Cotes du Rhone">Cotes Du Rhone</option>
